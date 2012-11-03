@@ -3,7 +3,7 @@ package com.github.desmaster.Devio.util;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 
-import com.github.desmaster.Devio.main.Devio;
+import com.github.desmaster.Devio.Devio;
 
 public class Counter {
 
