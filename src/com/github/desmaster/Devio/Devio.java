@@ -1,5 +1,17 @@
 package com.github.desmaster.Devio;
 
+import static org.lwjgl.opengl.GL11.GL_BLEND;
+import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
+import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_PROJECTION;
+import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL11.glBlendFunc;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glMatrixMode;
+import static org.lwjgl.opengl.GL11.glOrtho;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -24,8 +36,10 @@ public class Devio {
 
 	private Screen screen;
 	private Counter counter;
-	private InputHandler input;
+	private InputHandler input = new InputHandler(this);
 	private iFile file;
+	//private Player player;
+	
 
 	public Devio() {
 		file = new iFile();
@@ -57,18 +71,19 @@ public class Devio {
 	}
 
 	private void initObjects() {
-		screen = new Screen();
-		input = new InputHandler(this);
+		screen = new Screen(input);
 		counter = new Counter();
 		counter.start();
 	}
 
 	private void initGL() {
-		GL11.glMatrixMode(GL11.GL_PROJECTION);
-		GL11.glLoadIdentity();
-		GL11.glOrtho(0, Display.getWidth(), Display.getHeight(), 0, 1, -1);
-		GL11.glMatrixMode(GL11.GL_MODELVIEW);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(0, Display.getWidth(), Display.getHeight(), 0, 1, -1);
+		glMatrixMode(GL_MODELVIEW);
+		glEnable(GL_TEXTURE_2D); // Enable 2D Texture Rendering
+		glEnable(GL_BLEND); // Enable GL Blending
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // You need to enable blending to allow transparent bits on an image when using OpenGL.
 	}
 
 	public void run() {
@@ -76,8 +91,10 @@ public class Devio {
 			Display.update();
 			if (Display.isCloseRequested()) {
 				stop();
+				
 			} else {
 				tick();
+				scanInput();
 				render();
 			}
 		}
@@ -93,15 +110,18 @@ public class Devio {
 		running = false;
 		Console.log("Stopped the game loop");
 		file.saveConfig();
-		if (Display.isActive())
-			Display.destroy();
 		Console.log("Destroyed the screen");
+		System.exit(0);
 	}
 
 	public void tick() {
 		input.tick();
 		screen.tick();
 		counter.tick();
+	}
+	
+	public void scanInput() {
+		if (input.exit) stop();
 	}
 
 	public void render() {
