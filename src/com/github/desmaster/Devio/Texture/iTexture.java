@@ -9,17 +9,60 @@ import com.github.desmaster.Devio.cons.Console;
 
 public class iTexture {
 
+	public static final int ID_GRASS = 0;
+	public static final int ID_GRASS_FLOWER = 1;
+	public static final int ID_WATER = 2;
+
+	public static final int ID_FLOWER_RED = 21;
+	public static final int ID_FLOWER_YELLOW = 22;
+
+	public static final int ID_MOSS_STONE = 53;
+	public static final int ID_STONE = 51;
+	public static final int ID_COBBLESTONE = 52;
+
 	public static Texture TEST_TEXTURE = null;
-	public static Texture BETA_GRASS = null;
-	
+	public static Texture[] objects = new Texture[55];
+	public static Texture PLAYER = null;
+	public static Texture PLAYER_NINJA = null;
+
 	public iTexture() {
-		TEST_TEXTURE = getTexture("texture", "png");
-		BETA_GRASS = getTexture("grass-beta", "png");
+		PLAYER = getTexture("player", "png");
+		PLAYER_NINJA = getTexture("ninja", "png");
+
+		for (int i = 0; i < objects.length; i++) {
+			switch (i) {
+			case ID_GRASS:
+				objects[i] = getTexture("grass", "png");
+				break;
+			case ID_MOSS_STONE:
+				objects[i] = getTexture("moss_stone", "png");
+				break;
+			case ID_WATER:
+				objects[i] = getTexture("water", "png");
+				break;
+			case ID_FLOWER_RED:
+				objects[i] = getTexture("flower_red", "png");
+				break;
+			case ID_FLOWER_YELLOW:
+				objects[i] = getTexture("flower_yellow", "png");
+				break;
+			case ID_STONE:
+				objects[i] = getTexture("stone", "png");
+				break;
+			case ID_COBBLESTONE:
+				objects[i] = getTexture("cobblestone", "png");
+				break;
+			}
+		}
+
 	}
-	
+
 	public Texture getTexture(String name, String ext) {
 		try {
-			Texture t1 = TextureLoader.getTexture(ext.toUpperCase(), iTexture.class.getResourceAsStream("/img/" + name + "." + ext));
+			Texture t1 = TextureLoader.getTexture(
+					ext.toUpperCase(),
+					iTexture.class.getResourceAsStream("/img/" + name + "."
+							+ ext));
 			Console.log("Loaded " + name + "." + ext);
 			return t1;
 		} catch (IOException e) {
@@ -29,4 +72,3 @@ public class iTexture {
 	}
 
 }
- 
