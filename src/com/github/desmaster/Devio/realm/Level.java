@@ -2,8 +2,8 @@ package com.github.desmaster.Devio.realm;
 
 import org.lwjgl.opengl.Display;
 
-import com.github.desmaster.Devio.Texture.iTexture;
 import com.github.desmaster.Devio.realm.BlockGrid;
+import com.github.desmaster.Devio.texture.iTexture;
 
 public class Level {
 
