@@ -1,4 +1,4 @@
-package com.github.desmaster.Devio.Texture;
+package com.github.desmaster.Devio.texture;
 
 import java.io.IOException;
 
