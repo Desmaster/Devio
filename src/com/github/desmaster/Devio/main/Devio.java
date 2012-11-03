@@ -24,6 +24,7 @@ public class Devio {
 
 	private Screen screen;
 	private Counter counter;
+	private InputHandler input;
 	private iFile file;
 
 	public Devio() {
@@ -57,6 +58,7 @@ public class Devio {
 
 	private void initObjects() {
 		screen = new Screen();
+		input = new InputHandler(this);
 		counter = new Counter();
 		counter.start();
 	}
@@ -97,6 +99,7 @@ public class Devio {
 	}
 
 	public void tick() {
+		input.tick();
 		screen.tick();
 		counter.tick();
 	}
