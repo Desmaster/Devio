@@ -4,7 +4,7 @@ import static com.github.desmaster.Devio.realm.Level.*;
 
 import org.newdawn.slick.opengl.Texture;
 
-import com.github.desmaster.Devio.Texture.iTexture;
+import com.github.desmaster.Devio.texture.iTexture;
 
 public class BlockGrid {
 	

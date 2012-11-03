@@ -1,7 +1,7 @@
 package com.github.desmaster.Devio.gfx;
 
-import com.github.desmaster.Devio.Texture.iTexture;
 import com.github.desmaster.Devio.realm.Level;
+import com.github.desmaster.Devio.texture.iTexture;
 
 public class Screen {
 
