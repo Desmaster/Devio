@@ -14,21 +14,27 @@ public class Screen {
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
+		player = new Player(iTexture.PLAYER_NINJA, 9, (int) 6.7, 100, input);
 		level = new Level();
-		player = new Player(iTexture.PLAYER_NINJA, 9, 6.7f, 100, input);
+		level.player = player;
 		this.setInput(input);
-		input.x = player.x;
-		input.y = player.y;
 	}
 
 	public void render() {
 		level.render();
-		player.render();
+		//player.render();
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	public void tick() {
-		//player.tick();
-		
+		level.tick();
 	}
 
 	public iTexture getTexture() {

@@ -1,5 +1,7 @@
 package com.github.desmaster.Devio.entity;
 
+import org.lwjgl.Sys;
+import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
 import com.github.desmaster.Devio.InputHandler;
@@ -8,53 +10,107 @@ import com.github.desmaster.Devio.texture.iTexture;
 
 public class Player extends Mob implements Runnable {
 
-	private float walkspeed = 32.0f;
+	private int walkspeed = Level.BLOCK_SIZE;
+	boolean running = false;
+	Thread thread;
+
+	int fps;
+	long lastFrame;
+	long lastFPS;
 
 	public InputHandler input;
-	private boolean running = false;
-	Thread thread;
-	long delay = 225;
 
-	public Player(Texture texture, float x, float y, double lives,
+	public Player(Texture texture, int x, int y, double lives,
 			InputHandler input) {
 		super(x, y, lives);
 		this.input = input;
 		entitySize = Level.BLOCK_SIZE;
-		setTexture(iTexture.PLAYER_NINJA);
-
+		setTexture(iTexture.PLAYER_BILLIE);
 		start();
 	}
 
-	private void start() {
+	public void start() {
 		running = true;
-		thread = new Thread(this, "Input");
+		thread = new Thread(this);
 		thread.start();
 	}
 
-	public void tick() {
-		x = input.x;
-		y = input.y;
+	public void tick(int delta) {
+		x = 15;
+		//if (x < 0) {
+		//	x = 0;
+		//	input.x = 0;
+		//}
 
-		if (input.left)
-			input.x -= walkspeed;
-		if (input.right)
-			input.x += walkspeed;
-		if (input.up)
-			input.y -= walkspeed;
-		if (input.down)
-			input.y += walkspeed;
+		//if (y < 0) {
+		//	y = 0;
+		//	input.y = 0;
+		//}
+
+		if (x + walkspeed > Display.getWidth()) {
+			//x = Display.getWidth() - walkspeed;
+		}
+
+		if (y + walkspeed > Display.getHeight()) {
+			y = Display.getHeight() - walkspeed;
+		}
+
+		if (input.up.clicked) {
+			input.releaseAll();
+			walkUp();
+		}
+
+		if (input.left.clicked) {
+			input.releaseAll();
+			//walkLeft();
+		}
+
+		if (input.down.clicked) {
+			input.releaseAll();
+			walkDown();
+		}
+
+		if (input.right.clicked) {
+			input.releaseAll();
+			walkRight();
+		}
+
 	}
 
+	public void walkUp() {
+		y -= walkspeed;
+	}
+
+	public void walkDown() {
+		y += walkspeed;
+	}
+
+	public void walkLeft() {
+		x -= walkspeed;
+	}
+
+	public void walkRight() {
+		x += walkspeed;
+	}
+
+	@Override
 	public void run() {
 		while (running) {
-			tick();
-			try {
-				if(input.x == x && input.y == y)
-				Thread.sleep(delay);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			// tick(getDelta());
 		}
 	}
+
+	public int getDelta() {
+		long time = getTime();
+		int delta = (int) (time - lastFrame);
+		lastFrame = time;
+		return delta;
+	}
+
+	public long getTime() {
+		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
+	}
+	
+	
 
 }

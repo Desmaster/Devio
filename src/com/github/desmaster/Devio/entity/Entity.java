@@ -4,18 +4,20 @@ import static org.lwjgl.opengl.GL11.*;
 
 import org.newdawn.slick.opengl.Texture;
 
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Level;
 
 public class Entity {
 
-	public float x = 0;
-	public float y = 0;
+	public int x = 0;
+	public int y = 0;
 	protected int entitySize;
 
 	public Texture texture = null;
 
-	public Entity(float x, float y) {
+	public Entity(int x, int y) {
 		this.x = x * Level.BLOCK_SIZE;;
+		Console.log("Enity X initialized: " + this.x);
 		this.y = y * Level.BLOCK_SIZE;;
 	}
 
@@ -48,11 +50,11 @@ public class Entity {
 		this.texture = texture;
 	}
 
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x = x;
 	}
 
@@ -60,7 +62,7 @@ public class Entity {
 		return y;
 	}
 
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y = y;
 	}
 

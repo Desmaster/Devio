@@ -24,10 +24,12 @@ public class iTexture {
 	public static Texture[] objects = new Texture[55];
 	public static Texture PLAYER = null;
 	public static Texture PLAYER_NINJA = null;
+	public static Texture PLAYER_BILLIE = null;
 
 	public iTexture() {
 		PLAYER = getTexture("player", "png");
 		PLAYER_NINJA = getTexture("ninja", "png");
+		PLAYER_BILLIE = getTexture("billie", "png");
 
 		for (int i = 0; i < objects.length; i++) {
 			switch (i) {

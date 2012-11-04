@@ -4,7 +4,7 @@ public class Mob extends Entity {
 	
 	double lives;
 	
-	public Mob(float x, float y, double lives) {
+	public Mob(int x, int y, double lives) {
 		super(x, y);
 		this.lives = lives;
 	}

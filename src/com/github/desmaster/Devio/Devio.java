@@ -13,6 +13,7 @@ import static org.lwjgl.opengl.GL11.glMatrixMode;
 import static org.lwjgl.opengl.GL11.glOrtho;
 
 import org.lwjgl.LWJGLException;
+import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
@@ -29,8 +30,11 @@ public class Devio {
 	public static int WIDTH;
 	public static int HEIGHT;
 	public static final String TITLE = "Devio";
-	public final static int fps = 60;
 	private boolean fullscreen = false;
+	
+	int fps;
+	long lastFrame;
+	long lastFPS;
 
 	private boolean running = false;
 
@@ -88,12 +92,13 @@ public class Devio {
 
 	public void run() {
 		while (running) {
+			int delta = getDelta();
 			Display.update();
 			if (Display.isCloseRequested()) {
 				stop();
 				
 			} else {
-				tick();
+				tick(delta);
 				scanInput();
 				render();
 			}
@@ -113,21 +118,33 @@ public class Devio {
 		Console.log("Destroyed the screen");
 		System.exit(0);
 	}
+	
+	public long getTime() {
+		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
+	}
 
-	public void tick() {
+	public int getDelta() {
+		long time = getTime();
+		int delta = (int) (time - lastFrame);
+		lastFrame = time;
+		return delta;
+	}
+	
+	public void tick(int delta) {
 		input.tick();
+		screen.getPlayer().tick(delta);
 		screen.tick();
 		counter.tick();
 	}
 	
 	public void scanInput() {
-		if (input.exit) stop();
+		if (input.exit.clicked) stop();
 	}
 
 	public void render() {
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 		screen.render();
-		Display.sync(fps);
+		Display.sync(60);
 	}
 
 	public static void main(String[] args) {
