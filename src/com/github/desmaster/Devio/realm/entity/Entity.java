@@ -10,7 +10,7 @@ import static org.lwjgl.opengl.GL11.glVertex2f;
 
 import org.newdawn.slick.opengl.Texture;
 
-import com.github.desmaster.Devio.realm.Level;
+import com.github.desmaster.Devio.realm.Realm;
 
 public class Entity {
 
@@ -21,8 +21,8 @@ public class Entity {
 	public Texture texture = null;
 
 	public Entity(com.github.desmaster.Devio.util.Position spawnPosition) {
-		x = spawnPosition.getX() * Level.BLOCK_SIZE;
-		y = spawnPosition.getY() * Level.BLOCK_SIZE;
+		x = spawnPosition.getX() * Realm.BLOCK_SIZE;
+		y = spawnPosition.getY() * Realm.BLOCK_SIZE;
 	}
 
 	public void render() {
