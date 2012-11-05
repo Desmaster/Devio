@@ -1,10 +1,15 @@
 package com.github.desmaster.Devio.entity;
 
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glTexCoord2f;
+import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.glVertex2f;
 
 import org.newdawn.slick.opengl.Texture;
 
-import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Level;
 
 public class Entity {
@@ -15,10 +20,9 @@ public class Entity {
 
 	public Texture texture = null;
 
-	public Entity(int x, int y) {
-		this.x = x * Level.BLOCK_SIZE;;
-		Console.log("Enity X initialized: " + this.x);
-		this.y = y * Level.BLOCK_SIZE;;
+	public Entity(com.github.desmaster.Devio.util.Position spawnPosition) {
+		x = spawnPosition.getX() * Level.BLOCK_SIZE;
+		y = spawnPosition.getY() * Level.BLOCK_SIZE;
 	}
 
 	public void render() {
@@ -58,7 +62,7 @@ public class Entity {
 		this.x = x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
