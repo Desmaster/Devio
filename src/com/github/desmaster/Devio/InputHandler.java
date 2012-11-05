@@ -48,8 +48,8 @@ public class InputHandler {
 
 	public InputHandler(Devio game) {
 		// this.game = game;
-	}
-
+	} 
+	
 	public void tick() {
 		pollInput();
 		for (int i = 0; i < keys.size(); i++) {
@@ -64,11 +64,23 @@ public class InputHandler {
 	}
 	
 	public void toggle(int e, boolean pressed) {
-		if (e == Keyboard.KEY_A) left.toggle(pressed);
-		if (e == Keyboard.KEY_D) right.toggle(pressed);
-		if (e == Keyboard.KEY_W) up.toggle(pressed);
-		if (e == Keyboard.KEY_S) down.toggle(pressed);
-		if (e == Keyboard.KEY_ESCAPE) exit.toggle(pressed);
+		switch(e) {
+		case Keyboard.KEY_A:
+			left.toggle(pressed);
+			break;
+		case Keyboard.KEY_D:
+			right.toggle(pressed);
+			break;
+		case Keyboard.KEY_W:
+			up.toggle(pressed);
+			break;
+		case Keyboard.KEY_S:
+			down.toggle(pressed);
+			break;
+		case Keyboard.KEY_ESCAPE:
+			exit.toggle(pressed);
+			break;
+		}
 	}
 	
 	public void pollInput() {
