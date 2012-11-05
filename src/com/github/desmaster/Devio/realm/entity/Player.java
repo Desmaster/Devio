@@ -6,13 +6,13 @@ import org.newdawn.slick.opengl.Texture;
 
 
 import com.github.desmaster.Devio.InputHandler;
-import com.github.desmaster.Devio.realm.Realm;
+import com.github.desmaster.Devio.realm.Level;
 import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.util.Position;
 
 public class Player extends Mob implements Runnable {
 
-	private int walkspeed = Realm.BLOCK_SIZE;
+	private int walkspeed = Level.BLOCK_SIZE;
 	boolean running = false;
 	Thread thread;
 
@@ -25,7 +25,7 @@ public class Player extends Mob implements Runnable {
 	public Player(Texture texture, Position spawnPosition, double lives, InputHandler input) {
 		super(spawnPosition, lives);
 		this.input = input;
-		entitySize = Realm.BLOCK_SIZE;
+		entitySize = Level.BLOCK_SIZE;
 		setTexture(iTexture.PLAYER_BILLIE);
 		start();
 	}

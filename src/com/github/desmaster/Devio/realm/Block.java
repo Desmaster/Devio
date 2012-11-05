@@ -4,7 +4,7 @@ import org.newdawn.slick.opengl.Texture;
 
 import static org.lwjgl.opengl.GL11.*;
 
-import static com.github.desmaster.Devio.realm.Realm.*;
+import static com.github.desmaster.Devio.realm.Level.*;
 
 public class Block {
 

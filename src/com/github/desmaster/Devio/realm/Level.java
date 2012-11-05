@@ -5,7 +5,7 @@ import org.lwjgl.opengl.Display;
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.Player;
 
-public class Realm {
+public class Level {
 
 	public static final int BLOCK_SIZE = 32;
 	public static final int MAP_WIDTH = Display.getWidth() / BLOCK_SIZE;
@@ -15,7 +15,7 @@ public class Realm {
 
 	public Player player;
 
-	public Realm() {
+	public Level() {
 		world = new com.github.desmaster.Devio.realm.world.World();
 		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT + ")");
 		sc = new Scenery();
