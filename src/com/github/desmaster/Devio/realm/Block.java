@@ -8,7 +8,7 @@ import static com.github.desmaster.Devio.realm.Level.*;
 
 public class Block {
 
-	private Texture texture = null;
+	public Texture texture = null;
 	private float x;
 	private float y;
 
