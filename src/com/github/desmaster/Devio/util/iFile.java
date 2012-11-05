@@ -13,7 +13,7 @@ import com.github.desmaster.Devio.cons.Console;
 
 public class iFile {
 
-	private String location = "C:/Users/TIMON/AppData/Roaming/.Devion";
+	private String location = System.getProperty("user.home") + "\\Local Settings\\Application Data\\.Devio";
 	public static Properties config;
 
 	public static int WIDTH;
