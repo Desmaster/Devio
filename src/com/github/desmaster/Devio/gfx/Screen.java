@@ -2,7 +2,7 @@ package com.github.desmaster.Devio.gfx;
 
 
 import com.github.desmaster.Devio.InputHandler;
-import com.github.desmaster.Devio.realm.Level;
+import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.Devio;
@@ -10,14 +10,14 @@ import com.github.desmaster.Devio.Devio;
 public class Screen {
 
 	private iTexture texture;
-	private Level level;
+	private Realm level;
 	public static Player player;
 	private InputHandler input;
 
 	public Screen(InputHandler input) {
-		texture = new iTexture();
+		//texture = new iTexture();
 		player = new Player(iTexture.PLAYER_NINJA, Devio.spawnPosition, 100, input);
-		level = new Level();
+		level = new Realm();
 		level.player = player;
 		this.setInput(input);
 	}
