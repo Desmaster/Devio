@@ -20,8 +20,8 @@ import org.lwjgl.opengl.GL11;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.gfx.Screen;
-import com.github.desmaster.Devio.util.Counter;
-import com.github.desmaster.Devio.util.iFile;
+import com.github.desmaster.Devio.util.*;
+
 
 public class Devio {
 
@@ -42,6 +42,7 @@ public class Devio {
 	private Counter counter;
 	private InputHandler input = new InputHandler(this);
 	private iFile file;
+	public static Position spawnPosition;
 	//private Player player;
 	
 
@@ -75,6 +76,7 @@ public class Devio {
 	}
 
 	private void initObjects() {
+		spawnPosition = new Position((Display.getWidth() / 2) - 16, (Display.getHeight() / 2) - 16);
 		screen = new Screen(input);
 		counter = new Counter();
 		counter.start();
@@ -100,7 +102,7 @@ public class Devio {
 			} else {
 				tick(delta);
 				scanInput();
-				render();
+				render(); 
 			}
 		}
 	}
