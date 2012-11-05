@@ -55,7 +55,7 @@ public class World {
 	public void render() {
 		Tile[][] SubArea = getVisibleMap(Screen.getPlayer());
 		for(int x = 0; x < SubArea.length; x++) {
-			for(int y=0;y< SubArea[0].length;y++){
+			for (int y = 0; y < SubArea[0].length; y++) {
 				renderTile(x, y, SubArea[x][y]);
 			}
 		}
