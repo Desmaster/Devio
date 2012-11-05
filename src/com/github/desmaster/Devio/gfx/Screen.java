@@ -27,7 +27,7 @@ public class Screen {
 		//player.render();
 	}
 
-	public Player getPlayer() {
+	public static Player getPlayer() {
 		return player;
 	}
 

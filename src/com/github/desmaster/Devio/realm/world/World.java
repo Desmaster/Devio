@@ -5,6 +5,7 @@ import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 
@@ -51,9 +52,10 @@ public class World {
 	}
 
 	public void render() {
-		for(int x = 0; x < WORLD_WIDTH; x++) {
-			for(int y=0;y<WORLD_HEIGHT;y++){
-				renderTile(x, y, worldtiles[x][y]);
+		Tile[][] SubArea = getVisibleMap(Screen.getPlayer());
+		for(int x = 0; x < SubArea.length; x++) {
+			for(int y=0;y< SubArea[0].length;y++){
+				renderTile(x, y, SubArea[x][y]);
 			}
 		}
 	}
