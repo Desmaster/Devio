@@ -15,7 +15,7 @@ public class Screen {
 	private InputHandler input;
 
 	public Screen(InputHandler input) {
-		//texture = new iTexture();
+		texture = new iTexture();
 		player = new Player(iTexture.PLAYER_NINJA, Devio.spawnPosition, 100, input);
 		level = new Realm();
 		level.player = player;

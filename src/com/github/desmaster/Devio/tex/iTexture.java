@@ -46,10 +46,10 @@ public class iTexture {
 				textures[i] = getTexture("water", "png");
 				break;
 			case ID_FLOWER_RED:
-				textures[i] = getTexture("flower_red", "png");
+				textures[i] = getTexture("red_flower", "png");
 				break;
 			case ID_FLOWER_YELLOW:
-				textures[i] = getTexture("flower_yellow", "png");
+				textures[i] = getTexture("yellow_flower", "png");
 				break;
 			case ID_STONE:
 				textures[i] = getTexture("stone", "png");

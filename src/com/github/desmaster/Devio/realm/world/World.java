@@ -60,17 +60,21 @@ public class World {
 	
 	public void renderTile(int x, int y, Tile tile) {
 		tile.getTexture().bind();
+		x *= BLOCK_SIZE;
+		y *= BLOCK_SIZE;
+		int width = BLOCK_SIZE;
+		int height = BLOCK_SIZE;
 		glLoadIdentity();
 		glTranslatef(x, y, 0);
 		glBegin(GL_QUADS);
 			glTexCoord2f(0, 0);
 			glVertex2f(x, y);
 			glTexCoord2f(1, 0);
-			glVertex2f(x + tile.getTexture().getWidth(), y);
+			glVertex2f(x + width, y);
 			glTexCoord2f(1, 1);
-			glVertex2f(x + tile.getTexture().getWidth(), y + tile.getTexture().getHeight());
+			glVertex2f(x + width, y + height);
 			glTexCoord2f(0, 1);
-			glVertex2f(x, y + tile.getTexture().getHeight());
+			glVertex2f(x, y + height);
 		glEnd();
 		glLoadIdentity();
 	}
