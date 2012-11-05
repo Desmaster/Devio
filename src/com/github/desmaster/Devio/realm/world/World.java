@@ -63,8 +63,8 @@ public class World {
 	
 	public void renderTile(int x, int y, Tile tile) {
 		tile.getTexture().bind();
-		x *= BLOCK_SIZE;
-		y *= BLOCK_SIZE;
+		x *= BLOCK_SIZE / 2;
+		y *= BLOCK_SIZE / 2;
 		int width = BLOCK_SIZE;
 		int height = BLOCK_SIZE;
 		glLoadIdentity();

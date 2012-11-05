@@ -119,6 +119,7 @@ public class Devio {
 		file.saveConfig();
 		Display.destroy();
 		Console.log("Destroyed the screen");
+		System.exit(0);
 	}
 	
 	public long getTime() {
