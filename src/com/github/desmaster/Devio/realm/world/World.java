@@ -21,7 +21,6 @@ public class World {
 		for (int x = 0; x < WORLD_WIDTH; x++) {
 			for (int y = 0; y < WORLD_HEIGHT; y++) {
 				worldtiles[x][y] = Tile.GRASS;
-				Console.log("initialized x: " + x + ", y: " + y);
 			}
 		}
 	}
