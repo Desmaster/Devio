@@ -43,12 +43,13 @@ public class World {
 				SubArea[x2][y2] = worldtiles[x + x2][y + y2];
 			}
 		}
+		
 		return SubArea;
 	}
 
 	public Tile[][] getVisibleMap(Player player) {
 		// TODO stukje map die je kunt zien
-		return getSubArea(player.x - Math.round(Realm.MAP_WIDTH/2),player.y - Math.round(Realm.MAP_HEIGHT/2),Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
+		return getSubArea(player.x - (int) Math.ceil(Realm.MAP_WIDTH/2),player.y - (int) Math.ceil(Realm.MAP_HEIGHT/2),Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
 	}
 
 	public void render() {
