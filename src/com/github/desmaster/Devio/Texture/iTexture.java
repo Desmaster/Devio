@@ -10,7 +10,7 @@ import com.github.desmaster.Devio.cons.Console;
 public class iTexture {
 
 	public static final int ID_GRASS = 0;
-	public static final int ID_GRASS_FLOWER = 1;
+	public static final int ID_SAND = 1;
 	public static final int ID_WATER = 2;
 
 	public static final int ID_FLOWER_RED = 21;
@@ -36,6 +36,9 @@ public class iTexture {
 			case ID_GRASS:
 				objects[i] = getTexture("grass", "png");
 				break;
+			case ID_SAND:
+				objects[i] = getTexture("sand", "png");
+				break;
 			case ID_MOSS_STONE:
 				objects[i] = getTexture("moss_stone", "png");
 				break;
@@ -59,7 +62,7 @@ public class iTexture {
 
 	}
 
-	public Texture getTexture(String name, String ext) {
+	public static Texture getTexture(String name, String ext) {
 		try {
 			Texture t1 = TextureLoader.getTexture(
 					ext.toUpperCase(),
