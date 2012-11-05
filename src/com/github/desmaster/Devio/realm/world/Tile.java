@@ -26,6 +26,7 @@ public enum Tile {
 	public int y;
 
 	Tile(String name, boolean breakable, boolean solid,int TextureID) {
+		Console.log("initialized enum: " + name);
 		this.name = name;
 		this.breakable = breakable;
 		this.solid = solid;
@@ -49,7 +50,7 @@ public enum Tile {
 	}
 
 	public Texture getTexture() {
-		return iTexture.objects[TextureID];
+		return iTexture.textures[TextureID];
 	}
 	public int getTextureID() {
 		return TextureID;
