@@ -4,8 +4,8 @@ public class Mob extends Entity {
 	
 	double lives;
 	
-	public Mob(int x, int y, double lives) {
-		super(x, y);
+	public Mob(com.github.desmaster.Devio.util.Position spawnPosition, double lives) {
+		super(spawnPosition);
 		this.lives = lives;
 	}
 	
