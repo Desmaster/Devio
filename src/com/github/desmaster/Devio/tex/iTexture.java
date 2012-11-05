@@ -64,10 +64,7 @@ public class iTexture {
 
 	public static Texture getTexture(String name, String ext) {
 		try {
-			Texture t1 = TextureLoader.getTexture(
-					ext.toUpperCase(),
-					iTexture.class.getResourceAsStream("/img/" + name + "."
-							+ ext));
+			Texture t1 = TextureLoader.getTexture(ext.toUpperCase(), iTexture.class.getResourceAsStream("/img/" + name + "." + ext));
 			Console.log("Loaded " + name + "." + ext);
 			return t1;
 		} catch (IOException e) {
