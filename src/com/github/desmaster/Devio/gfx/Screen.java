@@ -4,17 +4,18 @@ import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.entity.Player;
 import com.github.desmaster.Devio.realm.Level;
 import com.github.desmaster.Devio.texture.iTexture;
+import com.github.desmaster.Devio.Devio;
 
 public class Screen {
 
 	private iTexture texture;
 	private Level level;
-	private Player player;
+	public static Player player;
 	private InputHandler input;
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
-		player = new Player(iTexture.PLAYER_NINJA, 9, (int) 6.7, 100, input);
+		player = new Player(iTexture.PLAYER_NINJA, Devio.spawnPosition, 100, input);
 		level = new Level();
 		level.player = player;
 		this.setInput(input);
@@ -27,10 +28,6 @@ public class Screen {
 
 	public Player getPlayer() {
 		return player;
-	}
-
-	public void setPlayer(Player player) {
-		this.player = player;
 	}
 
 	public void tick() {
