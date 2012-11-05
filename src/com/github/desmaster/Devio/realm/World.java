@@ -1,10 +1,10 @@
 package com.github.desmaster.Devio.realm;
 
-import static com.github.desmaster.Devio.realm.Level.BLOCK_SIZE;
-import static com.github.desmaster.Devio.realm.Level.MAP_HEIGHT;
-import static com.github.desmaster.Devio.realm.Level.MAP_WIDTH;
-import static com.github.desmaster.Devio.realm.Level.WORLD_HEIGHT;
-import static com.github.desmaster.Devio.realm.Level.WORLD_WIDTH;
+import static com.github.desmaster.Devio.realm.Realm.BLOCK_SIZE;
+import static com.github.desmaster.Devio.realm.Realm.MAP_HEIGHT;
+import static com.github.desmaster.Devio.realm.Realm.MAP_WIDTH;
+import static com.github.desmaster.Devio.realm.Realm.WORLD_HEIGHT;
+import static com.github.desmaster.Devio.realm.Realm.WORLD_WIDTH;
 import static com.github.desmaster.Devio.tex.iTexture.ID_GRASS;
 import static com.github.desmaster.Devio.tex.iTexture.ID_SAND;
 import static com.github.desmaster.Devio.tex.iTexture.objects;
