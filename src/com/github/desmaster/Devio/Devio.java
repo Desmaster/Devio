@@ -117,8 +117,8 @@ public class Devio {
 		running = false;
 		Console.log("Stopped the game loop");
 		file.saveConfig();
+		Display.destroy();
 		Console.log("Destroyed the screen");
-		System.exit(0);
 	}
 	
 	public long getTime() {
