@@ -56,7 +56,7 @@ public class Player extends Mob implements Runnable {
 		if (input.up.clicked) {
 			input.releaseAll();
 			walkUp();
-		} // Here :p
+		}
 
 		if (input.left.clicked) {
 			input.releaseAll();

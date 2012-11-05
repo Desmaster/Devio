@@ -28,6 +28,7 @@ public class Level {
 	public void render() {
 		world.render();
 		sc.render();
+		Console.logC("Derp");
 	}
 
 	public void tick() {
