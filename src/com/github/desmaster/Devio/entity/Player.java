@@ -7,6 +7,7 @@ import org.newdawn.slick.opengl.Texture;
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.realm.Level;
 import com.github.desmaster.Devio.texture.iTexture;
+import com.github.desmaster.Devio.util.Position;
 
 public class Player extends Mob implements Runnable {
 
@@ -20,9 +21,8 @@ public class Player extends Mob implements Runnable {
 
 	public InputHandler input;
 
-	public Player(Texture texture, int x, int y, double lives,
-			InputHandler input) {
-		super(x, y, lives);
+	public Player(Texture texture, Position spawnPosition, double lives, InputHandler input) {
+		super(spawnPosition, lives);
 		this.input = input;
 		entitySize = Level.BLOCK_SIZE;
 		setTexture(iTexture.PLAYER_BILLIE);
@@ -36,19 +36,16 @@ public class Player extends Mob implements Runnable {
 	}
 
 	public void tick(int delta) {
-		x = 15;
-		//if (x < 0) {
-		//	x = 0;
-		//	input.x = 0;
-		//}
+		if (x < 0) {
+			x = 0;
+		}
 
-		//if (y < 0) {
-		//	y = 0;
-		//	input.y = 0;
-		//}
+		if (y < 0) {
+			y = 0;
+		}
 
 		if (x + walkspeed > Display.getWidth()) {
-			//x = Display.getWidth() - walkspeed;
+			x = Display.getWidth() - walkspeed;
 		}
 
 		if (y + walkspeed > Display.getHeight()) {
@@ -58,11 +55,11 @@ public class Player extends Mob implements Runnable {
 		if (input.up.clicked) {
 			input.releaseAll();
 			walkUp();
-		}
+		} // Here :p
 
 		if (input.left.clicked) {
 			input.releaseAll();
-			//walkLeft();
+			walkLeft();
 		}
 
 		if (input.down.clicked) {
