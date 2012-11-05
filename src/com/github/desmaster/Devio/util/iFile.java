@@ -38,8 +38,8 @@ public class iFile {
 				Console.log("Created config.cfg!");
 				FileWriter fw = new FileWriter(config);
 				BufferedWriter out = new BufferedWriter(fw);
-				out.write("Width: " + "\n");
-				out.write("Height: " + "\n");
+				out.write("Width: 800" + "\n");
+				out.write("Height: 600" + "\n");
 				out.close();
 				Console.log("Saved config.cfg!");
 			} catch (IOException e) {
@@ -53,14 +53,13 @@ public class iFile {
 	}
 
 	public void loadConfig() {
-		File file = getDataFolder();
-		File configFile = new File(file, "config.cfg");
-		String filename = getDataFolder() + "/config.cfg";
-		config = new Properties();
-
-		while (!configFile.exists()) {
+		while (!getDataFolder().exists()) {
 			saveConfig();
 		}
+		File file = getDataFolder();
+
+		String filename = file + "/config.cfg";
+		config = new Properties();
 
 		try {
 			config.load(new FileInputStream(filename));

@@ -1,4 +1,4 @@
-package com.github.desmaster.Devio.entity;
+package com.github.desmaster.Devio.realm.entity;
 
 import static org.lwjgl.opengl.GL11.GL_QUADS;
 import static org.lwjgl.opengl.GL11.glBegin;

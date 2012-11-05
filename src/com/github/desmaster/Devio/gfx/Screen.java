@@ -2,8 +2,8 @@ package com.github.desmaster.Devio.gfx;
 
 
 import com.github.desmaster.Devio.InputHandler;
-import com.github.desmaster.Devio.entity.Player;
 import com.github.desmaster.Devio.realm.Level;
+import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.Devio;
 

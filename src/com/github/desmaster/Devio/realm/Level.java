@@ -3,7 +3,7 @@ package com.github.desmaster.Devio.realm;
 import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
-import com.github.desmaster.Devio.entity.Player;
+import com.github.desmaster.Devio.realm.entity.Player;
 
 public class Level {
 

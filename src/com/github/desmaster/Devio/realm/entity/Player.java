@@ -1,4 +1,4 @@
-package com.github.desmaster.Devio.entity;
+package com.github.desmaster.Devio.realm.entity;
 
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;

@@ -1,4 +1,4 @@
-package com.github.desmaster.Devio.entity;
+package com.github.desmaster.Devio.realm.entity;
 
 public class Mob extends Entity {
 	
