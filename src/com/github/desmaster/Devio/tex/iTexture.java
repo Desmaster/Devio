@@ -21,7 +21,7 @@ public class iTexture {
 	public static final int ID_COBBLESTONE = 52;
 
 	public static Texture TEST_TEXTURE = null;
-	public static Texture[] objects = new Texture[55];
+	public static Texture[] textures = new Texture[55];
 	public static Texture PLAYER = null;
 	public static Texture PLAYER_NINJA = null;
 	public static Texture PLAYER_BILLIE = null;
@@ -31,31 +31,31 @@ public class iTexture {
 		PLAYER_NINJA = getTexture("ninja", "png");
 		PLAYER_BILLIE = getTexture("billie", "png");
 
-		for (int i = 0; i < objects.length; i++) {
+		for (int i = 0; i < textures.length; i++) {
 			switch (i) {
 			case ID_GRASS:
-				objects[i] = getTexture("grass", "png");
+				textures[i] = getTexture("grass", "png");
 				break;
 			case ID_SAND:
-				objects[i] = getTexture("sand", "png");
+				textures[i] = getTexture("sand", "png");
 				break;
 			case ID_MOSS_STONE:
-				objects[i] = getTexture("moss_stone", "png");
+				textures[i] = getTexture("mossy_cobblestone", "png");
 				break;
 			case ID_WATER:
-				objects[i] = getTexture("water", "png");
+				textures[i] = getTexture("water", "png");
 				break;
 			case ID_FLOWER_RED:
-				objects[i] = getTexture("flower_red", "png");
+				textures[i] = getTexture("flower_red", "png");
 				break;
 			case ID_FLOWER_YELLOW:
-				objects[i] = getTexture("flower_yellow", "png");
+				textures[i] = getTexture("flower_yellow", "png");
 				break;
 			case ID_STONE:
-				objects[i] = getTexture("stone", "png");
+				textures[i] = getTexture("stone", "png");
 				break;
 			case ID_COBBLESTONE:
-				objects[i] = getTexture("cobblestone", "png");
+				textures[i] = getTexture("cobblestone", "png");
 				break;
 			}
 		}
