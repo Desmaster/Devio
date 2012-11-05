@@ -135,7 +135,7 @@ public class Devio {
 	
 	public void tick(int delta) {
 		input.tick();
-		screen.getPlayer().tick(delta);
+		Screen.getPlayer().tick(delta);
 		screen.tick();
 		counter.tick();
 	}
