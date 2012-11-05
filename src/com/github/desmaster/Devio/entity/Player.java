@@ -4,9 +4,10 @@ import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
+
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.realm.Level;
-import com.github.desmaster.Devio.texture.iTexture;
+import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.util.Position;
 
 public class Player extends Mob implements Runnable {
