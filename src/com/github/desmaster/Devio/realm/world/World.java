@@ -5,6 +5,7 @@ import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 
 public class World {
@@ -46,7 +47,7 @@ public class World {
 
 	public Tile[][] getVisibleMap(Player player) {
 		// TODO stukje map die je kunt zien
-		return getSubArea(player.x, player.y, 20, 15);
+		return getSubArea(player.x - Math.round(Realm.MAP_WIDTH/2),player.y - Math.round(Realm.MAP_HEIGHT/2),Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
 	}
 
 	public void render() {
