@@ -101,8 +101,8 @@ public class Scenery {
 	
 	public void renderObject(int x, int y, GameObject object) {
 		object.getTexture().bind();
-		x *= Realm.BLOCK_SIZE;
-		y *= Realm.BLOCK_SIZE;
+		x *= Realm.BLOCK_SIZE / 2;
+		y *= Realm.BLOCK_SIZE / 2;
 		int width = Realm.BLOCK_SIZE;
 		int height = Realm.BLOCK_SIZE;
 		glLoadIdentity();
@@ -118,6 +118,8 @@ public class Scenery {
 			glVertex2f(x, y + height);
 		glEnd();
 		glLoadIdentity();
+		
+		//Console.log("Rendered: " + x + ", y: " + y + " At: " + object.getName());
 	}
 	
 }
