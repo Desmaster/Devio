@@ -2,7 +2,6 @@ package com.github.desmaster.Devio.gfx;
 
 
 import com.github.desmaster.Devio.InputHandler;
-import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
@@ -11,21 +10,21 @@ import com.github.desmaster.Devio.Devio;
 public class Screen {
 
 	private iTexture texture;
-	private Realm level;
+	private Realm realm;
 	public static Player player;
 	private InputHandler input;
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
 		player = new Player(iTexture.PLAYER_NINJA, Devio.spawnPosition, 100, input);
-		level = new Realm();
-		level.player = player;
+		realm = new Realm();
+		realm.player = player;
 		this.setInput(input);
 	}
 
 	public void render() {
 		//Console.logC("derp");
-		level.render();
+		realm.render();
 		player.render();
 	}
 
@@ -34,7 +33,7 @@ public class Screen {
 	}
 
 	public void tick() {
-		level.tick();
+		realm.tick();
 	}
 
 	public iTexture getTexture() {
