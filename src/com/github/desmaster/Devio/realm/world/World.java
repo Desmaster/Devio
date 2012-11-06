@@ -22,7 +22,7 @@ public class World {
 		worldtiles[1][3] = Tile.STONE;
 		
 		worldtiles[2][1] = Tile.STONE;
-		worldtiles[2][2] = Tile.WATER;
+		worldtiles[2][2] = Tile.MOSSY_STONE;
 		worldtiles[2][3] = Tile.STONE;
 		
 		worldtiles[3][1] = Tile.STONE;
