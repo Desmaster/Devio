@@ -33,8 +33,12 @@ public enum Tile {
 	public int getID() {
 		return this.ordinal();
 	}
-
+	
 	public String getName() {
+		return name;
+	}
+
+	public String getDisplayName() {
 		return name.replaceAll("_", " ");
 	}
 
