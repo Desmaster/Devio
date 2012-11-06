@@ -2,6 +2,7 @@ package com.github.desmaster.Devio.gfx;
 
 
 import com.github.desmaster.Devio.InputHandler;
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
@@ -23,8 +24,9 @@ public class Screen {
 	}
 
 	public void render() {
+		//Console.logC("derp");
 		level.render();
-		//player.render();
+		player.render();
 	}
 
 	public static Player getPlayer() {
