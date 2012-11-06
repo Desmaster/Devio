@@ -27,8 +27,17 @@ public class World {
 				worldtiles[x][y] = Tile.GRASS;
 			}
 		}
-		worldtiles[1][1] = Tile.SAND;
+		worldtiles[1][1] = Tile.STONE;
 		worldtiles[1][2] = Tile.STONE;
+		worldtiles[1][3] = Tile.STONE;
+		
+		worldtiles[2][1] = Tile.STONE;
+		worldtiles[2][2] = Tile.WATER;
+		worldtiles[2][3] = Tile.STONE;
+		
+		worldtiles[3][1] = Tile.STONE;
+		worldtiles[3][2] = Tile.STONE;
+		worldtiles[3][3] = Tile.STONE;
 	}
 
 	public Tile getTile(int x, int y) {
