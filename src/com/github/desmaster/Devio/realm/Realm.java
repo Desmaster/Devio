@@ -29,7 +29,7 @@ public class Realm {
 
 	public void render() {
 		world.render();
-		sc.render();
+		//sc.render();
 	}
 
 	public void tick() {
