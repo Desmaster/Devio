@@ -19,9 +19,10 @@ public class Scenery extends World_Old {
 		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
 			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
 				int seed = random.nextInt(2);
-				if (seed == 0) {
+				if (seed < 2) {
+					if(seed == 0)
 					scenobjects[x][y] = GameObject.RED_FLOWER;
-				} else {
+					else if (seed == 1)
 					scenobjects[x][y] = GameObject.YELLOW_FLOWER;
 				}
 			}
@@ -38,13 +39,11 @@ public class Scenery extends World_Old {
 
 	public GameObject[][] getSubArea(int x, int y, int width, int height) {
 		GameObject[][] SubArea = new GameObject[width][height];
-
-		for (int x2 = 0; x2 < width; x2++) {
-			for (int y2 = 0; y2 < height; y2++) {
-				SubArea[x2][y2] = scenobjects[x + x2][y + y2];
+		for (int xx = 0; xx < width; xx++) {
+			for (int yy = 0; yy < height; yy++) {
+				SubArea[xx][yy] = scenobjects[x + xx][y + yy];
 			}
 		}
-		
 		return SubArea;
 	}
 
@@ -71,8 +70,8 @@ public class Scenery extends World_Old {
 	
 	public void render() {
 		GameObject[][] SubArea = getVisibleMap(Screen.getPlayer());
-		for (int x = 0; x < SubArea.length; x++) {
-			for (int y = 0; y < SubArea[0].length; x++) {
+		for(int x = 0; x < SubArea.length; x++) {
+			for (int y = 0; y < SubArea[0].length; y++) {
 				renderObject(x, y, SubArea[x][y]);
 			}
 		}
@@ -82,8 +81,8 @@ public class Scenery extends World_Old {
 		object.getTexture().bind();
 		x *= Realm.BLOCK_SIZE;
 		y *= Realm.BLOCK_SIZE;
-		int width = Realm.BLOCK_SIZE / 2;
-		int height = Realm.BLOCK_SIZE / 2;
+		int width = Realm.BLOCK_SIZE;
+		int height = Realm.BLOCK_SIZE;
 		glLoadIdentity();
 		glTranslatef(x, y, 0);
 		glBegin(GL_QUADS);
@@ -97,6 +96,8 @@ public class Scenery extends World_Old {
 			glVertex2f(x, y + height);
 		glEnd();
 		glLoadIdentity();
+		
+		//Console.log("Rendered: " + x + ", y: " + y + " At: " + object.getName());
 	}
 	
 }
