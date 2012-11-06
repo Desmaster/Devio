@@ -41,9 +41,9 @@ public class World {
 	public Tile[][] getSubArea(int x, int y, int width, int height) {
 		Tile[][] SubArea = new Tile[width][height];
 
-		for (int x2 = 0; x2 < width; x2++) {
-			for (int y2 = 0; y2 < height; y2++) {
-				SubArea[x2][y2] = worldtiles[x + x2][y + y2];
+		for (int xx = 0; xx < width; xx++) {
+			for (int yy = 0; yy < height; yy++) {
+				SubArea[xx][yy] = worldtiles[x + xx][y + yy];
 			}
 		}
 		
