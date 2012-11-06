@@ -42,6 +42,12 @@ public class Scenery {
 				}
 			}
 		}
+		
+		scenobjects[6][1] = GameObject.BRICK_WALL;
+		scenobjects[6][2] = GameObject.BRICK_WALL;
+		scenobjects[6][3] = GameObject.BRICK_WALL;
+		scenobjects[6][4] = GameObject.BRICK_WALL;
+		scenobjects[6][5] = GameObject.BRICK_WALL;
 	}
 	
 	public GameObject getObject(int x, int y) {
