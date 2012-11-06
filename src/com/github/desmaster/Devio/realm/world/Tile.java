@@ -1,9 +1,6 @@
 package com.github.desmaster.Devio.realm.world;
 
-import java.io.IOException;
-
 import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.tex.iTexture;
