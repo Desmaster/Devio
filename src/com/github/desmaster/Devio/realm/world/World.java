@@ -107,7 +107,7 @@ public class World {
 	        out.close();
 	     }
 	     catch (IOException e) {
-	         System.out.println(e); 
+	    	 e.printStackTrace();
 	     }
 	  }
 
@@ -121,7 +121,7 @@ public class World {
 	        return gelezen_veld;
 	      }
 	      catch (Exception e) {
-	          System.out.println(e);
+	    	  e.printStackTrace();
 	      }
 	      return null;
 	  }
