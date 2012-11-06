@@ -68,13 +68,25 @@ public class InputHandler {
 		case Keyboard.KEY_A:
 			left.toggle(pressed);
 			break;
+		case Keyboard.KEY_LEFT:
+			left.toggle(pressed);
+			break;
 		case Keyboard.KEY_D:
+			right.toggle(pressed);
+			break;
+		case Keyboard.KEY_RIGHT:
 			right.toggle(pressed);
 			break;
 		case Keyboard.KEY_W:
 			up.toggle(pressed);
 			break;
+		case Keyboard.KEY_UP:
+			up.toggle(pressed);
+			break;
 		case Keyboard.KEY_S:
+			down.toggle(pressed);
+			break;
+		case Keyboard.KEY_DOWN:
 			down.toggle(pressed);
 			break;
 		case Keyboard.KEY_ESCAPE:
