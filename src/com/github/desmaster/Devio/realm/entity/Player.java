@@ -10,7 +10,7 @@ import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.util.Position;
 
-public class Player extends Mob implements Runnable {
+public class Player extends Mob {
 
 	private int walkspeed = 1;
 	boolean running = false;
@@ -27,13 +27,10 @@ public class Player extends Mob implements Runnable {
 		this.input = input;
 		entitySize = Realm.BLOCK_SIZE;
 		setTexture(iTexture.PLAYER_BILLIE);
-		start();
 	}
 
 	public void start() {
-		running = true;
-		thread = new Thread(this);
-		thread.start();
+		
 	}
 
 	public void tick(int delta) {
@@ -89,13 +86,6 @@ public class Player extends Mob implements Runnable {
 
 	public void walkRight() {
 		x += walkspeed;
-	}
-
-	@Override
-	public void run() {
-		while (running) {
-			// tick(getDelta());
-		}
 	}
 
 	public int getDelta() {
