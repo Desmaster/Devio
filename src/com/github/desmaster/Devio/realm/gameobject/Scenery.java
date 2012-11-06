@@ -1,25 +1,43 @@
 package com.github.desmaster.Devio.realm.gameobject;
 
-import java.util.Random;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glTexCoord2f;
+import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.glVertex2f;
 
-import static org.lwjgl.opengl.GL11.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Random;
 
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
-import com.github.desmaster.Devio.realm.World_Old;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.util.Position;
 
-public class Scenery extends World_Old {
+public class Scenery {
 
 	GameObject[][] scenobjects = new GameObject[Realm.WORLD_WIDTH][Realm.WORLD_HEIGHT];
 
 	public Scenery() {
-		Random random = new Random();
+		Random r = null;
+		Random rr = null;
+		try {
+			r = SecureRandom.getInstance("SHA1PRNG");
+			r.setSeed(6548);
+			rr = SecureRandom.getInstance("SHA1PRNG");
+			rr.setSeed(6548);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
 			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
-				int seed = random.nextInt(2);
-				if (seed < 2) {
+				int seed = r.nextInt(2);
+				if (rr.nextInt(2) < 2) {
 					if(seed == 0)
 					scenobjects[x][y] = GameObject.RED_FLOWER;
 					else if (seed == 1)
@@ -79,8 +97,8 @@ public class Scenery extends World_Old {
 	
 	public void renderObject(int x, int y, GameObject object) {
 		object.getTexture().bind();
-		x *= Realm.BLOCK_SIZE;
-		y *= Realm.BLOCK_SIZE;
+		x *= Realm.BLOCK_SIZE / 2;
+		y *= Realm.BLOCK_SIZE / 2;
 		int width = Realm.BLOCK_SIZE;
 		int height = Realm.BLOCK_SIZE;
 		glLoadIdentity();
