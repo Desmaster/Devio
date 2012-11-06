@@ -4,6 +4,7 @@ import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.Player;
+import com.github.desmaster.Devio.realm.gameobject.Scenery;
 import com.github.desmaster.Devio.realm.world.World;
 
 public class Realm {
@@ -28,7 +29,7 @@ public class Realm {
 
 	public void render() {
 		world.render();
-		//sc.render();
+		sc.render();
 	}
 
 	public void tick() {
