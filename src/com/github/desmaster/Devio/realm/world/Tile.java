@@ -35,7 +35,7 @@ public enum Tile {
 	}
 
 	public String getName() {
-		return name;
+		return name.replaceAll("_", " ");
 	}
 
 	public boolean isBreakable() {
