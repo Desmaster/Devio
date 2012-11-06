@@ -57,22 +57,22 @@ public class Player extends Mob {
 	}
 
 	public void walkUp() {
-		if (!(y == 0))
+		if (!(y == 0 && Realm.isTileSolid(new Position(x,y-walkspeed))))
 			y -= walkspeed;
 	}
 
 	public void walkDown() {
-		if (!(y == Realm.WORLD_HEIGHT))
+		if (!(y == Realm.WORLD_HEIGHT && Realm.isTileSolid(new Position(x,y+walkspeed))))
 			y += walkspeed;
 	}
 
 	public void walkLeft() {
-		if (!(x == 0))
+		if (!(x == 0 && Realm.isTileSolid(new Position(x-walkspeed,y))))
 			x -= walkspeed;
 	}
 
 	public void walkRight() {
-		if (!(x == Realm.WORLD_WIDTH))
+		if (!(x == Realm.WORLD_WIDTH && Realm.isTileSolid(new Position(x+walkspeed,y))))
 			x += walkspeed;
 	}
 
