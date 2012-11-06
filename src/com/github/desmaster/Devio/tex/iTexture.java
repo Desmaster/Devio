@@ -19,9 +19,11 @@ public class iTexture {
 	public static final int ID_MOSS_STONE = 53;
 	public static final int ID_STONE = 51;
 	public static final int ID_COBBLESTONE = 52;
+	
+	public static final int ID_BRICK_WALL = 61;
 
 	public static Texture TEST_TEXTURE = null;
-	public static Texture[] textures = new Texture[55];
+	public static Texture[] textures = new Texture[255];
 	public static Texture PLAYER = null;
 	public static Texture PLAYER_NINJA = null;
 	public static Texture PLAYER_BILLIE = null;
@@ -56,6 +58,9 @@ public class iTexture {
 				break;
 			case ID_COBBLESTONE:
 				textures[i] = getTexture("cobblestone", "png");
+				break;
+			case ID_BRICK_WALL:
+				textures[i] = getTexture("brickwall", "png");
 				break;
 			}
 		}
