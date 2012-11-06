@@ -102,33 +102,12 @@ public class World {
 		glLoadIdentity();
 	}
 	
-	public void saveWorld(String filename, Tile[][] output_veld) {
-	     try {
-	        FileOutputStream fos = new FileOutputStream(filename);
-	        GZIPOutputStream gzos = new GZIPOutputStream(fos);
-	        ObjectOutputStream out = new ObjectOutputStream(gzos);
-	        out.writeObject(output_veld);
-	        out.flush();
-	        out.close();
-	     }
-	     catch (IOException e) {
-	    	 e.printStackTrace();
-	     }
-	  }
+	public Tile[][] saveWorld() {
+	     return worldtiles;
+	}
 
-	public Tile[][] loadWorld(String filename) {
-	      try {
-	        FileInputStream fis = new FileInputStream(filename);
-	        GZIPInputStream gzis = new GZIPInputStream(fis);
-	        ObjectInputStream in = new ObjectInputStream(gzis);
-	        Tile[][] gelezen_veld = (Tile[][])in.readObject();
-	        in.close();
-	        return gelezen_veld;
-	      }
-	      catch (Exception e) {
-	    	  e.printStackTrace();
-	      }
-	      return null;
+	public void loadWorld(Tile[][] tiles) {
+	      worldtiles = tiles;
 	  }
 
 }
