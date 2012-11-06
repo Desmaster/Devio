@@ -43,9 +43,27 @@ public class Realm {
 	
 	public static boolean isTileSolid(Position p)
 	{
-		return 
-		world.getTile(p.getX(), p.getY()).isSolid() ||
-		sc.getObject(p.getX(), p.getY()).isSolid();
+		boolean solid = false;
 		
+		if (world.getTile(p.getX(), p.getY()).isSolid()){
+			solid = true;
+		}
+		
+		if (!(sc.getObject(p.getX(), p.getY()) == null)){
+			if (sc.getObject(p.getX(), p.getY()).isSolid()){
+				solid = true;
+			}
+		}
+		
+		return solid;
+		
+	}
+	public static String bool(boolean t)
+	{
+		if (t) {
+			return "true";
+		} else {
+			return "false";
+		}
 	}
 }
