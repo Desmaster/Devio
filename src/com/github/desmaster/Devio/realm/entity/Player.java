@@ -53,22 +53,22 @@ public class Player extends Mob implements Runnable {
 			y = Display.getHeight() - walkspeed;
 		}
 
-		if (input.up.clicked) {
+		if (input.up.down) {
 			input.releaseAll();
 			walkUp();
 		}
 
-		if (input.left.clicked) {
+		if (input.left.down) {
 			input.releaseAll();
 			walkLeft();
 		}
 
-		if (input.down.clicked) {
+		if (input.down.down) {
 			input.releaseAll();
 			walkDown();
 		}
 
-		if (input.right.clicked) {
+		if (input.right.down) {
 			input.releaseAll();
 			walkRight();
 		}
