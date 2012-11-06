@@ -8,9 +8,8 @@ public enum GameObject {
 	
 	RED_FLOWER("Red_Flower", true, false, iTexture.ID_FLOWER_RED),
 	YELLOW_FLOWER("Yellow_Flower", true, false, iTexture.ID_FLOWER_YELLOW),
-	STONE("Stone", false, true, iTexture.ID_STONE),
-	COBBLE_STONE("Cobblestone", false, true, iTexture.ID_COBBLESTONE); 
-
+	BRICK_WALL("Brick_wall",false,true,iTexture.ID_BRICK_WALL);
+	
 	private String name;
 	private boolean breakable;
 	private boolean solid;
@@ -20,7 +19,7 @@ public enum GameObject {
 	public int y;
 
 	GameObject(String name, boolean breakable, boolean solid,int TextureID) {
-		Console.log("Initialized Tile: " + name);
+		Console.log("Initialized GameObject: " + name);
 		this.name = name;
 		this.breakable = breakable;
 		this.solid = solid;
