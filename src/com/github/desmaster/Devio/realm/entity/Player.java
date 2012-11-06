@@ -1,7 +1,6 @@
 package com.github.desmaster.Devio.realm.entity;
 
 import org.lwjgl.Sys;
-import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
 
@@ -34,21 +33,6 @@ public class Player extends Mob {
 	}
 
 	public void tick(int delta) {
-		if (x < 0) {
-			x = 0;
-		}
-
-		if (y < 0) {
-			y = 0;
-		}
-
-		if (x + walkspeed > Display.getWidth()) {
-			x = Display.getWidth() - walkspeed;
-		}
-
-		if (y + walkspeed > Display.getHeight()) {
-			y = Display.getHeight() - walkspeed;
-		}
 
 		if (input.up.down) {
 			input.releaseAll();
@@ -73,19 +57,23 @@ public class Player extends Mob {
 	}
 
 	public void walkUp() {
-		y -= walkspeed;
+		if (!(y == 0))
+			y -= walkspeed;
 	}
 
 	public void walkDown() {
-		y += walkspeed;
+		if (!(y == Realm.WORLD_HEIGHT))
+			y += walkspeed;
 	}
 
 	public void walkLeft() {
-		x -= walkspeed;
+		if (!(x == 0))
+			x -= walkspeed;
 	}
 
 	public void walkRight() {
-		x += walkspeed;
+		if (!(x == Realm.WORLD_WIDTH))
+			x += walkspeed;
 	}
 
 	public int getDelta() {
