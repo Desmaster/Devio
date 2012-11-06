@@ -28,7 +28,7 @@ public class Entity {
 	public void render() {
 		texture.bind();
 		glLoadIdentity();
-		glTranslatef(this.getXonScreen(), this.getYonScreen(), 0);
+		glTranslatef(getXonScreen(), getYonScreen(), 0);
 		glBegin(GL_QUADS);
 			glTexCoord2f(0, 0);
 			glVertex2f(0, 0);
