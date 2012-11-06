@@ -6,6 +6,7 @@ import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.realm.gameobject.Scenery;
 import com.github.desmaster.Devio.realm.world.World;
+import com.github.desmaster.Devio.util.Position;
 
 public class Realm {
 
@@ -39,5 +40,12 @@ public class Realm {
 	public void addPlayer(Player player) {
 		this.player = player; 
 	}
-
+	
+	public static boolean isTileSolid(Position p)
+	{
+		return 
+		world.getTile(p.getX(), p.getY()).isSolid() ||
+		sc.getObject(p.getX(), p.getY()).isSolid();
+		
+	}
 }
