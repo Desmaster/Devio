@@ -6,12 +6,12 @@ import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.tex.iTexture;
 
 public enum Tile {
-	GRASS("Grass", false, true, iTexture.ID_GRASS), 					// 0
-	SAND("Sand", false, true, iTexture.ID_SAND), 						// 1
-	STONE("Stone", false, true, iTexture.ID_STONE), 					// 2
-	COBBLE_STONE("Cobblestone", false, true, iTexture.ID_COBBLESTONE), 		// 3
+	GRASS("Grass", false, false, iTexture.ID_GRASS), 					// 0
+	SAND("Sand", false, false, iTexture.ID_SAND), 						// 1
+	STONE("Stone", false, false, iTexture.ID_STONE), 					// 2
+	COBBLE_STONE("Cobblestone", false, false, iTexture.ID_COBBLESTONE), 		// 3
 	MOSSY_STONE("Mossy_Cobblestone", false, true, iTexture.ID_MOSS_STONE), 	// 4
-	WATER("Water", false, true, iTexture.ID_WATER); 					// 5
+	WATER("Water", false, false, iTexture.ID_WATER); 					// 5
 	//LAVA("Lava", false, true, 6) 						// 6
 
 	private String name;
