@@ -12,7 +12,7 @@ import com.github.desmaster.Devio.util.Position;
 
 public class Player extends Mob implements Runnable {
 
-	private int walkspeed = Realm.BLOCK_SIZE;
+	private int walkspeed = 1;
 	boolean running = false;
 	Thread thread;
 
@@ -109,6 +109,11 @@ public class Player extends Mob implements Runnable {
 		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
 	}
 	
-	
+	public int getXonScreen(){
+		return (x - Realm.world.getVisibleMapOffsetPosition(this).getX()) * 32;
+	}
+	public int getYonScreen(){
+		return (y - Realm.world.getVisibleMapOffsetPosition(this).getY()) * 32;
+	}
 
 }

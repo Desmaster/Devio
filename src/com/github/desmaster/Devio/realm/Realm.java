@@ -4,6 +4,7 @@ import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.Player;
+import com.github.desmaster.Devio.realm.world.World;
 
 public class Realm {
 
@@ -16,14 +17,14 @@ public class Realm {
 	public Player player;
 
 	public Realm() {
-		world = new com.github.desmaster.Devio.realm.world.World();
+		world = new World();
 		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT + ")");
 		sc = new Scenery();
 		Console.log("Generated Sceneries");
 	}
 
-	private com.github.desmaster.Devio.realm.world.World world = null;
-	private Scenery sc = null;
+	public static World world = null;
+	public static Scenery sc = null;
 
 	public void render() {
 		world.render();

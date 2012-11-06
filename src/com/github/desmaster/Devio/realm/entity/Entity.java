@@ -28,7 +28,7 @@ public class Entity {
 	public void render() {
 		texture.bind();
 		glLoadIdentity();
-		glTranslatef(x, y, 0);
+		glTranslatef(this.getXonScreen(), this.getYonScreen(), 0);
 		glBegin(GL_QUADS);
 			glTexCoord2f(0, 0);
 			glVertex2f(0, 0);
@@ -69,5 +69,11 @@ public class Entity {
 	public void setY(int y) {
 		this.y = y;
 	}
-
+	
+	public int getXonScreen(){
+		return x * 32;
+	}
+	public int getYonScreen(){
+		return y * 32;
+	}
 }

@@ -15,6 +15,7 @@ import org.lwjgl.opengl.Display;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
+import com.github.desmaster.Devio.util.Position;
 
 public class World {
 
@@ -58,13 +59,23 @@ public class World {
 
 	public Tile[][] getVisibleMap(Player player) {
 		
-		int playerXTile = player.x/32  - (int) Math.ceil(Realm.MAP_WIDTH/2);
-		int playerYTile = player.y/32  - (int) Math.ceil(Realm.MAP_HEIGHT/2);
+		Position offset = getVisibleMapOffsetPosition(player);
 		
-		if (playerXTile < 0) playerXTile = 0;
-		if (playerYTile < 0) playerYTile = 1;
+		return getSubArea(offset.getX(),offset.getY(),Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
+	}
+	
+	public Position getVisibleMapOffsetPosition(Player player) {
 		
-		return getSubArea(playerXTile,playerYTile,Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
+		int offsetXTile = player.x  - (int) Math.ceil(Realm.MAP_WIDTH/2);
+		int offsetYTile = player.y  - (int) Math.ceil(Realm.MAP_HEIGHT/2);
+		
+		if (offsetXTile < 0) offsetXTile = 0;
+		if (offsetYTile < 0) offsetYTile = 0;
+		
+		if (offsetXTile > Realm.WORLD_WIDTH - Realm.MAP_WIDTH) offsetXTile = Realm.WORLD_WIDTH - Realm.MAP_WIDTH;
+		if (offsetYTile > Realm.WORLD_HEIGHT - Realm.MAP_HEIGHT) offsetYTile = Realm.WORLD_HEIGHT - Realm.MAP_HEIGHT;
+		
+		return new Position(offsetXTile,offsetYTile);
 	}
 
 	public void render() {
