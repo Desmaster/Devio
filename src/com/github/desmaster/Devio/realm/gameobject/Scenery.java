@@ -23,12 +23,9 @@ public class Scenery {
 
 	public Scenery() {
 		Random r = null;
-		Random rr = null;
 		try {
 			r = SecureRandom.getInstance("SHA1PRNG");
 			r.setSeed(6548);
-			rr = SecureRandom.getInstance("SHA1PRNG");
-			rr.setSeed(6548);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,8 +33,8 @@ public class Scenery {
 		
 		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
 			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
-				int seed = r.nextInt(2);
-				if (rr.nextInt(2) < 2) {
+				int seed = r.nextInt(30);
+				if (seed < 2) {
 					if(seed == 0)
 					scenobjects[x][y] = GameObject.RED_FLOWER;
 					else if (seed == 1)
@@ -90,6 +87,7 @@ public class Scenery {
 		GameObject[][] SubArea = getVisibleMap(Screen.getPlayer());
 		for(int x = 0; x < SubArea.length; x++) {
 			for (int y = 0; y < SubArea[0].length; y++) {
+				if (!(SubArea[x][y] == null))
 				renderObject(x, y, SubArea[x][y]);
 			}
 		}
