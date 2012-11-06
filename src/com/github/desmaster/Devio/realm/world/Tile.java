@@ -26,7 +26,7 @@ public enum Tile {
 	public int y;
 
 	Tile(String name, boolean breakable, boolean solid,int TextureID) {
-		Console.log("initialized enum: " + name);
+		Console.log("Initialized Tile: " + name);
 		this.name = name;
 		this.breakable = breakable;
 		this.solid = solid;

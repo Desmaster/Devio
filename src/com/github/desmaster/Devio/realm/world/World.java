@@ -12,7 +12,6 @@ import java.util.zip.GZIPOutputStream;
 
 import org.lwjgl.opengl.Display;
 
-import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
@@ -33,6 +32,8 @@ public class World {
 				worldtiles[x][y] = Tile.GRASS;
 			}
 		}
+		worldtiles[1][1] = Tile.SAND;
+		worldtiles[1][2] = Tile.STONE;
 	}
 
 	public Tile getTile(int x, int y) {
@@ -56,8 +57,14 @@ public class World {
 	}
 
 	public Tile[][] getVisibleMap(Player player) {
-		// TODO stukje map die je kunt zien
-		return getSubArea(player.x - (int) Math.ceil(Realm.MAP_WIDTH/2),player.y - (int) Math.ceil(Realm.MAP_HEIGHT/2),Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
+		
+		int playerXTile = player.x/32  - (int) Math.ceil(Realm.MAP_WIDTH/2);
+		int playerYTile = player.y/32  - (int) Math.ceil(Realm.MAP_HEIGHT/2);
+		
+		if (playerXTile < 0) playerXTile = 0;
+		if (playerYTile < 0) playerYTile = 1;
+		
+		return getSubArea(playerXTile,playerYTile,Realm.MAP_WIDTH,Realm.MAP_HEIGHT);
 	}
 
 	public void render() {
