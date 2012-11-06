@@ -2,16 +2,6 @@ package com.github.desmaster.Devio.realm.world;
 
 import static org.lwjgl.opengl.GL11.*;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-
-import org.lwjgl.opengl.Display;
-
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
