@@ -9,9 +9,9 @@ import com.github.desmaster.Devio.cons.Console;
 
 public class iTexture {
 
-	public static final int ID_GRASS = 1;
-	public static final int ID_SAND = 2;
-	public static final int ID_WATER = 3;
+	public static final int ID_GRASS = 0;
+	public static final int ID_SAND = 1;
+	public static final int ID_WATER = 2;
 
 	public static final int ID_FLOWER_RED = 21;
 	public static final int ID_FLOWER_YELLOW = 22;
