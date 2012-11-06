@@ -19,17 +19,11 @@ import com.github.desmaster.Devio.util.Position;
 
 public class World {
 
-	public final int BLOCK_SIZE = 32;
-	public final int MAP_WIDTH = Display.getWidth() / BLOCK_SIZE;
-	public final int MAP_HEIGHT = Display.getHeight() / BLOCK_SIZE;
-	public final int WORLD_WIDTH = 1024;
-	public final int WORLD_HEIGHT = 1024;
-
-	Tile[][] worldtiles = new Tile[WORLD_WIDTH][WORLD_HEIGHT];
+	Tile[][] worldtiles = new Tile[Realm.WORLD_WIDTH][Realm.WORLD_HEIGHT];
 
 	public World() {
-		for (int x = 0; x < WORLD_WIDTH; x++) {
-			for (int y = 0; y < WORLD_HEIGHT; y++) {
+		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
+			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
 				worldtiles[x][y] = Tile.GRASS;
 			}
 		}
@@ -89,10 +83,10 @@ public class World {
 	
 	public void renderTile(int x, int y, Tile tile) {
 		tile.getTexture().bind();
-		x *= BLOCK_SIZE / 2;
-		y *= BLOCK_SIZE / 2;
-		int width = BLOCK_SIZE;
-		int height = BLOCK_SIZE;
+		x *= Realm.BLOCK_SIZE / 2;
+		y *= Realm.BLOCK_SIZE / 2;
+		int width = Realm.BLOCK_SIZE;
+		int height = Realm.BLOCK_SIZE;
 		glLoadIdentity();
 		glTranslatef(x, y, 0);
 		glBegin(GL_QUADS);
