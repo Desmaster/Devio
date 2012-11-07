@@ -3,9 +3,14 @@ package com.github.desmaster.Devio.realm.storage;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 import com.github.desmaster.Devio.realm.item.Item;
 
-public class Inventory {
+public class Inventory extends UserInterface {
+
+	public Inventory(String name) {
+		super(name);
+	}
 
 	public List<Item> items = new ArrayList<Item>();
 	
