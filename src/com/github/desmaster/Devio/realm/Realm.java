@@ -58,12 +58,4 @@ public class Realm {
 		return solid;
 		
 	}
-	public static String bool(boolean t)
-	{
-		if (t) {
-			return "true";
-		} else {
-			return "false";
-		}
-	}
 }
