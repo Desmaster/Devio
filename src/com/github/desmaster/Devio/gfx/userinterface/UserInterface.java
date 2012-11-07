@@ -19,4 +19,8 @@ public class UserInterface {
 	private Rectangle container = new Rectangle(0,0,0,0);
 	private Color color = Color.white;
 	
+	public UserInterface(String name) {
+		this.name = name;
+	}
+	
 }
