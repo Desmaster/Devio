@@ -105,7 +105,6 @@ public class Devio {
 				tick(delta);
 				scanInput();
 				render();
-				Display.sync(60);
 			}
 		}
 	}
@@ -141,6 +140,7 @@ public class Devio {
 		Screen.getPlayer().tick(delta);
 		screen.tick();
 		counter.tick();
+		screen.setConsole("derpx", true);
 	}
 	
 	public void scanInput() {
@@ -149,12 +149,8 @@ public class Devio {
 
 	public void render() {
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
-		GL11.glLoadIdentity();
-		GL11.glColor3f(0, 1, 1);
 		screen.render();
-		GL11.glEnd();
-		GL11.glLoadIdentity();
-		Console.drawString("abcdefghijklmnopqrstuvwxyz 0123456789", 50, 300);
+		Display.sync(60);
 	}
 
 	public static void main(String[] args) {
