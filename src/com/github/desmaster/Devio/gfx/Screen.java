@@ -6,6 +6,7 @@ import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.glBlendFunc;
 
 import com.github.desmaster.Devio.InputHandler;
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
@@ -17,6 +18,8 @@ public class Screen {
 	private Realm realm;
 	public static Player player;
 	private InputHandler input;
+	private boolean shouldRenderConsole = false;
+	private String consoleString;
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
@@ -27,10 +30,17 @@ public class Screen {
 	}
 
 	public void render() {
-		//Console.logC("derp");
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		realm.render();
 		player.render();
+		if(shouldRenderConsole)
+		Console.render();
+		shouldRenderConsole = false;
+	}
+	
+	public void setConsole(String s, boolean shouldRender) {
+		Console.setMessage(s);
+		shouldRenderConsole = shouldRender;
 	}
 
 	public static Player getPlayer() {

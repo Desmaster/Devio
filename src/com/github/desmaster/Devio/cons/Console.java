@@ -8,6 +8,17 @@ import org.newdawn.slick.Color;
 
 public class Console {
 	
+	private static String msg;
+	
+	public static void render() {
+		drawString(msg, 50, 50);
+		msg = "";
+	}
+	
+	public void setString(String s) {
+		msg = s;
+	}
+	
 	public static void log(String msg) {
 		System.out.println("Console: " + msg);
 	}
@@ -22,7 +33,7 @@ public class Console {
 		int startX = x;
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glBegin(GL11.GL_POINTS);
-		GL11.glColor3f(1, 1, 1);
+		GL11.glColor4f(1, 1, 1, 0.5f);
 		GL11.glLoadIdentity();
 		for (char c : s.toLowerCase().toCharArray()) {
 			if (c == 'a') {
@@ -495,7 +506,12 @@ public class Console {
 			}
 		}
 		GL11.glEnd();
+		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
+
+	public static void setMessage(String s) {
+		msg = s;
+	} 
 
 }
