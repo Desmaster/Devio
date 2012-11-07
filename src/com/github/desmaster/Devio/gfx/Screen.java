@@ -1,6 +1,10 @@
 package com.github.desmaster.Devio.gfx;
 
 
+import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.glBlendFunc;
+
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
@@ -24,6 +28,7 @@ public class Screen {
 
 	public void render() {
 		//Console.logC("derp");
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		realm.render();
 		player.render();
 	}
