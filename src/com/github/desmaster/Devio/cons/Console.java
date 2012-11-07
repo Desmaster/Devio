@@ -7,28 +7,28 @@ import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 
 public class Console {
-	
+
 	private static String msg;
-	
+
 	public static void render() {
 		drawString(msg, 50, 50);
 		msg = "";
 	}
-	
+
 	public void setString(String s) {
 		msg = s;
 	}
-	
+
 	public static void log(String msg) {
 		System.out.println("Console: " + msg);
 	}
-	
+
 	public static void logC(String msg) {
 		log(msg);
 		Color.white.bind();
 		drawString(msg, 50, 50);
 	}
-	
+
 	public static void drawString(String s, int x, int y) {
 		int startX = x;
 		GL11.glDisable(GL11.GL_BLEND);
@@ -329,11 +329,11 @@ public class Console {
 				x += 8;
 			} else if (c == 'x') {
 				int yy = y - 8;
-				for(int i=1;i<=7;i++)
-					GL11.glVertex2f(x+i, yy + i);
-				for(int i=7;i>=1;i--)
-					GL11.glVertex2f(x+i, y-i);
-				x+=8;
+				for (int i = 1; i <= 7; i++)
+					GL11.glVertex2f(x + i, yy + i);
+				for (int i = 7; i >= 1; i--)
+					GL11.glVertex2f(x + i, y - i);
+				x += 8;
 			} else if (c == 'y') {
 				GL11.glVertex2f(x + 4, y);
 				GL11.glVertex2f(x + 4, y - 1);
@@ -505,6 +505,7 @@ public class Console {
 				x += 8;
 			}
 		}
+		GL11.glColor4f(1, 1, 1, 1);
 		GL11.glEnd();
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -512,6 +513,6 @@ public class Console {
 
 	public static void setMessage(String s) {
 		msg = s;
-	} 
+	}
 
 }
