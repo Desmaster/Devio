@@ -8,8 +8,8 @@ import com.github.desmaster.Devio.realm.item.Item;
 
 public class Inventory extends UserInterface {
 
-	public Inventory(String name) {
-		super(name);
+	public Inventory() {
+		super("Inventory");
 	}
 
 	public List<Item> items = new ArrayList<Item>();
