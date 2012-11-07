@@ -11,7 +11,6 @@ import com.github.desmaster.Devio.util.Position;
 
 public class Player extends Mob {
 
-	private int walkspeed = 1;
 	boolean running = false;
 	Thread thread;
 
@@ -54,34 +53,6 @@ public class Player extends Mob {
 			walkRight();
 		}
 
-	}
-
-	public void walkUp() {
-		face = 0;
-		if (!(y == 0))
-			if (!Realm.isTileSolid(new Position(x,y-walkspeed)))
-				y -= walkspeed;
-	}
-
-	public void walkDown() {
-		face = 2;
-		if (!(y == Realm.WORLD_HEIGHT))
-			if (!Realm.isTileSolid(new Position(x,y+walkspeed)))
-				y += walkspeed;
-	}
-
-	public void walkLeft() {
-		face = 3;
-		if (!(x == 0))
-			if (!Realm.isTileSolid(new Position(x-walkspeed,y)))
-				x -= walkspeed;
-	}
-
-	public void walkRight() {
-		face = 1;
-		if (!(x == Realm.WORLD_WIDTH))
-			if (!Realm.isTileSolid(new Position(x+walkspeed,y)))
-				x += walkspeed;
 	}
 
 	public int getDelta() {
