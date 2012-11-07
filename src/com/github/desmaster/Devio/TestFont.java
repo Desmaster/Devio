@@ -1,5 +1,4 @@
 package com.github.desmaster.Devio;
-
 import java.awt.Font;
 import java.io.InputStream;
  
@@ -11,8 +10,6 @@ import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.util.ResourceLoader;
-
-import com.github.desmaster.Devio.cons.Console;
  
 public class TestFont {
  
@@ -29,11 +26,18 @@ public class TestFont {
 	public void start() {
 		initGL(800,600);
 		init();
-		
+ 
 		while (true) {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			render();
-			System.out.println("Initialized TestFont.java");
+ 
+			Display.update();
+			Display.sync(100);
+ 
+			if (Display.isCloseRequested()) {
+				Display.destroy();
+				System.exit(0);
+			}
 		}
 	}
  
@@ -78,15 +82,15 @@ public class TestFont {
 	 */
 	public void init() {
 		// load a default java font
-		Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
+		Font awtFont = new Font("Times New Roman", Font.BOLD, 16);
 		font = new TrueTypeFont(awtFont, antiAlias);
  
 		// load font from file
 		try {
-			InputStream inputStream	= ResourceLoader.getResourceAsStream("Times_New_Roman.ttf");
+			InputStream inputStream	= ResourceLoader.getResourceAsStream("myfont.ttf");
  
 			Font awtFont2 = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-			awtFont2 = awtFont2.deriveFont(24f); // set font size
+			awtFont2 = awtFont2.deriveFont(16f); // set font size
 			font2 = new TrueTypeFont(awtFont2, antiAlias);
  
 		} catch (Exception e) {
@@ -101,7 +105,14 @@ public class TestFont {
 		Color.white.bind();
  
 		font.drawString(100, 50, "THE LIGHTWEIGHT JAVA GAMES LIBRARY", Color.yellow);
-		font2.drawString(100, 100, "NICE LOOKING FONTS!", Color.green);
+		//font2.drawString(100, 100, "NICE LOOKING FONTS!", Color.green);
 	}
-
+ 
+	/**
+	 * Main method
+	 */
+	public static void main(String[] argv) {
+		TestFont fontExample = new TestFont();
+		fontExample.start();
+	}
 }
