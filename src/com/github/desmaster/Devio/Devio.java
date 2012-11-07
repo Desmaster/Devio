@@ -88,10 +88,10 @@ public class Devio {
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(0, Display.getWidth(), Display.getHeight(), 0, 1, -1);
-		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D); // Enable 2D Texture Rendering
 		glEnable(GL_BLEND); // Enable GL Blending
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // You need to enable blending to allow transparent bits on an image when using OpenGL.
+		glMatrixMode(GL_MODELVIEW);
 	}
 
 	public void run() {
@@ -104,7 +104,8 @@ public class Devio {
 			} else {
 				tick(delta);
 				scanInput();
-				render(); 
+				render();
+				Display.sync(60);
 			}
 		}
 	}
@@ -147,9 +148,13 @@ public class Devio {
 	}
 
 	public void render() {
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+		GL11.glLoadIdentity();
+		GL11.glColor3f(0, 1, 1);
 		screen.render();
-		Display.sync(60);
+		GL11.glEnd();
+		GL11.glLoadIdentity();
+		Console.drawString("abcdefghijklmnopqrstuvwxyz 0123456789", 50, 300);
 	}
 
 	public static void main(String[] args) {
