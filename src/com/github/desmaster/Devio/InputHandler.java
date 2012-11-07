@@ -45,7 +45,8 @@ public class InputHandler {
 	public Key up = new Key();
 	public Key down = new Key();
 	public Key exit = new Key();
-
+	public Key grave = new Key();
+	
 	public InputHandler(Devio game) {
 		// this.game = game;
 	} 
@@ -90,6 +91,9 @@ public class InputHandler {
 			down.toggle(pressed);
 			break;
 		case Keyboard.KEY_ESCAPE:
+			exit.toggle(pressed);
+			break;
+		case Keyboard.KEY_GRAVE:
 			exit.toggle(pressed);
 			break;
 		}
