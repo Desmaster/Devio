@@ -7,6 +7,7 @@ import static org.lwjgl.opengl.GL11.glBlendFunc;
 
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.userinterface.UserInterfaceHandeler;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
@@ -17,9 +18,10 @@ public class Screen {
 	private iTexture texture;
 	private Realm realm;
 	public static Player player;
-	private InputHandler input;
+	private static InputHandler input;
 	private boolean shouldRenderConsole = false;
 	private String consoleString;
+	private UserInterfaceHandeler interfacehandeler = new UserInterfaceHandeler();
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
@@ -36,6 +38,7 @@ public class Screen {
 		if(shouldRenderConsole)
 		Console.render();
 		shouldRenderConsole = false;
+		interfacehandeler.render();
 	}
 	
 	public void setConsole(String s, boolean shouldRender) {
@@ -48,6 +51,7 @@ public class Screen {
 	}
 
 	public void tick() {
+		interfacehandeler.tick();
 		realm.tick();
 	}
 
@@ -59,7 +63,7 @@ public class Screen {
 		this.texture = texture;
 	}
 
-	public InputHandler getInput() {
+	public static InputHandler getInput() {
 		return input;
 	}
 
