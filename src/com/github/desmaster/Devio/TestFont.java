@@ -112,7 +112,7 @@ public class TestFont {
 	 * Main method
 	 */
 	public static void main(String[] argv) {
-		TestFont fontExample = new TestFont();
-		fontExample.start();
+		//TestFont fontExample = new TestFont();
+		//fontExample.start();
 	}
 }
