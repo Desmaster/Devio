@@ -100,7 +100,6 @@ public class Devio {
 			Display.update();
 			if (Display.isCloseRequested()) {
 				stop();
-				
 			} else {
 				tick(delta);
 				scanInput();
