@@ -7,6 +7,7 @@ import static org.lwjgl.opengl.GL11.GL_PROJECTION;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.glBlendFunc;
+import static org.lwjgl.opengl.GL11.glColor3f;
 import static org.lwjgl.opengl.GL11.glEnable;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
@@ -20,8 +21,9 @@ import org.lwjgl.opengl.GL11;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.gfx.Screen;
-import com.github.desmaster.Devio.util.*;
-
+import com.github.desmaster.Devio.util.Counter;
+import com.github.desmaster.Devio.util.Position;
+import com.github.desmaster.Devio.util.iFile;
 
 public class Devio {
 
@@ -31,7 +33,7 @@ public class Devio {
 	public static int HEIGHT;
 	public static final String TITLE = "Devio";
 	private boolean fullscreen = false;
-	
+
 	int fps;
 	long lastFrame;
 	long lastFPS;
@@ -43,8 +45,8 @@ public class Devio {
 	private InputHandler input = new InputHandler(this);
 	private iFile file;
 	public static Position spawnPosition;
-	//private Player player;
-	
+
+	// private Player player;
 
 	public Devio() {
 		file = new iFile();
@@ -76,9 +78,10 @@ public class Devio {
 	}
 
 	private void initObjects() {
-		spawnPosition = new Position(2,2);
-		//spawnPosition = new Position(Display.getWidth() / 64, 5);
-		//spawnPosition = new Position((Display.getWidth() / 2) - 16, (Display.getHeight() / 2) - 16);
+		spawnPosition = new Position(999, 980);
+		// spawnPosition = new Position(Display.getWidth() / 64, 5);
+		// spawnPosition = new Position((Display.getWidth() / 2) - 16,
+		// (Display.getHeight() / 2) - 16);
 		screen = new Screen(input);
 		counter = new Counter();
 		counter.start();
@@ -88,9 +91,14 @@ public class Devio {
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(0, Display.getWidth(), Display.getHeight(), 0, 1, -1);
+		glColor3f(1, 1, 0);
 		glEnable(GL_TEXTURE_2D); // Enable 2D Texture Rendering
 		glEnable(GL_BLEND); // Enable GL Blending
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // You need to enable blending to allow transparent bits on an image when using OpenGL.
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // You need to enable
+															// blending to allow
+															// transparent bits
+															// on an image when
+															// using OpenGL.
 		glMatrixMode(GL_MODELVIEW);
 	}
 
@@ -122,7 +130,7 @@ public class Devio {
 		Console.log("Destroyed the screen");
 		System.exit(0);
 	}
-	
+
 	public long getTime() {
 		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
 	}
@@ -133,7 +141,7 @@ public class Devio {
 		lastFrame = time;
 		return delta;
 	}
-	
+
 	public void tick(int delta) {
 		input.tick();
 		Screen.getPlayer().tick(delta);
@@ -141,9 +149,10 @@ public class Devio {
 		counter.tick();
 		screen.setConsole("derpx", true);
 	}
-	
+
 	public void scanInput() {
-		if (input.exit.clicked) stop();
+		if (input.exit.clicked)
+			stop();
 	}
 
 	public void render() {
