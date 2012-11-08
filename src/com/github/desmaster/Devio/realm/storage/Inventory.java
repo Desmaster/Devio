@@ -8,11 +8,11 @@ import com.github.desmaster.Devio.realm.item.Item;
 
 public class Inventory extends UserInterface {
 
+	public List<Item> items = new ArrayList<Item>();
+	
 	public Inventory() {
 		super("Inventory");
 	}
-
-	public List<Item> items = new ArrayList<Item>();
 	
 	public void add(int slot, Item item) {
 		items.add(slot, item);
