@@ -4,10 +4,11 @@ package com.github.desmaster.Devio.gfx;
 import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.glBlendFunc;
+import static org.lwjgl.opengl.GL11.glColor4f;
 
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.cons.Console;
-import com.github.desmaster.Devio.gfx.userinterface.UserInterfaceHandeler;
+import com.github.desmaster.Devio.gfx.userinterface.UserInterfaceHandler;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.tex.iTexture;
@@ -21,7 +22,7 @@ public class Screen {
 	private static InputHandler input;
 	private boolean shouldRenderConsole = false;
 	private String consoleString;
-	private UserInterfaceHandeler interfacehandeler = new UserInterfaceHandeler();
+	private UserInterfaceHandler interfacehandler = new UserInterfaceHandler();
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
@@ -33,12 +34,13 @@ public class Screen {
 
 	public void render() {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//glColor4f(1, 1, 1, 1);
 		realm.render();
 		player.render();
 		if(shouldRenderConsole)
 		Console.render();
 		shouldRenderConsole = false;
-		interfacehandeler.render();
+		interfacehandler.render();
 	}
 	
 	public void setConsole(String s, boolean shouldRender) {
@@ -51,7 +53,7 @@ public class Screen {
 	}
 
 	public void tick() {
-		interfacehandeler.tick();
+		interfacehandler.tick();
 		realm.tick();
 	}
 
