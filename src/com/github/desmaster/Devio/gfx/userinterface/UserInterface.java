@@ -38,7 +38,6 @@ public class UserInterface {
 				glVertex2i(container.getX() + container.getWidth(), container.getY() + container.getHeight());
 				glVertex2i(container.getX(), container.getY() + container.getHeight());
 			glEnd();
-			glLoadIdentity();
 			
 		}
 	}
