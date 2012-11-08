@@ -1,8 +1,12 @@
 package com.github.desmaster.Devio.gfx.userinterface;
 
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.glVertex2i;
 
-import org.lwjgl.util.Color;
 import org.lwjgl.util.Rectangle;
 
 public class UserInterface {
@@ -15,7 +19,6 @@ public class UserInterface {
 
 	// Look & Feel
 	protected Rectangle container;
-	protected Color color = (Color) Color.WHITE;
 
 	public UserInterface(String name) {
 		this.name = name;
