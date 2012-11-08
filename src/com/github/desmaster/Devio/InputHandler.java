@@ -94,18 +94,17 @@ public class InputHandler {
 			exit.toggle(pressed);
 			break;
 		case Keyboard.KEY_GRAVE:
-			exit.toggle(pressed);
+			grave.toggle(pressed);
 			break;
 		}
 	}
 	
 	public void pollInput() {
-
 		while (Keyboard.next()) {
 			if (Keyboard.getEventKeyState()) {
 				toggle(Keyboard.getEventKey(), true);
 			} else {
-				toggle(Keyboard.getEventKey(), false);;
+				toggle(Keyboard.getEventKey(), false);
 			}
 		}
 	}
