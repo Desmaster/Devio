@@ -20,7 +20,12 @@ public class iTexture {
 	public static final int ID_STONE = 51;
 	public static final int ID_COBBLESTONE = 52;
 	
-	public static final int ID_BRICK_WALL = 61;
+	public static final int ID_BRICK_WALL = 59;
+	
+	public static final int ID_BRICK_WALL_0 = 60;
+	public static final int ID_BRICK_WALL_1 = 61;
+	public static final int ID_BRICK_WALL_2 = 62;
+	public static final int ID_BRICK_WALL_3 = 63;
 
 	public static Texture TEST_TEXTURE = null;
 	public static Texture[] textures = new Texture[255];
@@ -61,6 +66,18 @@ public class iTexture {
 				break;
 			case ID_BRICK_WALL:
 				textures[i] = getTexture("brickwall", "png");
+				break;
+			case ID_BRICK_WALL_0:
+				textures[i] = getTexture("60_0", "png");
+				break;
+			case ID_BRICK_WALL_1:
+				textures[i] = getTexture("60_1", "png");
+				break;
+			case ID_BRICK_WALL_2:
+				textures[i] = getTexture("60_2", "png");
+				break;
+			case ID_BRICK_WALL_3:
+				textures[i] = getTexture("60_3", "png");
 				break;
 			}
 		}
