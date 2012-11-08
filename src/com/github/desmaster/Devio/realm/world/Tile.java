@@ -10,7 +10,7 @@ public enum Tile {
 	SAND("Sand", false, false, false, false, false, iTexture.ID_SAND),
 	STONE("Stone", false, false, false, false, false, iTexture.ID_STONE),
 	COBBLE_STONE("Cobblestone", false, false, false, false, false, iTexture.ID_COBBLESTONE),
-	MOSSY_STONE("Mossy_Cobblestone", false, true, true ,true ,true , iTexture.ID_MOSS_STONE),
+	MOSSY_STONE("Mossy_Cobblestone", false, false, true ,true ,true , iTexture.ID_MOSS_STONE),
 	WATER("Water", false, false, false, false, false, iTexture.ID_WATER);
 
 	private String name;
@@ -45,8 +45,8 @@ public enum Tile {
 		return breakable;
 	}
 
-	public boolean isSolid() {
-		return solid[0] || solid[1] || solid[2] || solid[3];
+	public boolean checkCollision(int face) {
+		return solid[face];
 	}
 
 	public Texture getTexture() {
