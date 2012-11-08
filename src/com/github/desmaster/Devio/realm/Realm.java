@@ -9,12 +9,11 @@ import com.github.desmaster.Devio.realm.world.World;
 import com.github.desmaster.Devio.util.Position;
 
 public class Realm {
-
 	public static final int BLOCK_SIZE = 32;
 	public static final int MAP_WIDTH = Display.getWidth() / BLOCK_SIZE;
 	public static final int MAP_HEIGHT = Display.getHeight() / BLOCK_SIZE;
-	public static final int WORLD_WIDTH = 800;
-	public static final int WORLD_HEIGHT = 600;
+	public static final int WORLD_WIDTH = 1024;
+	public static final int WORLD_HEIGHT = 1024;
 
 	public Player player;
 
