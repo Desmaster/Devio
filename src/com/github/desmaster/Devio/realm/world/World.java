@@ -5,6 +5,7 @@ import static org.lwjgl.opengl.GL11.*;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
+import com.github.desmaster.Devio.realm.gameobject.GameObject;
 import com.github.desmaster.Devio.util.Position;
 
 public class World {
@@ -28,6 +29,32 @@ public class World {
 		worldtiles[3][1] = Tile.STONE;
 		worldtiles[3][2] = Tile.STONE;
 		worldtiles[3][3] = Tile.STONE;
+		
+		worldtiles[6][1] = Tile.SAND;
+		worldtiles[6][2] = Tile.SAND;
+		worldtiles[6][3] = Tile.SAND;
+		worldtiles[6][4] = Tile.SAND;
+		worldtiles[6][5] = Tile.SAND;
+		worldtiles[7][1] = Tile.SAND;
+		worldtiles[7][2] = Tile.SAND;
+		worldtiles[7][3] = Tile.SAND;
+		worldtiles[7][4] = Tile.SAND;
+		worldtiles[7][5] = Tile.SAND;
+		worldtiles[8][1] = Tile.SAND;
+		worldtiles[8][2] = Tile.SAND;
+		worldtiles[8][3] = Tile.SAND;
+		worldtiles[8][4] = Tile.SAND;
+		worldtiles[8][5] = Tile.SAND;
+		worldtiles[9][1] = Tile.SAND;
+		worldtiles[9][2] = Tile.SAND;
+		worldtiles[9][3] = Tile.SAND;
+		worldtiles[9][4] = Tile.SAND;
+		worldtiles[9][5] = Tile.SAND;
+		worldtiles[10][1] = Tile.SAND;
+		worldtiles[10][2] = Tile.SAND;
+		worldtiles[10][3] = Tile.SAND;
+		worldtiles[10][4] = Tile.SAND;
+		worldtiles[10][5] = Tile.SAND;
 	}
 
 	public Tile getTile(int x, int y) {

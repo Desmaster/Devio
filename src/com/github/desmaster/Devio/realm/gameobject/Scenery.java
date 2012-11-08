@@ -37,21 +37,21 @@ public class Scenery {
 			}
 		}
 
-		scenobjects[7][1] = GameObject.BRICK_WALL;
-		scenobjects[7][5] = GameObject.BRICK_WALL;
-		scenobjects[8][1] = GameObject.BRICK_WALL;
-		scenobjects[9][1] = GameObject.BRICK_WALL;
-		scenobjects[9][5] = GameObject.BRICK_WALL;
-		scenobjects[10][1] = GameObject.BRICK_WALL;
-		scenobjects[10][2] = GameObject.BRICK_WALL;
-		scenobjects[10][3] = GameObject.BRICK_WALL;
-		scenobjects[10][4] = GameObject.BRICK_WALL;
-		scenobjects[10][5] = GameObject.BRICK_WALL;
-		scenobjects[6][1] = GameObject.BRICK_WALL;
-		scenobjects[6][2] = GameObject.BRICK_WALL;
-		scenobjects[6][3] = GameObject.BRICK_WALL;
-		scenobjects[6][4] = GameObject.BRICK_WALL;
-		scenobjects[6][5] = GameObject.BRICK_WALL;
+		scenobjects[7][1] = GameObject.BRICK_WALL_0;
+		scenobjects[7][5] = GameObject.BRICK_WALL_2;
+		scenobjects[8][1] = GameObject.BRICK_WALL_0;
+		scenobjects[9][1] = GameObject.BRICK_WALL_0;
+		scenobjects[9][5] = GameObject.BRICK_WALL_2;
+		scenobjects[10][1] = GameObject.BRICK_WALL; //corner
+		scenobjects[10][2] = GameObject.BRICK_WALL_1;
+		scenobjects[10][3] = GameObject.BRICK_WALL_1;
+		scenobjects[10][4] = GameObject.BRICK_WALL_1;
+		scenobjects[10][5] = GameObject.BRICK_WALL; //Corner
+		scenobjects[6][1] = GameObject.BRICK_WALL; //corner
+		scenobjects[6][2] = GameObject.BRICK_WALL_3;
+		scenobjects[6][3] = GameObject.BRICK_WALL_3;
+		scenobjects[6][4] = GameObject.BRICK_WALL_3;
+		scenobjects[6][5] = GameObject.BRICK_WALL; //corner
 	}
 
 	public GameObject getObject(int x, int y) {
