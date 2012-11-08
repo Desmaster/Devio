@@ -78,7 +78,7 @@ public class Devio {
 	}
 
 	private void initObjects() {
-		spawnPosition = new Position(999, 980);
+		spawnPosition = new Position(2, 2);
 		// spawnPosition = new Position(Display.getWidth() / 64, 5);
 		// spawnPosition = new Position((Display.getWidth() / 2) - 16,
 		// (Display.getHeight() / 2) - 16);
