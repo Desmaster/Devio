@@ -1,55 +1,50 @@
 package com.github.desmaster.Devio.gfx.userinterface;
 
 import static org.lwjgl.opengl.GL11.*;
-import java.awt.Color;
 
+import org.lwjgl.util.Color;
 import org.lwjgl.util.Rectangle;
-
-import com.github.desmaster.Devio.realm.Realm;
 
 public class UserInterface {
 
-	//State
+	// State
 	protected boolean active = false;
-	
-	//Info
+
+	// Info
 	protected String name = "Undefined";
-	
-	//Look & Feel
-	protected Rectangle container = new Rectangle(0,0,0,0);
-	protected Color color = Color.white;
-	
+
+	// Look & Feel
+	protected Rectangle container;
+	protected Color color = (Color) Color.WHITE;
+
 	public UserInterface(String name) {
 		this.name = name;
 	}
-	
-	public void tick(){
-		
+
+	public void tick() {
+		//glColor4f(0.4f, 0.4f, 0.4f, 1);
 	}
-	
-	public void render(){
-		if (this.active == true){
+
+	public void render() {
+		if (active) {
 			glLoadIdentity();
 			glTranslatef(container.getX(), container.getY(), 0);
-			glColor4f(color.getRed()/255,color.getGreen()/255,color.getBlue()/255,color.getAlpha()/255);
 			glBegin(GL_QUADS);
-				glTexCoord2f(0, 0);
-				glVertex2f(container.getX(), container.getY());
-				glTexCoord2f(1, 0);
-				glVertex2f(container.getX() + container.getWidth(), container.getY());
-				glTexCoord2f(1, 1);
-				glVertex2f(container.getX() + container.getWidth(), container.getY() + container.getHeight());
-				glTexCoord2f(0, 1);
-				glVertex2f(container.getX(), container.getY() + container.getHeight());
+				glVertex2i(container.getX(), container.getY());
+				glVertex2i(container.getX() + container.getWidth(), container.getY());
+				glVertex2i(container.getX() + container.getWidth(), container.getY() + container.getHeight());
+				glVertex2i(container.getX(), container.getY() + container.getHeight());
 			glEnd();
-			glLoadIdentity();			
+			glLoadIdentity();
+			
 		}
 	}
-	
-	public void open(){
-		this.active = true;
+
+	public void open() {
+		active = true;
 	}
-	public void close(){
-		this.active = false;
+
+	public void close() {
+		active = false;
 	}
 }
