@@ -11,7 +11,7 @@ public class Interface_Console extends UserInterface {
 
 	public Interface_Console() {
 		super("Console");
-		container = new Rectangle(0, 0, Display.getWidth(), (Display.getWidth() / 2) - 150);
+		container = new Rectangle(0, 0, Display.getWidth(), (Display.getHeight() /4));
 		//color = new Color(255, 255, 255, 255);
 	}
 

@@ -1,11 +1,6 @@
 package com.github.desmaster.Devio.gfx.userinterface;
 
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.glBegin;
-import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
-import static org.lwjgl.opengl.GL11.glTranslatef;
-import static org.lwjgl.opengl.GL11.glVertex2i;
+import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.util.Rectangle;
 
@@ -25,20 +20,22 @@ public class UserInterface {
 	}
 
 	public void tick() {
-		//glColor4f(0.4f, 0.4f, 0.4f, 1);
 	}
 
 	public void render() {
 		if (active) {
 			glLoadIdentity();
+			glDisable(GL_TEXTURE_2D);
 			glTranslatef(container.getX(), container.getY(), 0);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 			glBegin(GL_QUADS);
 				glVertex2i(container.getX(), container.getY());
 				glVertex2i(container.getX() + container.getWidth(), container.getY());
 				glVertex2i(container.getX() + container.getWidth(), container.getY() + container.getHeight());
 				glVertex2i(container.getX(), container.getY() + container.getHeight());
 			glEnd();
-			
+			glDisable(GL_BLEND);
 		}
 	}
 
