@@ -10,7 +10,7 @@ public enum Tile {
 	SAND("Sand", false, false, false, false, false, iTexture.ID_SAND),
 	STONE("Stone", false, false, false, false, false, iTexture.ID_STONE),
 	COBBLE_STONE("Cobblestone", false, false, false, false, false, iTexture.ID_COBBLESTONE),
-	MOSSY_STONE("Mossy_Cobblestone", false, false, true ,true ,true , iTexture.ID_MOSS_STONE),
+	MOSSY_STONE("Mossy_Cobblestone", false, false, false ,false ,false , iTexture.ID_MOSS_STONE),
 	WATER("Water", false, false, false, false, false, iTexture.ID_WATER);
 
 	private String name;
