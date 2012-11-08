@@ -28,28 +28,28 @@ public class Mob extends Entity {
 	public void walkUp() {
 		face = 0;
 		if (!(y == 0))
-			if (!Realm.isTileSolid(new Position(x,y-walkspeed)))
+			if (!Realm.checkCollision(new Position(x,y),face))
 				y -= walkspeed;
 	}
 
 	public void walkDown() {
 		face = 2;
 		if (!(y == Realm.WORLD_HEIGHT))
-			if (!Realm.isTileSolid(new Position(x,y+walkspeed)))
+			if (!Realm.checkCollision(new Position(x,y),face))
 				y += walkspeed;
 	}
 
 	public void walkLeft() {
 		face = 3;
 		if (!(x == 0))
-			if (!Realm.isTileSolid(new Position(x-walkspeed,y)))
+			if (!Realm.checkCollision(new Position(x,y),face))
 				x -= walkspeed;
 	}
 
 	public void walkRight() {
 		face = 1;
 		if (!(x == Realm.WORLD_WIDTH))
-			if (!Realm.isTileSolid(new Position(x+walkspeed,y)))
+			if (!Realm.checkCollision(new Position(x,y),face))
 				x += walkspeed;
 	}
 }
