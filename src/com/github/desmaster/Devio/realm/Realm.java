@@ -34,63 +34,76 @@ public class Realm {
 	}
 
 	public void tick() {
-		
+
 	}
 
 	public void addPlayer(Player player) {
-		this.player = player; 
+		this.player = player;
 	}
-	
-	public static boolean checkCollision(Position p,int face)
-	{
+
+	public static boolean checkCollision(Position p, int face) {
 		boolean solid = false;
-		
-		if (face == 0){ // UP
-			if (world.getTile(p.getX(), p.getY()).checkCollision(0)) solid = true;
-			if (world.getTile(p.getX(), p.getY()-1).checkCollision(2)) solid = true;
-			if (!(sc.getObject(p.getX(), p.getY()) == null)){
-				if (sc.getObject(p.getX(), p.getY()).checkCollision(0)) solid = true;
+
+		if (face == 0) { // UP
+			if (world.getTile(p.getX(), p.getY()).checkCollision(0))
+				solid = true;
+			if (world.getTile(p.getX(), p.getY() - 1).checkCollision(2))
+				solid = true;
+			if (!(sc.getObject(p.getX(), p.getY()) == null)) {
+				if (sc.getObject(p.getX(), p.getY()).checkCollision(0))
+					solid = true;
 			}
-			if (!(sc.getObject(p.getX(), p.getY()-1) == null)){
-				if (sc.getObject(p.getX(), p.getY()-1).checkCollision(2)) solid = true;
+			if (!(sc.getObject(p.getX(), p.getY() - 1) == null)) {
+				if (sc.getObject(p.getX(), p.getY() - 1).checkCollision(2))
+					solid = true;
 			}
 		}
-		
-		if (face == 1){ // Right
-			if (world.getTile(p.getX(), p.getY()).checkCollision(1)) solid = true;
-			if (world.getTile(p.getX()+1, p.getY()).checkCollision(3)) solid = true;
-			if (!(sc.getObject(p.getX(), p.getY()) == null)){
-				if (sc.getObject(p.getX(), p.getY()).checkCollision(1)) solid = true;
+
+		if (face == 1) { // Right
+			if (world.getTile(p.getX(), p.getY()).checkCollision(1))
+				solid = true;
+			if (world.getTile(p.getX() + 1, p.getY()).checkCollision(3))
+				solid = true;
+			if (!(sc.getObject(p.getX(), p.getY()) == null)) {
+				if (sc.getObject(p.getX(), p.getY()).checkCollision(1))
+					solid = true;
 			}
-			if (!(sc.getObject(p.getX()+1, p.getY()) == null)){
-				if (sc.getObject(p.getX()+1, p.getY()).checkCollision(3)) solid = true;
+			if (!(sc.getObject(p.getX() + 1, p.getY()) == null)) {
+				if (sc.getObject(p.getX() + 1, p.getY()).checkCollision(3))
+					solid = true;
 			}
-			
+
 		}
-		
-		if (face == 2){ // Down
-			if (world.getTile(p.getX(), p.getY()).checkCollision(2)) solid = true;
-			if (world.getTile(p.getX(), p.getY()+1).checkCollision(0)) solid = true;
-			if (!(sc.getObject(p.getX(), p.getY()) == null)){
-				if (sc.getObject(p.getX(), p.getY()).checkCollision(2)) solid = true;
+
+		if (face == 2) { // Down
+			if (world.getTile(p.getX(), p.getY()).checkCollision(2))
+				solid = true;
+			if (world.getTile(p.getX(), p.getY() + 1).checkCollision(0))
+				solid = true;
+			if (!(sc.getObject(p.getX(), p.getY()) == null)) {
+				if (sc.getObject(p.getX(), p.getY()).checkCollision(2))
+					solid = true;
 			}
-			if (!(sc.getObject(p.getX(), p.getY()+1) == null)){
-				if (sc.getObject(p.getX(), p.getY()+1).checkCollision(0)) solid = true;
-			}			
-		}
-		
-		if (face == 3){ // Right
-			if (world.getTile(p.getX(), p.getY()).checkCollision(3)) solid = true;
-			if (world.getTile(p.getX()-1, p.getY()).checkCollision(1)) solid = true;
-			if (!(sc.getObject(p.getX(), p.getY()) == null)){
-				if (sc.getObject(p.getX(), p.getY()).checkCollision(3)) solid = true;
+			if (!(sc.getObject(p.getX(), p.getY() + 1) == null)) {
+				if (sc.getObject(p.getX(), p.getY() + 1).checkCollision(0))
+					solid = true;
 			}
-			if (!(sc.getObject(p.getX()-1, p.getY()) == null)){
-				if (sc.getObject(p.getX()-1, p.getY()).checkCollision(1)) solid = true;
-			}			
 		}
-		
+
+		if (face == 3) { // Right
+			if (world.getTile(p.getX(), p.getY()).checkCollision(3))
+				solid = true;
+			if (world.getTile(p.getX() - 1, p.getY()).checkCollision(1))
+				solid = true;
+			if (!(sc.getObject(p.getX(), p.getY()) == null)) {
+				if (sc.getObject(p.getX(), p.getY()).checkCollision(3))
+					solid = true;
+			}
+			if (!(sc.getObject(p.getX() - 1, p.getY()) == null)) {
+				if (sc.getObject(p.getX() - 1, p.getY()).checkCollision(1))
+					solid = true;
+			}
+		}
 		return solid;
-		
 	}
 }
