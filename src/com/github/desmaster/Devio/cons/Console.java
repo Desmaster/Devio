@@ -74,6 +74,7 @@ public class Console extends UserInterface {
 		if (active) {
 			renderContainer();
 			renderConsole();
+			renderInputText();
 			drawString(msg, textRenderX, textRenderY);
 			msg = "";
 		}
@@ -115,13 +116,13 @@ public class Console extends UserInterface {
 	public void renderInputText() {
 		glLoadIdentity();
 		glDisable(GL_TEXTURE_2D);
-		glColor4f(0.05f, 0.05f, 0.05f, 0.8f);
+		glColor4f(0.05f, 0.05f, 0.05f, 0.5f);
 		glTranslatef(container.getX(), container.getY(), 0);
 		glBegin(GL_QUADS);
-		glVertex2i(container.getX() + 10, container.getY() + 10);
-		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
-		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
-		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
+		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 7);
+		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 7);
+		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 33);
+		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 33);
 		glEnd();
 	}
 
