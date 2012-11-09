@@ -48,6 +48,7 @@ public class InputHandler {
 	public Key down = new Key();
 	public Key exit = new Key();
 	public Key grave = new Key();
+	public Key backspace = new Key();
 
 	public InputHandler(Devio game) {
 		// this.game = game;
@@ -101,6 +102,9 @@ public class InputHandler {
 		case Keyboard.KEY_F1:
 			grave.toggle(pressed);
 			break; // Beter dan de grave toch?
+		case Keyboard.KEY_BACK:
+			backspace.toggle(pressed);
+			break;
 		}
 	}
 
@@ -108,11 +112,95 @@ public class InputHandler {
 		while (Keyboard.next()) {
 			if (Keyboard.getEventKeyState()) {
 				toggle(Keyboard.getEventKey(), true);
-				char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-				String s = Keyboard.getKeyName(Keyboard.getEventKey());
-				char letter = s.charAt(0);
-				
-				Console.log("" +letter);
+				if (Console.isActive()) {
+					String s = Keyboard.getKeyName(Keyboard.getEventKey());
+					Console.log(s);
+					if (!(s == Keyboard.getKeyName(Keyboard.KEY_SPACE) || s == Keyboard.getKeyName(Keyboard.KEY_BACK) || s == Keyboard.getKeyName(Keyboard.KEY_RETURN) || s == Keyboard.getKeyName(Keyboard.KEY_LCONTROL))) {
+						Console.log("DERPPP");
+						s = s.toLowerCase();
+						char letter = s.charAt(0);
+						switch (letter) {
+						case 'a':
+							Console.type(letter);
+							break;
+						case 'b':
+							Console.type(letter);
+							break;
+						case 'c':
+							Console.type(letter);
+							break;
+						case 'd':
+							Console.type(letter);
+							break;
+						case 'e':
+							Console.type(letter);
+							break;
+						case 'f':
+							Console.type(letter);
+							break;
+						case 'g':
+							Console.type(letter);
+							break;
+						case 'h':
+							Console.type(letter);
+							break;
+						case 'i':
+							Console.type(letter);
+							break;
+						case 'j':
+							Console.type(letter);
+							break;
+						case 'k':
+							Console.type(letter);
+							break;
+						case 'l':
+							Console.type(letter);
+							break;
+						case 'm':
+							Console.type(letter);
+							break;
+						case 'n':
+							Console.type(letter);
+							break;
+						case 'o':
+							Console.type(letter);
+							break;
+						case 'p':
+							Console.type(letter);
+							break;
+						case 'q':
+							Console.type(letter);
+							break;
+						case 'r':
+							Console.type(letter);
+							break;
+						case 's':
+							Console.type(letter);
+							break;
+						case 't':
+							Console.type(letter);
+							break;
+						case 'u':
+							Console.type(letter);
+							break;
+						case 'v':
+							Console.type(letter);
+							break;
+						case 'w':
+							Console.type(letter);
+							break;
+						case 'x':
+							Console.type(letter);
+							break;
+						case 'y':
+							Console.type(letter);
+							break;
+						case 'z':
+							Console.type(letter);
+							break;
+						}
+					}
+				}
 			} else {
 				toggle(Keyboard.getEventKey(), false);
 			}
