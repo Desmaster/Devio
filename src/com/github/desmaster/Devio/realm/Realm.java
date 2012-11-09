@@ -3,6 +3,7 @@ package com.github.desmaster.Devio.realm;
 import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.realm.RoofObject.Roof;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.realm.gameobject.Scenery;
 import com.github.desmaster.Devio.realm.world.World;
@@ -23,14 +24,18 @@ public class Realm {
 		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT + ")");
 		sc = new Scenery();
 		Console.log("Generated Sceneries");
+		roof = new Roof();
+		Console.log("Initialized Roof");
 	}
 
 	public static World world = null;
 	public static Scenery sc = null;
+	public static Roof roof = null;
 
 	public void render() {
 		world.render();
 		sc.render();
+		roof.render();
 	}
 
 	public void tick() {
