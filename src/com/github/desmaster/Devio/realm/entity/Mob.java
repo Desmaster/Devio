@@ -7,7 +7,7 @@ import com.github.desmaster.Devio.util.Position;
 public class Mob extends Entity {
 
 	private int walkspeed = 1;
-	private int walkblocktick = 60;
+	private int walkblocktick = 1;
 	double lives;
 	
 	
@@ -77,5 +77,10 @@ public class Mob extends Entity {
 				walkblockactive = true;
 				walkblocktimeout = walkblocktick;
 			}
+	}
+
+	public boolean isNearPlayer() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
