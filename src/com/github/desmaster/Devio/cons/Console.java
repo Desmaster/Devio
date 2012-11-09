@@ -25,7 +25,7 @@ import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 
 public class Console extends UserInterface {
 
-	private static String msg;
+	private static String msg= "";
 	private static int textX;
 	private int textRenderX = 15;
 	private int textRenderY = 144;
@@ -69,10 +69,9 @@ public class Console extends UserInterface {
 	}
 
 	public void pollInput() {
-		while (Keyboard.next()) {
-			if (Keyboard.getEventKeyState()) {
-				log("" + Keyboard.getEventKey());
-			}
+		if (Screen.getInput().backspace.clicked) {
+			StringBuffer buf = new StringBuffer( msg.length());
+		   buf.append( msg.substring(0,msg.length()) ).append( msg.substring(msg.length()+1) );
 		}
 	}
 
@@ -82,7 +81,7 @@ public class Console extends UserInterface {
 			renderConsole();
 			renderInputText();
 			drawString(msg, textRenderX, textRenderY);
-			msg = "";
+			//msg = "";
 		}
 	}
 
@@ -145,9 +144,17 @@ public class Console extends UserInterface {
 		Color.white.bind();
 		drawString(msg, 50, 50);
 	}
+	
+	public static boolean isActive() {
+		return active;
+	}
 
 	public static void setMessage(String s) {
 		msg = s;
+	}
+	
+	public static void type(char letter) {
+		msg = msg + letter;
 	}
 
 	public static void drawString(String s, int x, int y) {
