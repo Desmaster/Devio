@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
+import com.github.desmaster.Devio.cons.Console;
+
 public class InputHandler {
 
 	Thread thread;
@@ -46,11 +48,11 @@ public class InputHandler {
 	public Key down = new Key();
 	public Key exit = new Key();
 	public Key grave = new Key();
-	
+
 	public InputHandler(Devio game) {
 		// this.game = game;
-	} 
-	
+	}
+
 	public void tick() {
 		pollInput();
 		for (int i = 0; i < keys.size(); i++) {
@@ -63,9 +65,9 @@ public class InputHandler {
 			keys.get(i).down = false;
 		}
 	}
-	
+
 	public void toggle(int e, boolean pressed) {
-		switch(e) {
+		switch (e) {
 		case Keyboard.KEY_A:
 			left.toggle(pressed);
 			break;
@@ -101,15 +103,19 @@ public class InputHandler {
 			break; // Beter dan de grave toch?
 		}
 	}
-	
+
 	public void pollInput() {
 		while (Keyboard.next()) {
 			if (Keyboard.getEventKeyState()) {
 				toggle(Keyboard.getEventKey(), true);
+				char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+				String s = Keyboard.getKeyName(Keyboard.getEventKey());
+				char letter = s.charAt(0);
+				
+				Console.log("" +letter);
 			} else {
 				toggle(Keyboard.getEventKey(), false);
 			}
 		}
 	}
-
 }
