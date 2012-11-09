@@ -35,6 +35,10 @@ public enum GameObject {
 	}
 
 	public String getName() {
+		return name;
+	}
+	
+	public String getDisplayName() {
 		return name.replaceAll("_", " ");
 	}
 	
