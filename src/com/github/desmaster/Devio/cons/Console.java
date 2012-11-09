@@ -27,6 +27,7 @@ public class Console {
 		log(msg);
 		Color.white.bind();
 		drawString(msg, 50, 50);
+		
 	}
 
 	public static void drawString(String s, int x, int y) {
