@@ -70,8 +70,6 @@ public class Console extends UserInterface {
 
 	public void pollInput() {
 		if (Screen.getInput().backspace.clicked) {
-			StringBuffer buf = new StringBuffer( msg.length());
-		   buf.append( msg.substring(0,msg.length()) ).append( msg.substring(msg.length()+1) );
 		}
 	}
 
