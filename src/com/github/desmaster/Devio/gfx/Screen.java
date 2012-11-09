@@ -37,10 +37,9 @@ public class Screen {
 		//glColor4f(1, 1, 1, 1);
 		realm.render();
 		player.render();
-		if(shouldRenderConsole)
-		Console.render();
-		shouldRenderConsole = false;
 		interfacehandler.render();
+		if(shouldRenderConsole)
+			Console.render();
 	}
 	
 	public void setConsole(String s, boolean shouldRender) {
@@ -55,6 +54,7 @@ public class Screen {
 	public void tick() {
 		interfacehandler.tick();
 		realm.tick();
+		shouldRenderConsole = false;
 	}
 
 	public iTexture getTexture() {
