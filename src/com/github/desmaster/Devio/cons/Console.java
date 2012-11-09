@@ -92,18 +92,11 @@ public class Console extends UserInterface {
 		glColor4f(0.15f, 0.15f, 0.15f, 0.8f);
 		glTranslatef(container.getX(), container.getY(), 0);
 		glBegin(GL_QUADS);
-		glVertex2f(container.getX(), container.getY());
-		glVertex2f(container.getX() + container.getWidth(), container.getY());
-		glVertex2f(container.getX() + container.getWidth(), container.getY() + container.getHeight());
-		glVertex2f(container.getX(), container.getY() + container.getHeight());
+			glVertex2f(container.getX(), container.getY());
+			glVertex2f(container.getX() + container.getWidth(), container.getY());
+			glVertex2f(container.getX() + container.getWidth(), container.getY() + container.getHeight());
+			glVertex2f(container.getX(), container.getY() + container.getHeight());
 		glEnd();
-		glColor4f(1, 1, 1, 1);
-		if (shouldRenderLine) {
-			glBegin(GL_LINE_STRIP);
-			glVertex2f(lineX, 132);
-			glVertex2f(lineX, 147);
-			glEnd();
-		}
 	}
 
 	public void renderConsole() {
@@ -112,10 +105,10 @@ public class Console extends UserInterface {
 		glColor4f(0.05f, 0.05f, 0.05f, 0.8f);
 		glTranslatef(container.getX(), container.getY(), 0);
 		glBegin(GL_QUADS);
-		glVertex2i(container.getX() + 10, container.getY() + 10);
-		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
-		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
-		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
+			glVertex2i(container.getX() + 10, container.getY() + 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
+			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
 		glEnd();
 	}
 
@@ -125,11 +118,18 @@ public class Console extends UserInterface {
 		glColor4f(0.05f, 0.05f, 0.05f, 0.5f);
 		glTranslatef(container.getX(), container.getY(), 0);
 		glBegin(GL_QUADS);
-		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 7);
-		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 7);
-		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 33);
-		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 33);
+			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 7);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 7);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 33);
+			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 33);
 		glEnd();
+		glColor4f(1, 1, 1, 1);
+		if (shouldRenderLine) {
+			glBegin(GL_LINE_STRIP);
+				glVertex2f(lineX, 132);
+				glVertex2f(lineX, 147);
+			glEnd();
+		}
 	}
 
 	public void setString(String s) {
@@ -144,7 +144,6 @@ public class Console extends UserInterface {
 		log(msg);
 		Color.white.bind();
 		drawString(msg, 50, 50);
-
 	}
 
 	public static void setMessage(String s) {
