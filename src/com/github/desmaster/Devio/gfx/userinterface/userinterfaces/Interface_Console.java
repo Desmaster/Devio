@@ -46,7 +46,7 @@ public class Interface_Console extends UserInterface {
 	public void renderContainer(){
 		glLoadIdentity();
 		glDisable(GL_TEXTURE_2D);
-		glColor4f(0.15f, 0.15f, 0.15f, 0.4f);
+		glColor4f(0.15f, 0.15f, 0.15f, 0.8f);
 		glTranslatef(container.getX(), container.getY(), 0);
 		glBegin(GL_QUADS);
 			glVertex2i(container.getX(), container.getY());
@@ -64,8 +64,20 @@ public class Interface_Console extends UserInterface {
 		glBegin(GL_QUADS);
 			glVertex2i(container.getX() + 10, container.getY() + 10);
 			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
-			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 10);
-			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
+			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
+		glEnd();
+	}
+	public void renderInputText(){
+		glLoadIdentity();
+		glDisable(GL_TEXTURE_2D);
+		glColor4f(0.05f, 0.05f, 0.05f, 0.8f);
+		glTranslatef(container.getX(), container.getY(), 0);
+		glBegin(GL_QUADS);
+			glVertex2i(container.getX() + 10, container.getY() + 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
+			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
 		glEnd();
 	}
 }
