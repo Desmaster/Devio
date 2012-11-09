@@ -10,7 +10,6 @@ import static org.lwjgl.opengl.GL11.glVertex2f;
 
 import java.util.Random;
 
-import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
