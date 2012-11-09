@@ -147,7 +147,7 @@ public class Devio {
 		Screen.getPlayer().tick(delta);
 		screen.tick();
 		counter.tick();
-		screen.setConsole("derpx", true);
+		screen.setConsole("abcdefghijklmnopqrstuvwxyz 0123456789", true);
 	}
 
 	public void scanInput() {
