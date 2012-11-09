@@ -8,11 +8,11 @@ public enum GameObject {
 	
 	RED_FLOWER("Red_Flower", true, false, false, false, false, iTexture.ID_FLOWER_RED),
 	YELLOW_FLOWER("Yellow_Flower", true, false, false, false, false, iTexture.ID_FLOWER_YELLOW),
-	BRICK_WALL("Brick_wall",false, true, true, true, true,iTexture.ID_BRICK_WALL),
-	BRICK_WALL_0("Brick_wall",false, true, false, false, false,iTexture.ID_BRICK_WALL_0),
-	BRICK_WALL_1("Brick_wall",false, false, true, false, false,iTexture.ID_BRICK_WALL_1),
-	BRICK_WALL_2("Brick_wall",false, false, false, true, false,iTexture.ID_BRICK_WALL_2),
-	BRICK_WALL_3("Brick_wall",false, false, false, false, true,iTexture.ID_BRICK_WALL_3);
+	BRICK_WALL("Brick_wall", false, true, true, true, true, iTexture.ID_BRICK_WALL),
+	BRICK_WALL_0("Brick_wall", false, true, false, false, false, iTexture.ID_BRICK_WALL_0),
+	BRICK_WALL_1("Brick_wall", false, false, true, false, false, iTexture.ID_BRICK_WALL_1),
+	BRICK_WALL_2("Brick_wall", false, false, false, true, false, iTexture.ID_BRICK_WALL_2),
+	BRICK_WALL_3("Brick_wall", false, false, false, false, true, iTexture.ID_BRICK_WALL_3);
 	
 	private String name;
 	private boolean breakable;
