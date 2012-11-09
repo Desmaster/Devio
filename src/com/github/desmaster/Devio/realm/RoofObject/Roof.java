@@ -1,4 +1,4 @@
-package com.github.desmaster.Devio.realm.RoofObject;
+package com.github.desmaster.Devio.realm.roofobject;
 
 import static org.lwjgl.opengl.GL11.GL_QUADS;
 import static org.lwjgl.opengl.GL11.glBegin;

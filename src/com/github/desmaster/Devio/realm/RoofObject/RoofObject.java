@@ -1,4 +1,4 @@
-package com.github.desmaster.Devio.realm.RoofObject;
+package com.github.desmaster.Devio.realm.roofobject;
 
 import org.newdawn.slick.opengl.Texture;
 

@@ -3,9 +3,9 @@ package com.github.desmaster.Devio.realm;
 import org.lwjgl.opengl.Display;
 
 import com.github.desmaster.Devio.cons.Console;
-import com.github.desmaster.Devio.realm.RoofObject.Roof;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.realm.gameobject.Scenery;
+import com.github.desmaster.Devio.realm.roofobject.Roof;
 import com.github.desmaster.Devio.realm.world.World;
 import com.github.desmaster.Devio.util.Position;
 
