@@ -8,6 +8,8 @@ import static org.lwjgl.opengl.GL11.glTexCoord2f;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 
+import java.util.List;
+
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
@@ -15,59 +17,60 @@ import com.github.desmaster.Devio.util.Position;
 
 public class World {
 
-	Tile[][] worldtiles = new Tile[Realm.WORLD_WIDTH][Realm.WORLD_HEIGHT];
+	Tile[][] worldTiles = new Tile[Realm.WORLD_WIDTH][Realm.WORLD_HEIGHT];
+	private List data;
 
 	public World() {
 		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
 			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
-				worldtiles[x][y] = Tile.GRASS;
+				worldTiles[x][y] = Tile.GRASS;
 			}
 		}
-		worldtiles[1][1] = Tile.STONE;
-		worldtiles[1][2] = Tile.STONE;
-		worldtiles[1][3] = Tile.STONE;
+		worldTiles[1][1] = Tile.STONE;
+		worldTiles[1][2] = Tile.STONE;
+		worldTiles[1][3] = Tile.STONE;
 
-		worldtiles[2][1] = Tile.STONE;
-		worldtiles[2][2] = Tile.MOSSY_STONE;
-		worldtiles[2][3] = Tile.STONE;
+		worldTiles[2][1] = Tile.STONE;
+		worldTiles[2][2] = Tile.MOSSY_STONE;
+		worldTiles[2][3] = Tile.STONE;
 
-		worldtiles[3][1] = Tile.STONE;
-		worldtiles[3][2] = Tile.STONE;
-		worldtiles[3][3] = Tile.STONE;
+		worldTiles[3][1] = Tile.STONE;
+		worldTiles[3][2] = Tile.STONE;
+		worldTiles[3][3] = Tile.STONE;
 		
-		worldtiles[6][1] = Tile.SAND;
-		worldtiles[6][2] = Tile.SAND;
-		worldtiles[6][3] = Tile.SAND;
-		worldtiles[6][4] = Tile.SAND;
-		worldtiles[6][5] = Tile.SAND;
-		worldtiles[7][1] = Tile.SAND;
-		worldtiles[7][2] = Tile.SAND;
-		worldtiles[7][3] = Tile.SAND;
-		worldtiles[7][4] = Tile.SAND;
-		worldtiles[7][5] = Tile.SAND;
-		worldtiles[8][1] = Tile.SAND;
-		worldtiles[8][2] = Tile.SAND;
-		worldtiles[8][3] = Tile.SAND;
-		worldtiles[8][4] = Tile.SAND;
-		worldtiles[8][5] = Tile.SAND;
-		worldtiles[9][1] = Tile.SAND;
-		worldtiles[9][2] = Tile.SAND;
-		worldtiles[9][3] = Tile.SAND;
-		worldtiles[9][4] = Tile.SAND;
-		worldtiles[9][5] = Tile.SAND;
-		worldtiles[10][1] = Tile.SAND;
-		worldtiles[10][2] = Tile.SAND;
-		worldtiles[10][3] = Tile.SAND;
-		worldtiles[10][4] = Tile.SAND;
-		worldtiles[10][5] = Tile.SAND;
+		worldTiles[6][1] = Tile.SAND;
+		worldTiles[6][2] = Tile.SAND;
+		worldTiles[6][3] = Tile.SAND;
+		worldTiles[6][4] = Tile.SAND;
+		worldTiles[6][5] = Tile.SAND;
+		worldTiles[7][1] = Tile.SAND;
+		worldTiles[7][2] = Tile.SAND;
+		worldTiles[7][3] = Tile.SAND;
+		worldTiles[7][4] = Tile.SAND;
+		worldTiles[7][5] = Tile.SAND;
+		worldTiles[8][1] = Tile.SAND;
+		worldTiles[8][2] = Tile.SAND;
+		worldTiles[8][3] = Tile.SAND;
+		worldTiles[8][4] = Tile.SAND;
+		worldTiles[8][5] = Tile.SAND;
+		worldTiles[9][1] = Tile.SAND;
+		worldTiles[9][2] = Tile.SAND;
+		worldTiles[9][3] = Tile.SAND;
+		worldTiles[9][4] = Tile.SAND;
+		worldTiles[9][5] = Tile.SAND;
+		worldTiles[10][1] = Tile.SAND;
+		worldTiles[10][2] = Tile.SAND;
+		worldTiles[10][3] = Tile.SAND;
+		worldTiles[10][4] = Tile.SAND;
+		worldTiles[10][5] = Tile.SAND;
 	}
 
 	public Tile getTile(int x, int y) {
-		return worldtiles[x][y];
+		return worldTiles[x][y];
 	}
 
 	public void setTile(int x, int y, Tile tile) {
-		worldtiles[x][y] = tile;
+		worldTiles[x][y] = tile;
 	}
 
 	public Tile[][] getSubArea(int x, int y, int width, int height) {
@@ -75,7 +78,7 @@ public class World {
 
 		for (int xx = 0; xx < width; xx++) {
 			for (int yy = 0; yy < height; yy++) {
-				SubArea[xx][yy] = worldtiles[x + xx][y + yy];
+				SubArea[xx][yy] = worldTiles[x + xx][y + yy];
 			}
 		}
 
@@ -136,13 +139,29 @@ public class World {
 		glEnd();
 		glLoadIdentity();
 	}
+	
+	public Tile[][] getMap() {
+		return worldTiles;
+	}
+	
+	public void setMap(Tile[][] tiles) {
+		worldTiles = tiles;
+	}
 
 	public Tile[][] saveWorld() {
-		return worldtiles;
+		return worldTiles;
 	}
 
 	public void loadWorld(Tile[][] tiles) {
-		worldtiles = tiles;
+		worldTiles = tiles;
+	}
+	
+	public List getData() {
+		return this.data;
+	}
+
+	public void setData(List data) {
+		this.data = data;
 	}
 
 }
