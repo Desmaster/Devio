@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.github.desmaster.Devio.InputHandler;
-import com.github.desmaster.Devio.gfx.userinterface.userinterfaces.Interface_Console;
+import com.github.desmaster.Devio.cons.Console;
 
 public class UserInterfaceHandler {
 	
@@ -13,7 +12,7 @@ public class UserInterfaceHandler {
 	
 	
 	public UserInterfaceHandler(){
-		InterfaceList.add(new Interface_Console());
+		InterfaceList.add(new Console());
 	}
 	
 	public void tick(){
