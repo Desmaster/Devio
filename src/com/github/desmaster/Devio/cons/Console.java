@@ -27,7 +27,7 @@ public class Console extends UserInterface {
 
 	private static String msg;
 	private static int textX;
-	private int textRenderX = 12;
+	private int textRenderX = 15;
 	private int textRenderY = 144;
 	
 	boolean shouldRenderLine = true;
