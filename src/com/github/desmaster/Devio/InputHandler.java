@@ -96,6 +96,9 @@ public class InputHandler {
 		case Keyboard.KEY_GRAVE:
 			grave.toggle(pressed);
 			break;
+		case Keyboard.KEY_F1:
+			grave.toggle(pressed);
+			break; // Beter dan de grave toch?
 		}
 	}
 	
