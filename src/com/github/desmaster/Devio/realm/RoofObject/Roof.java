@@ -20,7 +20,7 @@ public class Roof {
 	public Roof() {
 		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
 			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
-				
+
 			}
 		}
 	}
