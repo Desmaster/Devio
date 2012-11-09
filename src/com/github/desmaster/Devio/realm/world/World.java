@@ -1,11 +1,16 @@
 package com.github.desmaster.Devio.realm.world;
 
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glTexCoord2f;
+import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.glVertex2f;
 
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
-import com.github.desmaster.Devio.realm.gameobject.GameObject;
 import com.github.desmaster.Devio.util.Position;
 
 public class World {
@@ -80,7 +85,7 @@ public class World {
 	public Tile[][] getVisibleMap(Player player) {
 
 		Position offset = getVisibleMapOffsetPosition(player);
-
+		
 		return getSubArea(offset.getX(), offset.getY(), Realm.MAP_WIDTH, Realm.MAP_HEIGHT);
 	}
 
