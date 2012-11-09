@@ -14,6 +14,7 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 import static org.lwjgl.opengl.GL11.glVertex2i;
 
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.Rectangle;
@@ -58,6 +59,15 @@ public class Console extends UserInterface {
 			shouldRenderLine = true;
 		
 		lineX = textX + 3;
+		pollInput();
+	}
+	
+	public void pollInput() {
+		while (Keyboard.next()) {
+			if (Keyboard.getEventKeyState()) {
+				log("" + Keyboard.getEventKey());
+			}
+		}
 	}
 	
 	public void render() {
