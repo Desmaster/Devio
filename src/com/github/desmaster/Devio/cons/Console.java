@@ -1,18 +1,118 @@
 package com.github.desmaster.Devio.cons;
 
+import static org.lwjgl.opengl.GL11.GL_LINE_STRIP;
 import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glColor4f;
+import static org.lwjgl.opengl.GL11.glDisable;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.glVertex2f;
+import static org.lwjgl.opengl.GL11.glVertex2i;
 
+import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.Rectangle;
 import org.newdawn.slick.Color;
 
-public class Console {
+import com.github.desmaster.Devio.gfx.Screen;
+import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
+
+public class Console extends UserInterface {
 
 	private static String msg;
-
-	public static void render() {
-		drawString(msg, 50, 50);
-		msg = "";
+	private static int textX;
+	private int textRenderX = 12;
+	private int textRenderY = 144;
+	
+	boolean shouldRenderLine = true;
+	int line;
+	int lineDelay = 35;
+	int lineX = 12;
+	
+	public Console() {
+		super("Console");
+		container = new Rectangle(0, 0, Display.getWidth(), (Display.getHeight() / 4));
+	}
+	
+	public void tick() {
+		if (Screen.getInput().grave.clicked) {
+			active = !active;
+		}
+		
+		if (shouldRenderLine) {
+			if (line < lineDelay)
+				line ++;
+		} else {
+			line--;
+		}
+		
+		if (line == lineDelay)
+			shouldRenderLine = false;
+		
+		if (line == 00)
+			shouldRenderLine = true;
+		
+		lineX = textX + 3;
+	}
+	
+	public void render() {
+		if (active) {
+			renderContainer();
+			renderConsole();
+			drawString(msg, textRenderX, textRenderY);
+			msg = "";
+		}
+	}
+	
+	public void renderContainer() {
+		glLoadIdentity();
+		glDisable(GL_TEXTURE_2D);
+		glColor4f(0.15f, 0.15f, 0.15f, 0.8f);
+		glTranslatef(container.getX(), container.getY(), 0);
+		glBegin(GL_QUADS);
+			glVertex2f(container.getX(), container.getY());
+			glVertex2f(container.getX() + container.getWidth(), container.getY());
+			glVertex2f(container.getX() + container.getWidth(), container.getY() + container.getHeight());
+			glVertex2f(container.getX(), container.getY() + container.getHeight());
+		glEnd();
+		glColor4f(1, 1, 1, 1);
+		if (shouldRenderLine) {
+		glBegin(GL_LINE_STRIP);
+			glVertex2f(lineX, 132);
+			glVertex2f(lineX, 147);
+		glEnd();
+		}
+	}
+	
+	public void renderConsole() {
+		glLoadIdentity();
+		glDisable(GL_TEXTURE_2D);
+		glColor4f(0.05f, 0.05f, 0.05f, 0.8f);
+		glTranslatef(container.getX(), container.getY(), 0);
+		glBegin(GL_QUADS);
+			glVertex2i(container.getX() + 10, container.getY() + 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
+			glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
+			glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
+		glEnd();
+	}
+	
+	public void renderInputText() {
+		glLoadIdentity();
+		glDisable(GL_TEXTURE_2D);
+		glColor4f(0.05f, 0.05f, 0.05f, 0.8f);
+		glTranslatef(container.getX(), container.getY(), 0);
+		glBegin(GL_QUADS);
+		glVertex2i(container.getX() + 10, container.getY() + 10);
+		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + 10);
+		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
+		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
+		glEnd();
 	}
 
 	public void setString(String s) {
@@ -30,6 +130,10 @@ public class Console {
 		
 	}
 
+	public static void setMessage(String s) {
+		msg = s;
+	}
+	
 	public static void drawString(String s, int x, int y) {
 		int startX = x;
 		GL11.glDisable(GL11.GL_BLEND);
@@ -506,14 +610,11 @@ public class Console {
 				x += 8;
 			}
 		}
+		textX = x;
 		GL11.glColor4f(1, 1, 1, 1);
 		GL11.glEnd();
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	}
-
-	public static void setMessage(String s) {
-		msg = s;
 	}
 
 }
