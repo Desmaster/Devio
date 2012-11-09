@@ -32,24 +32,25 @@ public class Player extends Mob {
 	}
 
 	public void tick(int delta) {
+		walkblock();
 		if (shouldTick) {
 			if (input.up.down) {
-				input.releaseAll();
+				//input.releaseAll();
 				walkUp();
 			}
 
 			if (input.left.down) {
-				input.releaseAll();
+				//input.releaseAll();
 				walkLeft();
 			}
 
 			if (input.down.down) {
-				input.releaseAll();
+				//input.releaseAll();
 				walkDown();
 			}
 
 			if (input.right.down) {
-				input.releaseAll();
+				//input.releaseAll();
 				walkRight();
 			}
 		}
