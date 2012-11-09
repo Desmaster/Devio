@@ -96,9 +96,6 @@ public class InputHandler {
 		case Keyboard.KEY_ESCAPE:
 			exit.toggle(pressed);
 			break;
-		case Keyboard.KEY_GRAVE:
-			grave.toggle(pressed);
-			break;
 		case Keyboard.KEY_F1:
 			grave.toggle(pressed);
 			break; // Beter dan de grave toch?
@@ -113,97 +110,101 @@ public class InputHandler {
 			if (Keyboard.getEventKeyState()) {
 				toggle(Keyboard.getEventKey(), true);
 				if (Console.isActive()) {
-					String s = Keyboard.getKeyName(Keyboard.getEventKey());
-					Console.log(s);
-					if (!(s == Keyboard.getKeyName(Keyboard.KEY_SPACE) || s == Keyboard.getKeyName(Keyboard.KEY_BACK) || s == Keyboard.getKeyName(Keyboard.KEY_RETURN) || s == Keyboard.getKeyName(Keyboard.KEY_LCONTROL))) {
-						Console.log("DERPPP");
-						s = s.toLowerCase();
-						char letter = s.charAt(0);
-						switch (letter) {
-						case 'a':
-							Console.type(letter);
-							break;
-						case 'b':
-							Console.type(letter);
-							break;
-						case 'c':
-							Console.type(letter);
-							break;
-						case 'd':
-							Console.type(letter);
-							break;
-						case 'e':
-							Console.type(letter);
-							break;
-						case 'f':
-							Console.type(letter);
-							break;
-						case 'g':
-							Console.type(letter);
-							break;
-						case 'h':
-							Console.type(letter);
-							break;
-						case 'i':
-							Console.type(letter);
-							break;
-						case 'j':
-							Console.type(letter);
-							break;
-						case 'k':
-							Console.type(letter);
-							break;
-						case 'l':
-							Console.type(letter);
-							break;
-						case 'm':
-							Console.type(letter);
-							break;
-						case 'n':
-							Console.type(letter);
-							break;
-						case 'o':
-							Console.type(letter);
-							break;
-						case 'p':
-							Console.type(letter);
-							break;
-						case 'q':
-							Console.type(letter);
-							break;
-						case 'r':
-							Console.type(letter);
-							break;
-						case 's':
-							Console.type(letter);
-							break;
-						case 't':
-							Console.type(letter);
-							break;
-						case 'u':
-							Console.type(letter);
-							break;
-						case 'v':
-							Console.type(letter);
-							break;
-						case 'w':
-							Console.type(letter);
-							break;
-						case 'x':
-							Console.type(letter);
-							break;
-						case 'y':
-							Console.type(letter);
-							break;
-						case 'z':
-							Console.type(letter);
-							break;
-						}
-					}
+					pollTyping(Keyboard.getEventKey());
 				}
 			} else {
 				toggle(Keyboard.getEventKey(), false);
 			}
+		}
+	}
+
+	public void pollTyping(int e) {
+		switch (e) {
+		
+		case Keyboard.KEY_A:
+			Console.type('a');
+			break;
+		case Keyboard.KEY_B:
+			Console.type('b');
+			break;
+		case Keyboard.KEY_C:
+			Console.type('c');
+			break;
+		case Keyboard.KEY_D:
+			Console.type('d');
+			break;
+		case Keyboard.KEY_E:
+			Console.type('e');
+			break;
+		case Keyboard.KEY_F:
+			Console.type('f');
+			break;
+		case Keyboard.KEY_G:
+			Console.type('g');
+			break;
+		case Keyboard.KEY_H:
+			Console.type('h');
+			break;
+		case Keyboard.KEY_I:
+			Console.type('i');
+			break;
+		case Keyboard.KEY_J:
+			Console.type('j');
+			break;
+		case Keyboard.KEY_K:
+			Console.type('k');
+			break;
+		case Keyboard.KEY_L:
+			Console.type('l');
+			break;
+		case Keyboard.KEY_M:
+			Console.type('m');
+			break;
+		case Keyboard.KEY_N:
+			Console.type('n');
+			break;
+		case Keyboard.KEY_O:
+			Console.type('O');
+			break;
+		case Keyboard.KEY_P:
+			Console.type('p');
+			break;
+		case Keyboard.KEY_Q:
+			Console.type('q');
+			break;
+		case Keyboard.KEY_R:
+			Console.type('r');
+			break;
+		case Keyboard.KEY_S:
+			Console.type('s');
+			break;
+		case Keyboard.KEY_T:
+			Console.type('t');
+			break;
+		case Keyboard.KEY_U:
+			Console.type('u');
+			break;
+		case Keyboard.KEY_V:
+			Console.type('v');
+			break;
+		case Keyboard.KEY_W:
+			Console.type('w');
+			break;
+		case Keyboard.KEY_X:
+			Console.type('x');
+			break;
+		case Keyboard.KEY_Y:
+			Console.type('y');
+			break;
+		case Keyboard.KEY_Z:
+			Console.type('z');
+			break;
+		case Keyboard.KEY_SPACE:
+			Console.type(' ');
+			break;
+		case Keyboard.KEY_SLASH:
+			Console.type("/");
+			break;
 		}
 	}
 }
