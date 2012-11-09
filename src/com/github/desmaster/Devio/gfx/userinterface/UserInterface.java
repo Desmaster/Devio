@@ -5,7 +5,7 @@ import org.lwjgl.util.Rectangle;
 public class UserInterface {
 
 	// State
-	protected boolean active = false;
+	protected static boolean active = false;
 
 	// Info
 	protected String name = "Undefined";
