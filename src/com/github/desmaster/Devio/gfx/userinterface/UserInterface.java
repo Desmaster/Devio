@@ -1,7 +1,5 @@
 package com.github.desmaster.Devio.gfx.userinterface;
 
-import static org.lwjgl.opengl.GL11.*;
-
 import org.lwjgl.util.Rectangle;
 
 public class UserInterface {
