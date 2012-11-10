@@ -9,7 +9,7 @@ import com.github.desmaster.Devio.util.gamemath.Distance;
 
 public class Mob_GreenGoo extends Mob{
 	
-	public Mob_GreenGoo(Position spawnPosition, double lives) {
+	public Mob_GreenGoo() {
 		super(new Position(10,15), 50);
 		setTexture(iTexture.PLAYER_BILLIE);
 	}
