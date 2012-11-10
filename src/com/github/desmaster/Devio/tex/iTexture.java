@@ -27,16 +27,17 @@ public class iTexture {
 	public static final int ID_BRICK_WALL_2 = 62;
 	public static final int ID_BRICK_WALL_3 = 63;
 
+	public static final int ID_PLAYER = 91;
+	public static final int ID_GOO_GREEN = 101;
+	
 	public static Texture TEST_TEXTURE = null;
 	public static Texture[] textures = new Texture[255];
 	public static Texture PLAYER = null;
 	public static Texture PLAYER_NINJA = null;
-	public static Texture PLAYER_BILLIE = null;
 
 	public iTexture() {
 		PLAYER = getTexture("player", "png");
 		PLAYER_NINJA = getTexture("ninja", "png");
-		PLAYER_BILLIE = getTexture("billie", "png");
 
 		for (int i = 0; i < textures.length; i++) {
 			switch (i) {
@@ -78,6 +79,12 @@ public class iTexture {
 				break;
 			case ID_BRICK_WALL_3:
 				textures[i] = getTexture("60_3", "png");
+				break;
+			case ID_PLAYER:
+				textures[i] = getTexture("billie", "png");
+				break;
+			case ID_GOO_GREEN:
+				textures[i] = getTexture("greengoo", "png");
 				break;
 			}
 		}
