@@ -7,7 +7,7 @@ import com.github.desmaster.Devio.util.gamemath.Collision;
 public class Mob extends Entity {
 
 	private int walkspeed = 1;
-	private int walkblocktick = 0;
+	private int walkblocktick = 24;
 	double lives;
 	
 	
