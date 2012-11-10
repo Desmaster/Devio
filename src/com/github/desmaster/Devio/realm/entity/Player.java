@@ -24,7 +24,7 @@ public class Player extends Mob {
 		super(spawnPosition, lives);
 		this.input = input;
 		entitySize = Realm.BLOCK_SIZE;
-		setTexture(iTexture.PLAYER_BILLIE);
+		setTexture(iTexture.ID_PLAYER);
 	}
 
 	public void start() {
