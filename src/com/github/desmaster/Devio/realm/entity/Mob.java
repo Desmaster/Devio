@@ -44,7 +44,7 @@ public class Mob extends Entity {
 		if (!(y == 0) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				y -= walkspeed;
-				SetWalkBlock(walkblocktick);
+				setWalkBlock(walkblocktick);
 			}
 	}
 	public void walkDown() {
@@ -52,7 +52,7 @@ public class Mob extends Entity {
 		if (!(y == Realm.WORLD_HEIGHT - 1) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				y += walkspeed;
-				SetWalkBlock(walkblocktick);
+				setWalkBlock(walkblocktick);
 			}
 	}
 	public void walkLeft() {
@@ -60,7 +60,7 @@ public class Mob extends Entity {
 		if (!(x == 0) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				x -= walkspeed;
-				SetWalkBlock(walkblocktick);
+				setWalkBlock(walkblocktick);
 			}
 	}
 	public void walkRight() {
@@ -68,14 +68,18 @@ public class Mob extends Entity {
 		if (!(x == Realm.WORLD_WIDTH - 1) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				x += walkspeed;
-				SetWalkBlock(walkblocktick);
+				setWalkBlock(walkblocktick);
 			}
 	}
 
-	public void SetWalkBlock(int timeout) {
+	public void setWalkBlock(int timeout) {
 		walkblockactive = true;
 		walkblocktimeout = timeout;
 	}
+	public boolean getWalkBlock() {
+		return walkblockactive;
+	}
+	
 	public boolean isNearPlayer() {
 		return Distance.calulateTotalDistance(x, y, Realm.player.x, Realm.player.y) < 50;
 	}
