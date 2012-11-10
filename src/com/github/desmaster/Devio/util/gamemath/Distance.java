@@ -33,7 +33,7 @@ public class Distance {
 		return x1 - x2;
 	}
 
-	public int[] getDirection(int x1,int y1,int x2,int y2){
+	public static int[] getDirection(int x1,int y1,int x2,int y2){
 		int[] returnvalue = new int[2];
 		
 		int UP = calulateUpDistance(x1,y1,x2,y2);
