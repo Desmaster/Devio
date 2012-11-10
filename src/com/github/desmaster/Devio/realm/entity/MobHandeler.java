@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.mobs.Mob_GreenGoo;
 
 public class MobHandeler {
@@ -12,6 +13,7 @@ public class MobHandeler {
 
 	public MobHandeler() {
 		mobsters.add(new Mob_GreenGoo());
+		Console.log("Initialized GreenGoo");
 	}
 
 	public void tick() {
