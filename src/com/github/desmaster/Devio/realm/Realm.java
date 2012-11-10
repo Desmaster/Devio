@@ -7,7 +7,6 @@ import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.realm.gameobject.Scenery;
 import com.github.desmaster.Devio.realm.roofobject.Roof;
 import com.github.desmaster.Devio.realm.world.World;
-import com.github.desmaster.Devio.util.Position;
 
 public class Realm {
 	
