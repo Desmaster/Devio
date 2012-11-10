@@ -16,8 +16,11 @@ public class Realm {
 	public static final int WORLD_WIDTH = 1024;
 	public static final int WORLD_HEIGHT = 1024;
 
-	public Player player;
-
+	public static Player player;
+	public static World world = null;
+	public static Scenery sc = null;
+	public static Roof roof = null;
+	
 	public Realm() {
 		world = new World();
 		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT + ")");
@@ -26,10 +29,6 @@ public class Realm {
 		roof = new Roof();
 		Console.log("Initialized Roof");
 	}
-
-	public static World world = null;
-	public static Scenery sc = null;
-	public static Roof roof = null;
 
 	public void render() {
 		world.render();
