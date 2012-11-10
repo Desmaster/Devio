@@ -53,6 +53,10 @@ public class Screen {
 			break;
 		case MAIN_MENU:
 			break;
+		case OPTIONS:
+			break;
+		default:
+			break;
 		}
 	}
 
