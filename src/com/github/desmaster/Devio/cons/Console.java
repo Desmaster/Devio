@@ -14,15 +14,20 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 import static org.lwjgl.opengl.GL11.glVertex2i;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.Rectangle;
-import org.newdawn.slick.Color;
 
+import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 
 public class Console extends UserInterface {
+
+	List<String> commands = new ArrayList<String>();
 
 	private static String msg = "";
 	private static int textX;
@@ -66,6 +71,15 @@ public class Console extends UserInterface {
 
 		lineX = textX + 3;
 
+		if (Screen.getInput().enter.clicked) {
+			if (msg.startsWith("/")) {
+				msg = msg.substring(1, msg.length());
+				sendToCommandHandler(msg);
+			} else {
+				sendToChat(msg);
+			}
+		}
+
 	}
 
 	public void pollInput() {
@@ -73,7 +87,6 @@ public class Console extends UserInterface {
 			if (msg != "") {
 				if (!(msg.length() <= 0))
 					msg = msg.substring(0, msg.length() - 1);
-
 			}
 		}
 	}
@@ -84,7 +97,26 @@ public class Console extends UserInterface {
 			renderConsole();
 			renderInputText();
 			drawString(msg, textRenderX, textRenderY);
-			// msg = "";
+		}
+	}
+
+	public void sendToChat(String text) {
+		msg = "";
+		if (!(text == "" || text == " ")) {
+			if (commands.size() < 1) {
+				commands.add(text);
+			} else {
+				commands.add(text);
+			}
+		}
+	}
+
+	public void sendToCommandHandler(String s) {
+		msg = "";
+		String command = s.toLowerCase();
+		logC(command);
+		if (command.contentEquals(new StringBuffer("stop"))) {
+			Devio.stop();
 		}
 	}
 
@@ -112,6 +144,15 @@ public class Console extends UserInterface {
 		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
 		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
 		glEnd();
+		renderConsoleText();
+	}
+
+	public void renderConsoleText() {
+		if (commands.size() > 0) {
+			for (String s : commands) {
+				drawString(s, 15, 30 + (commands.indexOf(s) * 15));
+			}
+		}
 	}
 
 	public void renderInputText() {
@@ -143,9 +184,8 @@ public class Console extends UserInterface {
 	}
 
 	public static void logC(String msg) {
-		log(msg);
-		Color.white.bind();
-		drawString(msg, 50, 50);
+		String header = "Console Command: ";
+		System.out.println(header + msg);
 	}
 
 	public static boolean isActive() {
@@ -159,7 +199,7 @@ public class Console extends UserInterface {
 	public static void type(char letter) {
 		msg = msg + letter;
 	}
-	
+
 	public static void type(String s) {
 		msg = msg + s;
 	}
@@ -642,7 +682,7 @@ public class Console extends UserInterface {
 				int yy = y + 2;
 				for (int i = 9; i >= 1; i--)
 					GL11.glVertex2f(x + i / 2, yy - i * 1.35f);
-				x+=6;
+				x += 6;
 			}
 		}
 		textX = x;
