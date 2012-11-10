@@ -38,12 +38,12 @@ public class Devio {
 	long lastFrame;
 	long lastFPS;
 
-	private boolean running = false;
+	private static boolean running = false;
 
 	private Screen screen;
 	private Counter counter;
 	private InputHandler input = new InputHandler(this);
-	private iFile file;
+	private static iFile file;
 	public static Position spawnPosition;
 
 	// private Player player;
@@ -122,7 +122,7 @@ public class Devio {
 		run();
 	}
 
-	public void stop() {
+	public static void stop() {
 		running = false;
 		Console.log("Stopped the game loop");
 		file.saveConfig();
@@ -147,7 +147,6 @@ public class Devio {
 		Screen.getPlayer().tick(delta);
 		screen.tick();
 		counter.tick();
-		//screen.setConsole("abcdefghijklmnopqrstuvwxyz 0123456789", true);
 	}
 
 	public void scanInput() {
