@@ -10,6 +10,7 @@ import static org.lwjgl.opengl.GL11.glVertex2f;
 
 import org.newdawn.slick.opengl.Texture;
 
+import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.tex.iTexture;
 
 public class Entity {
