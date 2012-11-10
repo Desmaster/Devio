@@ -57,6 +57,6 @@ public class Distance {
 		if (DIR2 == DOWN) returnvalue[1] = 2;
 		if (DIR2 == LEFT) returnvalue[1] = 3;
 		
-		return null;
+		return returnvalue;
 	}
 }
