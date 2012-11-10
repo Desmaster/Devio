@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.github.desmaster.Devio.realm.entity.mobs.Mob_GreenGoo;
+
 public class MobHandeler {
 	
 	private List<Mob> mobsters = new ArrayList<Mob>();
 	
 	public MobHandeler(){
-		
+		mobsters.add(new Mob_GreenGoo());
 	}
 	
 	public void tick(){
