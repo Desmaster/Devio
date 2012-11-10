@@ -43,8 +43,7 @@ public class Mob extends Entity {
 		if (!(y == 0) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				y -= walkspeed;
-				walkblockactive = true;
-				walkblocktimeout = walkblocktick;
+				SetWalkBlock(walkblocktick);
 			}
 	}
 
@@ -53,8 +52,7 @@ public class Mob extends Entity {
 		if (!(y == Realm.WORLD_HEIGHT - 1) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				y += walkspeed;
-				walkblockactive = true;
-				walkblocktimeout = walkblocktick;
+				SetWalkBlock(walkblocktick);
 			}
 	}
 
@@ -63,8 +61,7 @@ public class Mob extends Entity {
 		if (!(x == 0) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				x -= walkspeed;
-				walkblockactive = true;
-				walkblocktimeout = walkblocktick;
+				SetWalkBlock(walkblocktick);
 			}
 	}
 
@@ -73,11 +70,13 @@ public class Mob extends Entity {
 		if (!(x == Realm.WORLD_WIDTH - 1) && !walkblockactive)
 			if (!Collision.check(new Position(x,y),face)){
 				x += walkspeed;
-				walkblockactive = true;
-				walkblocktimeout = walkblocktick;
+				SetWalkBlock(walkblocktick);
 			}
 	}
-
+	public void SetWalkBlock(int timeout) {
+		walkblockactive = true;
+		walkblocktimeout = timeout;
+	}
 	public boolean isNearPlayer() {
 		// TODO Auto-generated method stub
 		return false;
