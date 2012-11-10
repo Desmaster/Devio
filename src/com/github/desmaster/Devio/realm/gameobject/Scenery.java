@@ -55,6 +55,9 @@ public class Scenery {
 	}
 
 	public GameObject getObject(int x, int y) {
+		if (x >= Realm.WORLD_WIDTH || y >= Realm.WORLD_HEIGHT || x < 0 || y < 0){
+			return null;
+		}
 		return scenobjects[x][y];
 	}
 

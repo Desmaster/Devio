@@ -3,11 +3,12 @@ package com.github.desmaster.Devio.realm.entity;
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.util.Position;
+import com.github.desmaster.Devio.util.gamemath.Collision;
 
 public class Mob extends Entity {
 
 	private int walkspeed = 1;
-	private int walkblocktick = 1;
+	private int walkblocktick = 0;
 	double lives;
 	
 	
@@ -41,7 +42,7 @@ public class Mob extends Entity {
 	public void walkUp() {
 		face = 0;
 		if (!(y == 0) && !walkblockactive)
-			if (!Realm.checkCollision(new Position(x,y),face)){
+			if (!Collision.check(new Position(x,y),face)){
 				y -= walkspeed;
 				walkblockactive = true;
 				walkblocktimeout = walkblocktick;
@@ -50,9 +51,8 @@ public class Mob extends Entity {
 
 	public void walkDown() {
 		face = 2;
-		Console.log(walkblockactive + "");
-		if (!(y == Realm.WORLD_HEIGHT) && !walkblockactive)
-			if (!Realm.checkCollision(new Position(x,y),face)){
+		if (!(y == Realm.WORLD_HEIGHT - 1) && !walkblockactive)
+			if (!Collision.check(new Position(x,y),face)){
 				y += walkspeed;
 				walkblockactive = true;
 				walkblocktimeout = walkblocktick;
@@ -62,7 +62,7 @@ public class Mob extends Entity {
 	public void walkLeft() {
 		face = 3;
 		if (!(x == 0) && !walkblockactive)
-			if (!Realm.checkCollision(new Position(x,y),face)){
+			if (!Collision.check(new Position(x,y),face)){
 				x -= walkspeed;
 				walkblockactive = true;
 				walkblocktimeout = walkblocktick;
@@ -71,8 +71,8 @@ public class Mob extends Entity {
 
 	public void walkRight() {
 		face = 1;
-		if (!(x == Realm.WORLD_WIDTH) && !walkblockactive)
-			if (!Realm.checkCollision(new Position(x,y),face)){
+		if (!(x == Realm.WORLD_WIDTH - 1) && !walkblockactive)
+			if (!Collision.check(new Position(x,y),face)){
 				x += walkspeed;
 				walkblockactive = true;
 				walkblocktimeout = walkblocktick;
