@@ -10,6 +10,8 @@ import static org.lwjgl.opengl.GL11.glVertex2f;
 
 import org.newdawn.slick.opengl.Texture;
 
+import com.github.desmaster.Devio.tex.iTexture;
+
 public class Entity {
 
 	public int x = 0;
@@ -17,7 +19,7 @@ public class Entity {
 	protected int entitySize = 32;
 	int face = 0; // Up = 0 Right = 1 Down = 2 Left = 3
 	
-	public Texture texture = null;
+	public int texture = 1;
 
 	public Entity(com.github.desmaster.Devio.util.Position spawnPosition) {
 		x = spawnPosition.getX();
@@ -25,7 +27,7 @@ public class Entity {
 	}
 
 	public void render() {
-		texture.bind();
+		getTexture().bind();
 		glLoadIdentity();
 		glTranslatef(getXonScreen(), getYonScreen(), 0);
 		glBegin(GL_QUADS);
@@ -46,11 +48,11 @@ public class Entity {
 	}
 
 	public Texture getTexture() {
-		return texture;
+		return iTexture.textures[texture];
 	}
 
-	public void setTexture(Texture texture) {
-		this.texture = texture;
+	public void setTexture(int id) {
+		this.texture = id;
 	}
 
 	public int getX() {
