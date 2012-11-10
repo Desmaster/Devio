@@ -14,7 +14,7 @@ public class Entity {
 
 	public int x = 0;
 	public int y = 0;
-	protected int entitySize;
+	protected int entitySize = 32;
 	int face = 0; // Up = 0 Right = 1 Down = 2 Left = 3
 	
 	public Texture texture = null;
