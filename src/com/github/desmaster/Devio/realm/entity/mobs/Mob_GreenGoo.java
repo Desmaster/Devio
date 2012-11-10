@@ -1,5 +1,6 @@
 package com.github.desmaster.Devio.realm.entity.mobs;
 
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Mob;
 import com.github.desmaster.Devio.tex.iTexture;
@@ -15,8 +16,12 @@ public class Mob_GreenGoo extends Mob{
 	}
 	
 	public void tick() {
+		walkblock();
 		if (!getWalkBlock()){
 			int[] direction = Distance.getDirection(x, y, Realm.player.x, Realm.player.y);
+			
+			Console.log(x+" "+y+" "+Realm.player.x+" "+Realm.player.y);
+			Console.log(direction[0]+" "+direction[1]);
 			
 			if (!(Collision.check(new Position(x,y),direction[0]))){
 				switch (direction[0]){
