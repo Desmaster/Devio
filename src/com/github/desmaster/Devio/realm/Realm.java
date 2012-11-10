@@ -10,7 +10,7 @@ import com.github.desmaster.Devio.realm.roofobject.Roof;
 import com.github.desmaster.Devio.realm.world.World;
 
 public class Realm {
-	
+
 	public static final int BLOCK_SIZE = 32;
 	public static final int MAP_WIDTH = Display.getWidth() / BLOCK_SIZE;
 	public static final int MAP_HEIGHT = Display.getHeight() / BLOCK_SIZE;
@@ -22,10 +22,10 @@ public class Realm {
 	public static Scenery sc = null;
 	public static MobHandeler mobhandeler = null;
 	public static Roof roof = null;
-	
+
 	public Realm() {
 		world = new World();
-		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT + ")");
+		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT+ ")");
 		sc = new Scenery();
 		Console.log("Generated Sceneries");
 		mobhandeler = new MobHandeler();
