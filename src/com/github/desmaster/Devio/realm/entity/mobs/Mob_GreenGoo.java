@@ -12,7 +12,7 @@ public class Mob_GreenGoo extends Mob{
 	
 	public Mob_GreenGoo() {
 		super(new Position(10,15), 50);
-		setTexture(iTexture.PLAYER_BILLIE);
+		setTexture(iTexture.ID_GOO_GREEN);
 	}
 	
 	public void tick() {
