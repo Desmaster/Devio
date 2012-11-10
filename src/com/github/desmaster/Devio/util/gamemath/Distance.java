@@ -32,4 +32,19 @@ public class Distance {
 	public static int calulateLeftDistance(int x1,int y1,int x2,int y2){
 		return x1 - x2;
 	}
+
+	public int[] getDirection(int x1,int y1,int x2,int y2){
+		int UP = calulateUpDistance(x1,y1,x2,y2);
+		int RIGHT = calulateRightDistance(x1,y1,x2,y2);
+		int DOWN = calulateDownDistance(x1,y1,x2,y2);
+		int LEFT = calulateLeftDistance(x1,y1,x2,y2);
+		
+		int X = Math.max(RIGHT, LEFT);
+		int Y = Math.max(UP,DOWN);
+		
+		if (){
+			
+		}
+		return null;
+	}
 }
