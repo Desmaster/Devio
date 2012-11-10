@@ -49,6 +49,7 @@ public class InputHandler {
 	public Key exit = new Key();
 	public Key grave = new Key();
 	public Key backspace = new Key();
+	public Key enter = new Key();
 
 	public InputHandler(Devio game) {
 		// this.game = game;
@@ -101,6 +102,9 @@ public class InputHandler {
 			break; // Beter dan de grave toch?
 		case Keyboard.KEY_BACK:
 			backspace.toggle(pressed);
+			break;
+		case Keyboard.KEY_RETURN:
+			enter.toggle(pressed);
 			break;
 		}
 	}
