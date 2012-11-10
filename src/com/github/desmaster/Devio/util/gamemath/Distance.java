@@ -34,6 +34,8 @@ public class Distance {
 	}
 
 	public int[] getDirection(int x1,int y1,int x2,int y2){
+		int[] returnvalue = new int[2];
+		
 		int UP = calulateUpDistance(x1,y1,x2,y2);
 		int RIGHT = calulateRightDistance(x1,y1,x2,y2);
 		int DOWN = calulateDownDistance(x1,y1,x2,y2);
@@ -42,9 +44,19 @@ public class Distance {
 		int X = Math.max(RIGHT, LEFT);
 		int Y = Math.max(UP,DOWN);
 		
-		if (){
-			
-		}
+		int DIR1 = Math.max(X,Y);
+		int DIR2 = Math.min(X,Y);
+		
+		if (DIR1 == UP) returnvalue[0] = 0;
+		if (DIR1 == RIGHT) returnvalue[0] = 1;
+		if (DIR1 == DOWN) returnvalue[0] = 2;
+		if (DIR1 == LEFT) returnvalue[0] = 3;
+		
+		if (DIR2 == UP) returnvalue[1] = 0;
+		if (DIR2 == RIGHT) returnvalue[1] = 1;
+		if (DIR2 == DOWN) returnvalue[1] = 2;
+		if (DIR2 == LEFT) returnvalue[1] = 3;
+		
 		return null;
 	}
 }
