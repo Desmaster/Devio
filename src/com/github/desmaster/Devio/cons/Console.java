@@ -35,6 +35,7 @@ public class Console extends UserInterface {
 	private static int textX;
 	private int textRenderX = 15;
 	private int textRenderY = 144;
+	private int index = 0;
 
 	boolean shouldRenderLine = true;
 	int line;
@@ -49,6 +50,7 @@ public class Console extends UserInterface {
 	public void tick() {
 		if (Screen.getInput().console.clicked) {
 			active = !active;
+			index  = 0;
 		}
 
 		if (!active && msg != "")
@@ -92,8 +94,10 @@ public class Console extends UserInterface {
 		if (active) {
 			if (Screen.getInput().consoleUp.clicked) {
 				if (ChatHandler.chatList.size() > 0) {
+					if (index > 0)
 					log("ConsoleUpClicked");
-					msg = ChatHandler.chatList.get(ChatHandler.chatList.size() - 1);
+					msg = commands.get(index);
+					index++;
 				}
 			}
 		}
@@ -122,6 +126,7 @@ public class Console extends UserInterface {
 		msg = "";
 		if (!(text == "" || text == " "))
 			ChatHandler.log(text);
+			commands.add(text);
 	}
 
 	public void sendToCommandHandler(String s) {
@@ -129,6 +134,7 @@ public class Console extends UserInterface {
 		String command = s.toLowerCase();
 		sendToChat("Command: " + command);
 		CommandHandler.RunCommand(command);
+		commands.add("/" + command);
 	}
 
 	public void renderContainer() {
