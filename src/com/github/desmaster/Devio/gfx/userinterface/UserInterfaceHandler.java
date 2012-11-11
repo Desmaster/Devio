@@ -19,6 +19,7 @@ public class UserInterfaceHandler {
 	public void tick() {
 		Iterator<UserInterface> iterator = InterfaceList.iterator();
 		while (iterator.hasNext()) {
+			
 			iterator.next().tick();
 		}
 	}
