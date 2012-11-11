@@ -32,6 +32,7 @@ public class UserInterface {
 		active = false;
 	}
 	
-	
-	
+	public static boolean isActive() {
+		return active;
+	}
 }
