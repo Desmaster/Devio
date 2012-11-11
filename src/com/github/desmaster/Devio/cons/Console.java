@@ -122,7 +122,7 @@ public class Console extends UserInterface {
 	public void sendToCommandHandler(String s) {
 		msg = "";
 		String command = s.toLowerCase();
-		CommandHandeler.RunCommand(command);
+		CommandHandler.RunCommand(command);
 	}
 
 	public void renderContainer() {
