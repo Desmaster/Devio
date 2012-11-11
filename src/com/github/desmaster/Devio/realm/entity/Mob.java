@@ -14,7 +14,7 @@ public class Mob extends Entity {
 	private int walkblocktimeout = 0;
 	private boolean walkblockactive = false;
 
-	public Mob(com.github.desmaster.Devio.util.Position spawnPosition,double lives) {
+	public Mob(com.github.desmaster.Devio.util.Position spawnPosition, double lives) {
 		super(spawnPosition);
 		this.lives = lives;
 	}
@@ -29,6 +29,14 @@ public class Mob extends Entity {
 		} else {
 			walkblocktimeout -= 1;
 		}
+	}
+
+	public void hurt(double amount, Entity entity) {
+		if (entity instanceof Player) {
+			Player player = (Player) entity;
+			player.lives -= amount;
+		}
+
 	}
 
 	public double getLives() {
@@ -47,9 +55,11 @@ public class Mob extends Entity {
 				setWalkBlock(walkblocktick);
 			}
 	}
+
 	public void setWalkSpeed(int ticks) {
 		walkblocktick = ticks;
 	}
+
 	public void walkDown() {
 		face = 2;
 		if (!(y == Realm.WORLD_HEIGHT - 1) && !walkblockactive)
@@ -87,6 +97,6 @@ public class Mob extends Entity {
 	}
 
 	public boolean isNearPlayer() {
-		return Distance.calulateTotalDistance(x, y, Realm.player.x,Realm.player.y) < 50;
+		return Distance.calulateTotalDistance(x, y, Realm.player.x, Realm.player.y) < 50;
 	}
 }
