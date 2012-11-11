@@ -677,6 +677,12 @@ public class Console extends UserInterface {
 				GL11.glVertex2f(x + 1, y);
 				GL11.glVertex2f(x + 1, y - 1);
 				x += 2;
+			} else if (c == '=') {
+				for (int i = 2; i <= 6; i++) {
+					GL11.glVertex2f(x + i, y - 5);
+					GL11.glVertex2f(x + i, y - 3);
+				}
+				x += 8;
 			} else if (c == '\n') {
 				y -= 10;
 				x = startX;
