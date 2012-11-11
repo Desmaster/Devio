@@ -73,9 +73,9 @@ public class Entity {
 	}
 	
 	public int getXonScreen(){
-		return x * 32;
+		return (x - Realm.world.getVisibleMapOffsetPosition(Realm.player).getX()) * 32;
 	}
 	public int getYonScreen(){
-		return y * 32;
+		return (y - Realm.world.getVisibleMapOffsetPosition(Realm.player).getY()) * 32;
 	}
 }
