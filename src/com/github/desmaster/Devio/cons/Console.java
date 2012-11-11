@@ -123,6 +123,7 @@ public class Console extends UserInterface {
 		msg = "";
 		String command = s.toLowerCase();
 		CommandHandler.RunCommand(command);
+		sendToChat("Command: " + command);
 	}
 
 	public void renderContainer() {
@@ -694,6 +695,11 @@ public class Console extends UserInterface {
 				for (int i = 9; i >= 1; i--)
 					GL11.glVertex2f(x + i / 2, yy - i * 1.35f);
 				x += 6;
+			} else if (c == ':') {
+				for (int i = 2; i <= 6; i++) {
+					GL11.glVertex2f(x, y - 7);
+					GL11.glVertex2f(x, y - 1);
+				}
 			}
 		}
 		textX = x;
