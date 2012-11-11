@@ -47,7 +47,9 @@ public class Mob extends Entity {
 				setWalkBlock(walkblocktick);
 			}
 	}
-
+	public void setWalkSpeed(int ticks) {
+		walkblocktick = ticks;
+	}
 	public void walkDown() {
 		face = 2;
 		if (!(y == Realm.WORLD_HEIGHT - 1) && !walkblockactive)

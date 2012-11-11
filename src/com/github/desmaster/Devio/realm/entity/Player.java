@@ -83,5 +83,4 @@ public class Player extends Mob {
 	public void enableInput() {
 		shouldTick = true;
 	}
-
 }

@@ -1,6 +1,7 @@
 package com.github.desmaster.Devio.cons;
 
 import com.github.desmaster.Devio.Devio;
+import com.github.desmaster.Devio.realm.Realm;
 
 public class CommandHandeler {
 	
@@ -28,7 +29,15 @@ public class CommandHandeler {
 		}
 	}
 	
-	public static void advancedCommand(String comand,String arags){
-		
+	public static void advancedCommand(String command,String arags){
+		String[] arg = new String[10];
+		if (arags.contains(",")){
+			arg = arags.split(",");
+		}
+		switch(command){
+		case "walkspeed":		
+			Realm.player.setWalkSpeed(Integer.parseInt(arags));
+			return;
+		}
 	}
 }
