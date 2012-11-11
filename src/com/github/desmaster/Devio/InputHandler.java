@@ -206,8 +206,38 @@ public class InputHandler {
 		case Keyboard.KEY_SPACE:
 			Console.type(' ');
 			break;
-		case Keyboard.KEY_SLASH:
-			Console.type("/");
+		case Keyboard.KEY_0:
+			Console.type("0");
+			break;
+		case Keyboard.KEY_1:
+			Console.type("1");
+			break;
+		case Keyboard.KEY_2:
+			Console.type("2");
+			break;
+		case Keyboard.KEY_3:
+			Console.type("3");
+			break;
+		case Keyboard.KEY_4:
+			Console.type("4");
+			break;
+		case Keyboard.KEY_5:
+			Console.type("5");
+			break;
+		case Keyboard.KEY_6:
+			Console.type("6");
+			break;
+		case Keyboard.KEY_7:
+			Console.type("7");
+			break;
+		case Keyboard.KEY_8:
+			Console.type("8");
+			break;
+		case Keyboard.KEY_9:
+			Console.type("9");
+			break;
+		case Keyboard.KEY_EQUALS:
+			Console.type("=");
 			break;
 		}
 	}
