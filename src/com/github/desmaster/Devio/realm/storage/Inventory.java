@@ -150,8 +150,8 @@ public class Inventory extends UserInterface {
 		int height = (container.getHeight()) / 32;
 		glColor4f(1, 1, 1, 1);
 		
-		for (int xx = 0; x < width; x++) {
-			for (int yy = 0; y < height; y++) {
+		for (int xx = 0; xx < width; xx++) {
+			for (int yy = 0; yy < height; yy++) {
 				glBegin(GL_LINES);
 				xx *= 32 / 2;
 				yy *= 32 / 2;
