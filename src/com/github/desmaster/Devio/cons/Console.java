@@ -25,6 +25,7 @@ import org.lwjgl.util.Rectangle;
 import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
+import com.github.desmaster.Devio.realm.entity.Player;
 
 public class Console extends UserInterface {
 
@@ -49,7 +50,10 @@ public class Console extends UserInterface {
 		if (Screen.getInput().console.clicked) {
 			active = !active;
 		}
-
+		
+		if (!active && msg != "")
+			msg = "";
+			
 		if (active) {
 			Screen.getPlayer().disableInput();
 			pollInput();
