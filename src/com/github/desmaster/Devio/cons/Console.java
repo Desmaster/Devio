@@ -15,6 +15,7 @@ import static org.lwjgl.opengl.GL11.glVertex2f;
 import static org.lwjgl.opengl.GL11.glVertex2i;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.lwjgl.opengl.Display;
@@ -27,7 +28,7 @@ import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 
 public class Console extends UserInterface {
 
-	List<String> commands = new ArrayList<String>();
+	List<String> commands = new LinkedList<String>();
 
 	private static String msg = "";
 	private static int textX;
@@ -77,6 +78,9 @@ public class Console extends UserInterface {
 				sendToCommandHandler(msg);
 			} else {
 				sendToChat(msg);
+			}
+			if (commands.size() > 6){
+				commands.remove(0);
 			}
 		}
 
