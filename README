@@ -1,12 +1,9 @@
 --------------------------------------
-- Done:                              -
---------------------------------------
--Add player
--Add World
--Add Collision
--Add Input Handeler
--
---------------------------------------
 - ToDo:                              -
 --------------------------------------
-Add ingame console(Added text rendering).
+-Improve Console
+-Implement ActionHandeler
+-Implement Inventory
+-Implement Armour en Weapon Slots
+-Improve Mob AI
+-Implement Roofs
