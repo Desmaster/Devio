@@ -148,17 +148,21 @@ public class Inventory extends UserInterface {
 		glEnd();
 		int width = (container.getWidth()) / 32;
 		int height = (container.getHeight()) / 32;
-		glColor4f(1, 1, 1, 1);
 		
-		for (int xx = 0; xx < width; xx++) {
-			for (int yy = 0; yy < height; yy++) {
-				glBegin(GL_LINES);
-				xx *= 32 / 2;
-				yy *= 32 / 2;
-				glVertex2f(xx, yy);
-				glVertex2f(xx + 32, yy + 32);
-				glEnd();
-			}
+		glColor4f(1, 1, 1, 1);
+		glTranslatef(container.getX() + 50, container.getY() - 50, 0);
+		for (int xx = 0; xx < 16; xx++) {
+			glBegin(GL_LINES);
+			glVertex2f(xx * 35, y);
+			glVertex2f(xx * 35, y + y * 6 - 20);
+			glEnd();
+		}
+		
+		for (int yy = 3; yy < 14; yy++) {
+			glBegin(GL_LINES);
+			glVertex2f(x - container.getWidth() + 50, yy * 36.20f);
+			glVertex2f(x - 100, yy * 36.20f);
+			glEnd();
 		}
 		
 	}
