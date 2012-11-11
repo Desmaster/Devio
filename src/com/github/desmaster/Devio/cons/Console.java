@@ -210,11 +210,7 @@ public class Console extends UserInterface {
 		String header = "Console Command: ";
 		System.out.println(header + msg);
 	}
-
-	public static boolean isActive() {
-		return active;
-	}
-
+	
 	public static void setMessage(String s) {
 		msg = s;
 	}
