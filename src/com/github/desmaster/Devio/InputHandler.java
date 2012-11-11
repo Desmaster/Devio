@@ -207,6 +207,8 @@ public class InputHandler {
 		case Keyboard.KEY_Z:
 			Console.type('z');
 			break;
+		case Keyboard.KEY_SLASH:
+			Console.type('/');
 		case Keyboard.KEY_SPACE:
 			Console.type(' ');
 			break;
