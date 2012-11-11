@@ -1,7 +1,6 @@
 package com.github.desmaster.Devio.realm;
 
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.GL11;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.MobHandler;
@@ -21,7 +20,7 @@ public class Realm {
 	public static Player player;
 	public static World world = null;
 	public static Scenery sc = null;
-	public static MobHandler mobhandler = null;
+	public static MobHandler mobHandler = null;
 	public static Roof roof = null;
 
 	public Realm() {
@@ -29,7 +28,7 @@ public class Realm {
 		Console.log("Generated World(" + WORLD_WIDTH + " * " + WORLD_HEIGHT+ ")");
 		sc = new Scenery();
 		Console.log("Generated Sceneries");
-		mobhandler = new MobHandler();
+		mobHandler = new MobHandler();
 		Console.log("Initialized Mob Handeler");
 		roof = new Roof();
 		Console.log("Initialized Roof");
@@ -38,12 +37,12 @@ public class Realm {
 	public void render() {
 		world.render();
 		sc.render();
-		mobhandler.render();
+		mobHandler.render();
 		roof.render();
 	}
 
 	public void tick() {
-		mobhandler.tick();
+		mobHandler.tick();
 	}
 
 	public void addPlayer(Player player) {

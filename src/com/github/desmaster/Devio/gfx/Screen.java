@@ -35,8 +35,7 @@ public class Screen {
 	private static InputHandler input;
 	private UserInterfaceHandler interfacehandler = new UserInterfaceHandler();
 
-	// Inventory inventory = new Inventory();
-
+	@SuppressWarnings("static-access")
 	public Screen(InputHandler input) {
 		texture = new iTexture();
 		player = new Player(iTexture.PLAYER_NINJA, Devio.spawnPosition, 100, input);
