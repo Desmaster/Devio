@@ -4,41 +4,43 @@ import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.realm.Realm;
 
 public class CommandHandler {
-	
-	public static void RunCommand(String string){
+
+	public static void RunCommand(String string) {
 		String[] a = null;
-		if (string.contains("=")){
+		if (string.contains("=")) {
 			a = string.split("=");
-			advancedCommand(a[0],a[1]);
+			advancedCommand(a[0], a[1]);
 			return;
 		} else {
 			simpleCommand(string);
 			return;
 		}
-		
 	}
-	
-	public static void simpleCommand(String string){
-		switch(string){
-		case "ping":		
-			Console.log("PONG!");
-			return;
-		case "stop":		
+
+	public static void simpleCommand(String string) {
+		switch (string) {
+		case "help":
+			
+			break;
+		case "ping":
+			ChatHandler.log("pong");
+			break;
+		case "stop":
 			Devio.stop();
-			return;
-		case "toggledebug":		
+			break;
+		case "toggledebug":
 			Devio.debugmode = !Devio.debugmode;
-			return;
+			break;
 		}
 	}
-	
-	public static void advancedCommand(String command,String arags){
+
+	public static void advancedCommand(String command, String arags) {
 		String[] arg = new String[10];
-		if (arags.contains(",")){
+		if (arags.contains(",")) {
 			arg = arags.split(",");
 		}
-		switch(command){
-		case "walkspeed":		
+		switch (command) {
+		case "walkspeed":
 			Realm.player.setWalkSpeed(Integer.parseInt(arags));
 			return;
 		}
