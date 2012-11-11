@@ -28,7 +28,7 @@ import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 
 public class Console extends UserInterface {
 
-	List<String> commands = new LinkedList<String>();
+	static List<String> commands = new LinkedList<String>();
 
 	private static String msg = "";
 	private static int textX;
@@ -104,7 +104,7 @@ public class Console extends UserInterface {
 		}
 	}
 
-	public void sendToChat(String text) {
+	public static void sendToChat(String text) {
 		msg = "";
 		if (!(text == "" || text == " ")) {
 			if (commands.size() < 1) {
@@ -118,10 +118,7 @@ public class Console extends UserInterface {
 	public void sendToCommandHandler(String s) {
 		msg = "";
 		String command = s.toLowerCase();
-		logC(command);
-		if (command.contentEquals(new StringBuffer("stop"))) {
-			Devio.stop();
-		}
+		CommandHandeler.RunCommand(command);
 	}
 
 	public void renderContainer() {

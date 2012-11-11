@@ -243,6 +243,9 @@ public class InputHandler {
 		case Keyboard.KEY_EQUALS:
 			Console.type("=");
 			break;
+		case Keyboard.KEY_SLASH:
+			Console.type("/");
+			break;
 		}
 	}
 }
