@@ -4,6 +4,7 @@ import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
 import com.github.desmaster.Devio.InputHandler;
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.util.Position;
@@ -13,7 +14,7 @@ public class Player extends Mob {
 	boolean running = false;
 	Thread thread;
 
-	private static boolean shouldTick = true;
+	public boolean shouldTick = true;
 	int fps;
 	long lastFrame;
 	long lastFPS;
@@ -82,5 +83,9 @@ public class Player extends Mob {
 
 	public void enableInput() {
 		shouldTick = true;
+	}
+	
+	public boolean isTicking() {
+		return shouldTick;
 	}
 }
