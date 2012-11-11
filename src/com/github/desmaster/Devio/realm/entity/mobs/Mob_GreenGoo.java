@@ -8,23 +8,23 @@ import com.github.desmaster.Devio.util.Position;
 import com.github.desmaster.Devio.util.gamemath.Collision;
 import com.github.desmaster.Devio.util.gamemath.Distance;
 
-public class Mob_GreenGoo extends Mob{
-	
+public class Mob_GreenGoo extends Mob {
+
 	public Mob_GreenGoo() {
-		super(new Position(10,15), 50);
+		super(new Position(10, 15), 50);
 		setTexture(iTexture.ID_GOO_GREEN);
 	}
-	
+
 	public void tick() {
 		walkblock();
-		if (!getWalkBlock()){
+		if (!getWalkBlock()) {
 			int[] direction = Distance.getDirection(x, y, Realm.player.x, Realm.player.y);
-			
-			Console.log(x+" "+y+" "+Realm.player.x+" "+Realm.player.y);
-			Console.log(direction[0]+" "+direction[1]);
-			
-			if (!(Collision.check(new Position(x,y),direction[0]))){
-				switch (direction[0]){
+
+			// Console.log(x+" "+y+" "+Realm.player.x+" "+Realm.player.y);
+			// Console.log(direction[0]+" "+direction[1]);
+
+			if (!(Collision.check(new Position(x, y), direction[0]))) {
+				switch (direction[0]) {
 				case 0:
 					walkUp();
 				case 1:
@@ -34,8 +34,8 @@ public class Mob_GreenGoo extends Mob{
 				case 3:
 					walkLeft();
 				}
-			} else if (!(Collision.check(new Position(x,y),direction[1]))) {
-				switch (direction[1]){
+			} else if (!(Collision.check(new Position(x, y), direction[1]))) {
+				switch (direction[1]) {
 				case 0:
 					walkUp();
 				case 1:
