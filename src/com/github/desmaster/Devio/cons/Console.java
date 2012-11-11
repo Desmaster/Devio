@@ -83,8 +83,8 @@ public class Console extends UserInterface {
 			} else {
 				sendToChat(msg);
 			}
-			if (commands.size() > 6){
-				commands.remove(0);
+			if (ChatHandler.chatList.size() > 6){
+				ChatHandler.chatList.remove(0);
 			}
 		}
 
@@ -110,20 +110,15 @@ public class Console extends UserInterface {
 
 	public static void sendToChat(String text) {
 		msg = "";
-		if (!(text == "" || text == " ")) {
-			if (commands.size() < 1) {
-				commands.add(text);
-			} else {
-				commands.add(text);
-			}
-		}
+		if (!(text == "" || text == " "))
+			ChatHandler.log(text);
 	}
 
 	public void sendToCommandHandler(String s) {
 		msg = "";
 		String command = s.toLowerCase();
-		CommandHandler.RunCommand(command);
 		sendToChat("Command: " + command);
+		CommandHandler.RunCommand(command);
 	}
 
 	public void renderContainer() {
@@ -150,16 +145,10 @@ public class Console extends UserInterface {
 		glVertex2i(container.getX() + container.getWidth() - 10, container.getY() + container.getHeight() - 40);
 		glVertex2i(container.getX() + 10, container.getY() + container.getHeight() - 40);
 		glEnd();
-		renderConsoleText();
+		ChatHandler.renderConsoleText();
 	}
 
-	public void renderConsoleText() {
-		if (commands.size() > 0) {
-			for ( int i=0; i<commands.size(); i++ ) {
-				drawString(commands.get(i), 15, 30 + (i * 15));
-			}
-		}
-	}
+	
 
 	public void renderInputText() {
 		glLoadIdentity();
