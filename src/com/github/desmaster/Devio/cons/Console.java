@@ -50,7 +50,7 @@ public class Console extends UserInterface {
 	public void tick() {
 		if (Screen.getInput().console.clicked) {
 			active = !active;
-			index  = 0;
+			index = 0;
 		}
 
 		if (!active && msg != "")
@@ -94,10 +94,20 @@ public class Console extends UserInterface {
 		if (active) {
 			if (Screen.getInput().consoleUp.clicked) {
 				if (ChatHandler.chatList.size() > 0) {
-					if (index > 0)
-					log("ConsoleUpClicked");
-					msg = commands.get(index);
 					index++;
+
+				}
+			} else if (Screen.getInput().consoleDown.clicked) {
+				if (index > 0) {
+					index--;
+				}
+			}
+			if (index > 0) {
+				if (index > commands.size())
+					index = commands.size() - 1;
+				if (commands.size() - index > 0 && !(commands.size() - index < 0)) {
+					log("ConsoleUpClicked");
+					msg = commands.get(commands.size() - index);
 				}
 			}
 		}
@@ -126,7 +136,7 @@ public class Console extends UserInterface {
 		msg = "";
 		if (!(text == "" || text == " "))
 			ChatHandler.log(text);
-			commands.add(text);
+		commands.add(text);
 	}
 
 	public void sendToCommandHandler(String s) {
