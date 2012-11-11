@@ -8,15 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.gameobject.Scenery;
 import com.github.desmaster.Devio.realm.roofobject.Roof;
-import com.github.desmaster.Devio.realm.world.Tile;
 import com.github.desmaster.Devio.realm.world.World;
 
 public class iFile {
@@ -61,24 +56,6 @@ public class iFile {
 	}
 	
 	public static World loadWorld() {
-		File jsonFile = new File("/map/map.json");
-		ObjectMapper mapper = new ObjectMapper();
-		World world;
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		try {
-			world = mapper.readValue(jsonFile, World.class);
-			Tile[][] tiles = new Tile[world.getData().size()][world.getData().size()];
-			for (int i = 0; i < world.getData().size(); i++) {
-			    
-			}
-			return world;
-		} catch (JsonParseException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		return null;
 	}
 	
