@@ -86,7 +86,7 @@ public class Console extends UserInterface {
 			} else {
 				sendToChat(msg);
 			}
-			if (ChatHandler.chatList.size() > 6) {
+			if (ChatHandler.chatList.size() > 20) {
 				ChatHandler.chatList.remove(0);
 			}
 		}

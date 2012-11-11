@@ -14,7 +14,7 @@ public class ChatHandler {
 	public static void renderConsoleText() {
 		if (chatList.size() > 0) {
 			for ( int i=Math.max((chatList.size() - 6),0); i<chatList.size(); i++ ) {
-				Console.drawString(chatList.get(i), 15, 30 + (i * 15));
+				Console.drawString(chatList.get(i), 15, 30 + (i - Math.max((chatList.size() - 6),0)) * 15);
 			}
 		}
 	}
