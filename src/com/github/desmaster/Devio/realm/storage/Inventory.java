@@ -36,7 +36,7 @@ public class Inventory extends UserInterface {
 
 	public void tick() {
 		if (Screen.getInput().inventory.clicked) {
-			if (!Console.isActive())
+			if (Screen.canOpenScreen(this))
 				active = !active;
 		}
 
