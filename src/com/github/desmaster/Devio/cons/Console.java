@@ -50,10 +50,10 @@ public class Console extends UserInterface {
 		if (Screen.getInput().console.clicked) {
 			active = !active;
 		}
-		
+
 		if (!active && msg != "")
 			msg = "";
-			
+
 		if (active) {
 			Screen.getPlayer().disableInput();
 			pollInput();
@@ -83,8 +83,17 @@ public class Console extends UserInterface {
 			} else {
 				sendToChat(msg);
 			}
-			if (ChatHandler.chatList.size() > 6){
+			if (ChatHandler.chatList.size() > 6) {
 				ChatHandler.chatList.remove(0);
+			}
+		}
+
+		if (active) {
+			if (Screen.getInput().consoleUp.clicked) {
+				if (ChatHandler.chatList.size() > 0) {
+					log("ConsoleUpClicked");
+					msg = ChatHandler.chatList.get(ChatHandler.chatList.size() - 1);
+				}
 			}
 		}
 
@@ -147,8 +156,6 @@ public class Console extends UserInterface {
 		glEnd();
 		ChatHandler.renderConsoleText();
 	}
-
-	
 
 	public void renderInputText() {
 		glLoadIdentity();
@@ -498,12 +505,14 @@ public class Console extends UserInterface {
 				}
 				x += 8;
 			} else if (c == 'x') {
+				y -= 1;
 				int yy = y - 8;
-				for (int i = 1; i <= 7; i++)
+				for (int i = 1; i <= 10; i++)
 					GL11.glVertex2f(x + i, yy + i);
-				for (int i = 7; i >= 1; i--)
-					GL11.glVertex2f(x + i, y - i);
-				x += 8;
+				for (int i = 10; i >= 1; i--)
+					GL11.glVertex2f(x + i, y - i + 3);
+				x += 13;
+				y += 1;
 			} else if (c == 'y') {
 				GL11.glVertex2f(x + 4, y);
 				GL11.glVertex2f(x + 4, y - 1);
