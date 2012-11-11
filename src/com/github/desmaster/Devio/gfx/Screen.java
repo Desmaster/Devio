@@ -8,6 +8,7 @@ import static org.lwjgl.opengl.GL11.glColor4f;
 import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterfaceHandler;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
@@ -33,7 +34,8 @@ public class Screen {
 	public static Player player;
 	private static InputHandler input;
 	private UserInterfaceHandler interfacehandler = new UserInterfaceHandler();
-	Inventory inventory = new Inventory();
+
+	// Inventory inventory = new Inventory();
 
 	public Screen(InputHandler input) {
 		texture = new iTexture();
@@ -52,7 +54,6 @@ public class Screen {
 			realm.render();
 			player.render();
 			interfacehandler.render();
-			inventory.render();
 			break;
 		case MAIN_MENU:
 			break;
@@ -61,6 +62,19 @@ public class Screen {
 		default:
 			break;
 		}
+	}
+
+	public static boolean canOpenScreen(UserInterface ui) {
+		if (ui instanceof Inventory) {
+			if (Console.isActive()) {
+				return false;
+			} else {
+				return true;
+			}
+		} else if (ui instanceof Console) {
+			return true;
+		}
+		return false;
 	}
 
 	public void setConsole(String s, boolean shouldRender) {
@@ -74,7 +88,6 @@ public class Screen {
 	public void tick() {
 		interfacehandler.tick();
 		realm.tick();
-		inventory.tick();
 	}
 
 	public iTexture getTexture() {
