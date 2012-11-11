@@ -46,7 +46,7 @@ public class Console extends UserInterface {
 	}
 
 	public void tick() {
-		if (Screen.getInput().grave.clicked) {
+		if (Screen.getInput().console.clicked) {
 			active = !active;
 		}
 
