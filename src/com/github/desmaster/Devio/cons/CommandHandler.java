@@ -3,7 +3,7 @@ package com.github.desmaster.Devio.cons;
 import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.realm.Realm;
 
-public class CommandHandeler {
+public class CommandHandler {
 	
 	public static void RunCommand(String string){
 		String[] a = null;

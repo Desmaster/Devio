@@ -7,20 +7,19 @@ import java.util.List;
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.mobs.Mob_GreenGoo;
 
-public class MobHandeler {
+public class MobHandler {
 
-	private List<Mob> mobsters = new ArrayList<Mob>();
+	private List<Mob> mobs = new ArrayList<Mob>();
 
-	public MobHandeler() {
-		mobsters.add(new Mob_GreenGoo());
+	public MobHandler() {
+		mobs.add(new Mob_GreenGoo());
 		Console.log("Initialized GreenGoo");
 	}
 
 	public void tick() {
-		Iterator<Mob> iterator = mobsters.iterator();
+		Iterator<Mob> iterator = mobs.iterator();
 		while (iterator.hasNext()) {
 			Mob mob = iterator.next();
-
 			if (mob.isNearPlayer()) {
 				mob.tick();
 			}
@@ -28,10 +27,9 @@ public class MobHandeler {
 	}
 
 	public void render() {
-		Iterator<Mob> iterator = mobsters.iterator();
+		Iterator<Mob> iterator = mobs.iterator();
 		while (iterator.hasNext()) {
 			Mob mob = iterator.next();
-
 			if (mob.isNearPlayer()) {
 				mob.render();
 			}
