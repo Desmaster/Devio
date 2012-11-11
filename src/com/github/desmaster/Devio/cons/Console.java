@@ -154,8 +154,8 @@ public class Console extends UserInterface {
 
 	public void renderConsoleText() {
 		if (commands.size() > 0) {
-			for (String s : commands) {
-				drawString(s, 15, 30 + (commands.indexOf(s) * 15));
+			for ( int i=0; i<commands.size(); i++ ) {
+				drawString(commands.get(i), 15, 30 + (i * 15));
 			}
 		}
 	}
