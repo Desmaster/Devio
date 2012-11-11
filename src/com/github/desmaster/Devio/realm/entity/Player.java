@@ -28,10 +28,6 @@ public class Player extends Mob {
 		setTexture(iTexture.ID_PLAYER);
 	}
 
-	public void start() {
-
-	}
-
 	public void tick(int delta) {
 		walkblock();
 		if (shouldTick) {
