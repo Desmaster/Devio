@@ -29,6 +29,7 @@ public class iTexture {
 
 	public static final int ID_PLAYER = 91;
 	public static final int ID_GOO_GREEN = 101;
+	public static final int ID_GOO_RED = 102;
 	
 	public static Texture TEST_TEXTURE = null;
 	public static Texture[] textures = new Texture[255];
@@ -85,6 +86,9 @@ public class iTexture {
 				break;
 			case ID_GOO_GREEN:
 				textures[i] = getTexture("greengoo", "png");
+				break;
+			case ID_GOO_RED:
+				textures[i] = getTexture("redgoo", "png");
 				break;
 			}
 		}
