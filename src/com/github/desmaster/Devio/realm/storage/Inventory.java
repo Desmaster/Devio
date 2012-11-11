@@ -175,10 +175,6 @@ public class Inventory extends UserInterface {
 		return items.containsAll(items);
 	}
 
-	public static boolean isActive() {
-		return active;
-	}
-
 	public static void setActive(boolean bool) {
 		active = bool;
 	}
