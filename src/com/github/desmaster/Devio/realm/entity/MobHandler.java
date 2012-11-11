@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.mobs.Mob_GreenGoo;
+import com.github.desmaster.Devio.realm.entity.mobs.Mob_RedGoo;
 
 public class MobHandler {
 
@@ -13,6 +14,7 @@ public class MobHandler {
 
 	public MobHandler() {
 		mobs.add(new Mob_GreenGoo());
+		mobs.add(new Mob_RedGoo());
 		Console.log("Initialized GreenGoo");
 	}
 
@@ -24,6 +26,11 @@ public class MobHandler {
 				mob.tick();
 			}
 		}
+	}
+	
+	public void destroyMob(Entity e) {
+		if (e instanceof Mob)
+		mobs.remove(e);
 	}
 
 	public void render() {

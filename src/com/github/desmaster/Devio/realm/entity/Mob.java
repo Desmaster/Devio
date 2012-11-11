@@ -13,6 +13,7 @@ public class Mob extends Entity {
 
 	private int walkblocktimeout = 0;
 	private boolean walkblockactive = false;
+	protected boolean alive;
 
 	public Mob(com.github.desmaster.Devio.util.Position spawnPosition, double lives) {
 		super(spawnPosition);
@@ -35,8 +36,13 @@ public class Mob extends Entity {
 		if (entity instanceof Player) {
 			Player player = (Player) entity;
 			player.lives -= amount;
+			if (player.lives - amount <= 0)
+				die(player);
 		}
+	}
 
+	private void die(Entity e) {
+		Realm.mobHandler.destroyMob(e);
 	}
 
 	public double getLives() {
