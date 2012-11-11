@@ -39,7 +39,8 @@ public class Devio {
 	long lastFPS;
 
 	private static boolean running = false;
-
+	public static boolean debugmode = false;
+	
 	private Screen screen;
 	private Counter counter;
 	private InputHandler input = new InputHandler(this);
