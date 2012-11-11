@@ -1,9 +1,8 @@
 --------------------------------------
 - ToDo:                              -
 --------------------------------------
--Improve Console
+-Fix Console (minor bugs).
 -Implement ActionHandeler
--Implement Inventory
--Implement Armour en Weapon Slots
--Improve Mob AI
--Implement Roofs
+-Implement Inventory (Better grid needed, Items rendering needed and spawn-based item set.)
+-Implement Armour and Weapon Slots (ArmourItem and MeleeItem.)
+-Improve Mob AI (Needs to do damage and fixing minor bugs. For example the bug that it appears under you.)
