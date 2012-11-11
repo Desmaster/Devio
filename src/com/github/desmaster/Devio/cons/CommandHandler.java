@@ -25,6 +25,9 @@ public class CommandHandler {
 		case "ping":
 			ChatHandler.log("pong");
 			break;
+		case "hp":
+			ChatHandler.log(Realm.player.getLives() + "");
+			break;
 		case "stop":
 			Devio.stop();
 			break;
