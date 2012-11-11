@@ -12,6 +12,7 @@ import static org.lwjgl.opengl.GL11.*;
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.gfx.Screen;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
+import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.realm.item.Item;
 
 public class Inventory extends UserInterface {
@@ -36,15 +37,16 @@ public class Inventory extends UserInterface {
 	public void tick() {
 		if (Screen.getInput().inventory.clicked) {
 			if (!Console.isActive())
-			active = !active;
+				active = !active;
 		}
-		
+
 		if (active) {
 			Screen.getPlayer().disableInput();
 		} else {
-			Screen.getPlayer().enableInput();
+			if (!Console.isActive())
+				if (!Screen.getPlayer().isTicking())
+					Screen.getPlayer().enableInput();
 		}
-
 	}
 
 	public void render() {
@@ -54,7 +56,7 @@ public class Inventory extends UserInterface {
 			renderInventory();
 		}
 	}
-	
+
 	public void shadeBackground() {
 		glLoadIdentity();
 		glDisable(GL_TEXTURE_2D);
@@ -73,7 +75,7 @@ public class Inventory extends UserInterface {
 		int y = container.getY();
 		glLoadIdentity();
 		glDisable(GL_TEXTURE_2D);
-		glColor4f(0.7f, 0.7f, 0.7f, 1);
+		glColor4f(.4f,.2f, .08f, 1);
 		glTranslatef(x, y, 0);
 		glBegin(GL_QUADS);
 		glVertex2f(x, y);
@@ -83,11 +85,16 @@ public class Inventory extends UserInterface {
 		glEnd();
 		glLoadIdentity();
 	}
-	
+
 	public void renderInventory() {
-		drawString(name, container.getX() + 55, container.getY() + 65, 0.15f, 0.15f, 0.15f, 1);
+		drawString(name, container.getX() + 55, container.getY() + 65, 1, 1, 1, 1);
+		glColor4f(1, 1, 1, 1);
+		glBegin(GL_LINES);
+		glVertex2f(container.getX() + 50, container.getY() + 70);
+		glVertex2f(container.getX() + container.getWidth(), container.getY() + 70);
+		glEnd();
 	}
-	
+
 	public boolean contains(Item item, int count) {
 		List<Item> items = new ArrayList<Item>();
 		for (int i = 0; i < count; i++) {
@@ -95,15 +102,15 @@ public class Inventory extends UserInterface {
 		}
 		return items.containsAll(items);
 	}
-	
+
 	public static boolean isActive() {
 		return active;
 	}
-	
+
 	public static void setActive(boolean bool) {
 		active = bool;
 	}
-	
+
 	public static void drawString(String s, int x, int y, float r, float g, float b, float a) {
 		int startX = x;
 		GL11.glDisable(GL11.GL_BLEND);
