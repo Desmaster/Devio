@@ -58,7 +58,8 @@ public class Console extends UserInterface {
 			Screen.getPlayer().disableInput();
 			pollInput();
 		} else {
-			Screen.getPlayer().enableInput();
+			if (!Screen.canOpenScreen(this))
+				Screen.getPlayer().enableInput();
 		}
 
 		if (shouldRenderLine) {
