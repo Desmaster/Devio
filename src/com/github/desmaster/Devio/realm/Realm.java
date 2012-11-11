@@ -1,6 +1,7 @@
 package com.github.desmaster.Devio.realm;
 
 import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
 
 import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.entity.MobHandeler;
