@@ -1,5 +1,6 @@
 package com.github.desmaster.Devio.realm.entity;
 
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.util.Position;
 import com.github.desmaster.Devio.util.gamemath.Collision;
@@ -15,7 +16,7 @@ public class Mob extends Entity {
 	private boolean walkblockactive = false;
 	protected boolean alive;
 
-	public Mob(com.github.desmaster.Devio.util.Position spawnPosition, double lives) {
+	public Mob(com.github.desmaster.Devio.util.Position spawnPosition,double lives) {
 		super(spawnPosition);
 		this.lives = lives;
 	}
@@ -36,8 +37,15 @@ public class Mob extends Entity {
 		if (entity instanceof Player) {
 			Player player = (Player) entity;
 			player.lives -= amount;
-			if (player.lives - amount <= 0)
-				die(player);
+			if (player.lives <= 0){
+				player.die();
+			}
+				
+		} else if (entity instanceof Mob) {
+			Mob mob = (Mob) entity;
+			mob.lives -= amount;
+			if (mob.lives - amount <= 0)
+				die(mob);
 		}
 	}
 
@@ -103,6 +111,7 @@ public class Mob extends Entity {
 	}
 
 	public boolean isNearPlayer() {
-		return Distance.calulateTotalDistance(x, y, Realm.player.x, Realm.player.y) < 50;
+		return Distance.calulateTotalDistance(x, y, Realm.player.x,
+				Realm.player.y) < 50;
 	}
 }
