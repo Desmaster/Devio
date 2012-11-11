@@ -35,7 +35,7 @@ public class Console extends UserInterface {
 	private static int textX;
 	private int textRenderX = 15;
 	private int textRenderY = 144;
-	private int index = 0;
+	private int index = -1;
 
 	boolean shouldRenderLine = true;
 	int line;
@@ -93,25 +93,30 @@ public class Console extends UserInterface {
 
 		if (active) {
 			if (Screen.getInput().consoleUp.clicked) {
-				if (ChatHandler.chatList.size() > 0) {
+				if (commands.size() > 0) {
 					index++;
-
 				}
+				selectIndex();
 			} else if (Screen.getInput().consoleDown.clicked) {
 				if (index > 0) {
 					index--;
 				}
-			}
-			if (index > 0) {
-				if (index > commands.size())
-					index = commands.size() - 1;
-				if (commands.size() - index > 0 && !(commands.size() - index < 0)) {
-					log("ConsoleUpClicked");
-					msg = commands.get(commands.size() - index);
-				}
+				selectIndex();
 			}
 		}
 
+	}
+	
+	public void selectIndex(){
+		if (index >= 0) {
+			if (index > commands.size())
+				index = commands.size() - 1;
+			if (commands.size() - index > 0) {
+				log("ConsoleUpClicked");
+				log(commands.size() - index - 1 +"");
+				msg = commands.get(commands.size() - index - 1);
+			}
+		}
 	}
 
 	public void pollInput() {
