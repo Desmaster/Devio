@@ -20,7 +20,7 @@ public class CommandHandler {
 	public static void simpleCommand(String string) {
 		switch (string) {
 		case "help":
-			
+			ChatHandler.log("You can use commands: " + "/ping, " + "/stop, " + "/toggledebug and " + "/walkspeed=value");
 			break;
 		case "ping":
 			ChatHandler.log("pong");
@@ -30,18 +30,19 @@ public class CommandHandler {
 			break;
 		case "toggledebug":
 			Devio.debugmode = !Devio.debugmode;
+			ChatHandler.log("Toggled debug mode");
 			break;
 		}
 	}
 
-	public static void advancedCommand(String command, String arags) {
+	public static void advancedCommand(String command, String args) {
 		String[] arg = new String[10];
-		if (arags.contains(",")) {
-			arg = arags.split(",");
+		if (args.contains(",")) {
+			arg = args.split(",");
 		}
 		switch (command) {
 		case "walkspeed":
-			Realm.player.setWalkSpeed(Integer.parseInt(arags));
+			Realm.player.setWalkSpeed(Integer.parseInt(args));
 			return;
 		}
 	}
