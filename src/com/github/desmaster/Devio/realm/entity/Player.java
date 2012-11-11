@@ -5,6 +5,8 @@ import org.newdawn.slick.opengl.Texture;
 
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.Screen;
+import com.github.desmaster.Devio.gfx.Screen.State;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.tex.iTexture;
 import com.github.desmaster.Devio.util.Position;
@@ -83,5 +85,9 @@ public class Player extends Mob {
 	
 	public boolean isTicking() {
 		return shouldTick;
+	}
+	
+	public void die() {
+		Screen.state = State.DEAD;
 	}
 }
