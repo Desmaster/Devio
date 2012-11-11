@@ -47,6 +47,7 @@ public class InputHandler {
 	public Key up = new Key();
 	public Key down = new Key();
 	public Key consoleUp = new Key();
+	public Key consoleDown = new Key();
 	public Key exit = new Key();
 	public Key console = new Key();
 	public Key backspace = new Key();
@@ -96,6 +97,7 @@ public class InputHandler {
 			break;
 		case Keyboard.KEY_DOWN:
 			down.toggle(pressed);
+			consoleDown.toggle(pressed);
 			break;
 		case Keyboard.KEY_ESCAPE:
 			exit.toggle(pressed);
