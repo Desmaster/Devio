@@ -48,4 +48,9 @@ public class Realm {
 	public void addPlayer(Player player) {
 		this.player = player;
 	}
+
+	public static void reset() {
+		world = new World();
+		mobHandler = new MobHandler();
+	}
 }
