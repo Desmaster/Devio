@@ -31,6 +31,8 @@ public class iTexture {
 	public static final int ID_GOO_GREEN = 101;
 	public static final int ID_GOO_RED = 102;
 	
+	public static final int ID_SCREEN_DEATH = 201;
+	
 	public static Texture TEST_TEXTURE = null;
 	public static Texture[] textures = new Texture[255];
 	public static Texture PLAYER = null;
@@ -89,6 +91,9 @@ public class iTexture {
 				break;
 			case ID_GOO_RED:
 				textures[i] = getTexture("redgoo", "png");
+				break;
+			case ID_SCREEN_DEATH:
+				textures[i] = getTexture("Screen_happy", "png");
 				break;
 			}
 		}
