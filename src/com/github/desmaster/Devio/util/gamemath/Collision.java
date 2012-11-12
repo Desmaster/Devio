@@ -28,10 +28,14 @@ public class Collision {
 		}
 
 		if (face == 1) { // Right
-			if (Realm.world.getTile(p.getX(), p.getY()).checkCollision(1))
+			if (!(Realm.sc.getObject(p.getX(), p.getY()) == null)) {
+				if (Realm.world.getTile(p.getX(), p.getY()).checkCollision(1))
 				solid = true;
-			if (Realm.world.getTile(p.getX() + 1, p.getY()).checkCollision(3))
+			}			
+			if (!(Realm.sc.getObject(p.getX() + 1, p.getY()) == null)) {
+				if (Realm.world.getTile(p.getX() + 1, p.getY()).checkCollision(3))
 				solid = true;
+			}			
 			if (!(Realm.sc.getObject(p.getX(), p.getY()) == null)) {
 				if (Realm.sc.getObject(p.getX(), p.getY()).checkCollision(1))
 					solid = true;
@@ -63,10 +67,14 @@ public class Collision {
 		}
 
 		if (face == 3) { // Right
-			if (Realm.world.getTile(p.getX(), p.getY()).checkCollision(3))
+			if (!(Realm.world.getTile(p.getX(), p.getY()) == null)) {
+				if (Realm.world.getTile(p.getX(), p.getY()).checkCollision(3))
 				solid = true;
-			if (Realm.world.getTile(p.getX() - 1, p.getY()).checkCollision(1))
+			}
+			if (!(Realm.world.getTile(p.getX() - 1, p.getY()) == null)) {
+				if (Realm.world.getTile(p.getX() - 1, p.getY()).checkCollision(1))
 				solid = true;
+			}
 			if (!(Realm.sc.getObject(p.getX(), p.getY()) == null)) {
 				if (Realm.sc.getObject(p.getX(), p.getY()).checkCollision(3))
 					solid = true;
