@@ -48,29 +48,36 @@ public class FriendlyMob2 extends Mob {
 				switch (direction[0]) {
 				case 0:
 					aiUp();
+					break;
 				case 1:
 					aiRight();
+					break;
 				case 2:
 					aiDown();
+					break;
 				case 3:
 					aiLeft();
+					break;
 				}
 			} else if (!(Collision.check(new Position(x, y), direction[1]))) {
 				switch (direction[1]) {
 				case 0:
 					aiUp();
+					break;
 				case 1:
 					aiRight();
+					break;
 				case 2:
 					aiDown();
+					break;
 				case 3:
 					aiLeft();
+					break;
 				}
 			} else {
 				newFocus();
 			}		
 		}
-		
 		setTexture(iTexture.ID_MOUSE_0 + face);
 	}
 
