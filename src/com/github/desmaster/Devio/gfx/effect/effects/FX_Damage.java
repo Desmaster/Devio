@@ -25,13 +25,13 @@ public class FX_Damage extends Effect {
 			amount--;
 		}
 		
-		
 	}
 
 	public void render() {
 		if (active) {
 			glLoadIdentity();
-			glColor4f(1, 0.5f, 0.5f, 1);
+			glDisable(GL_TEXTURE_2D);
+			glColor4f(1f, 0.2f, 0.2f, 0.3f);
 			glTranslatef(0, 0, 0);
 			glBegin(GL_QUADS);
 			glVertex2f(0, 0);
@@ -39,6 +39,7 @@ public class FX_Damage extends Effect {
 			glVertex2f(Display.getWidth(), Display.getHeight());
 			glVertex2f(0, Display.getHeight());
 			glEnd();
+			glEnable(GL_TEXTURE_2D);
 		}
 	}
 

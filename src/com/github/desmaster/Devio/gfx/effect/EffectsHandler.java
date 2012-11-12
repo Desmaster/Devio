@@ -16,11 +16,8 @@ public class EffectsHandler {
 
 	public void tick() {
 		Iterator<Effect> iterator = efxs.iterator();
-		while (iterator.hasNext()) {
-			Effect e = iterator.next();
-			e.tick();
-			if (!e.active)
-				efxs.remove(e);
+		while (iterator.hasNext() && efxs.size() > 0) {
+			iterator.next().tick();
 		}
 	}
 
@@ -48,4 +45,11 @@ public class EffectsHandler {
 			return true;
 		return false;
 	}
+	
+	public void removeAll() {
+		for (int i = 0; i < efxs.size(); i++) {
+			efxs.remove(i);
+		}
+	}
+	
 }

@@ -71,7 +71,7 @@ public class EvilMob extends Mob {
 			hurt(dmg, Realm.player);
 			timeoutuntildamage = damage_timeout;
 			if(!Screen.getEffectsHandler().hasEffect())
-			Screen.getEffectsHandler().addEffect(new FX_Damage(dmg * 16));
+			Screen.getEffectsHandler().addEffect(new FX_Damage(90));
 		}
 	}
 
