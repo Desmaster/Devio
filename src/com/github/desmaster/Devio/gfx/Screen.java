@@ -8,6 +8,8 @@ import static org.lwjgl.opengl.GL11.glColor4f;
 import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.effect.EffectsHandler;
+import com.github.desmaster.Devio.gfx.effect.effects.FX_Damage;
 import com.github.desmaster.Devio.gfx.screens.Screen_Death;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterfaceHandler;
@@ -34,6 +36,7 @@ public class Screen {
 	public static Player player;
 	private static InputHandler input;
 	private UserInterfaceHandler interfacehandler = new UserInterfaceHandler();
+	private EffectsHandler effectsHandler = new EffectsHandler();
 
 	@SuppressWarnings("static-access")
 	public Screen(InputHandler input) {
@@ -52,6 +55,7 @@ public class Screen {
 			glColor4f(1, 1, 1, 1);
 			realm.render();
 			player.render();
+			effectsHandler.render();
 			interfacehandler.render();
 			break;
 		case MAIN_MENU:
@@ -94,6 +98,8 @@ public class Screen {
 	}
 
 	public void tick() {
+		effectsHandler.tick();
+		effectsHandler.addEffect(new FX_Damage(100));
 		interfacehandler.tick();
 		realm.tick();
 	}

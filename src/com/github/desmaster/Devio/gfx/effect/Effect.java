@@ -1,10 +1,8 @@
 package com.github.desmaster.Devio.gfx.effect;
 
-import java.util.Iterator;
-
 public class Effect {
 	
-	public boolean active = false;
+	public static boolean active = false;
 	
 	
 	public Effect(){

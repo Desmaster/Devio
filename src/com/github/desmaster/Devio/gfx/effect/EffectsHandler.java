@@ -4,35 +4,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.github.desmaster.Devio.gfx.effect.effects.FX_Damage;
+
 public class EffectsHandler {
-	
+
 	public List<Effect> efxs = new ArrayList<Effect>();
-	
-	public EffectsHandler(){
-		
+
+	public EffectsHandler() {
+
 	}
-	
-	public void tick(){
+
+	public void tick() {
 		Iterator<Effect> iterator = efxs.iterator();
 		while (iterator.hasNext()) {
-			Effect fx = iterator.next();
-			if (fx.active) {
-				fx.tick();
-			}
+			iterator.next().tick();
 		}
 	}
-	
-	public void render(){
+
+	public void render() {
 		Iterator<Effect> iterator = efxs.iterator();
 		while (iterator.hasNext()) {
-			Effect fx = iterator.next();
-			if (fx.active) {
-				fx.render();
-			}
+			iterator.next().render();
 		}
 	}
-	
-	public void addEffect(Effect effx){
+
+	public Effect getEffect() {
+		return null;
+	}
+
+	public void addEffect(Effect effx) {
 		efxs.add(effx);
 	}
 }
