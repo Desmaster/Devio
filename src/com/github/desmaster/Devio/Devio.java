@@ -29,6 +29,7 @@ public class Devio {
 
 	private DisplayMode dm;
 
+	
 	public static int WIDTH;
 	public static int HEIGHT;
 	public static final String TITLE = "Devio";
