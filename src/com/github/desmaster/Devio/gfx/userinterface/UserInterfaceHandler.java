@@ -12,9 +12,9 @@ public class UserInterfaceHandler {
 	public static List<UserInterface> InterfaceList = new ArrayList<UserInterface>();
 
 	public UserInterfaceHandler() {
+		InterfaceList.add(new UI_hpbar());
 		InterfaceList.add(new Inventory());
 		InterfaceList.add(new Console());
-		InterfaceList.add(new UI_hpbar());
 	}
 
 	public void tick() {

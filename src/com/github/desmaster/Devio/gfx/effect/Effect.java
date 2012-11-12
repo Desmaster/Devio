@@ -2,7 +2,7 @@ package com.github.desmaster.Devio.gfx.effect;
 
 public class Effect {
 	
-	public static boolean active = false;
+	public boolean active = false;
 	
 	
 	public Effect(){

@@ -15,7 +15,7 @@ public class Mob extends Entity {
 	private boolean walkblockactive = false;
 	protected boolean alive;
 
-	public Mob(Position spawnPosition,double lives) {
+	public Mob(Position spawnPosition, double lives) {
 		super(spawnPosition);
 		this.lives = lives;
 	}
@@ -36,10 +36,10 @@ public class Mob extends Entity {
 		if (entity instanceof Player) {
 			Player player = (Player) entity;
 			player.lives -= amount;
-			if (player.lives <= 0){
+			if (player.lives <= 0) {
 				player.die();
 			}
-				
+
 		} else if (entity instanceof Mob) {
 			Mob mob = (Mob) entity;
 			mob.lives -= amount;
@@ -110,7 +110,6 @@ public class Mob extends Entity {
 	}
 
 	public boolean isNearPlayer() {
-		return Distance.calulateTotalDistance(x, y, Realm.player.x,
-				Realm.player.y) < 50;
+		return Distance.calulateTotalDistance(x, y, Realm.player.x, Realm.player.y) < 50;
 	}
 }

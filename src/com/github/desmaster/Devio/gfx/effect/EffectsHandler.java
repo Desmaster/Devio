@@ -17,7 +17,10 @@ public class EffectsHandler {
 	public void tick() {
 		Iterator<Effect> iterator = efxs.iterator();
 		while (iterator.hasNext()) {
-			iterator.next().tick();
+			Effect e = iterator.next();
+			e.tick();
+			if (!e.active)
+				efxs.remove(e);
 		}
 	}
 
@@ -36,8 +39,13 @@ public class EffectsHandler {
 		efxs.add(effx);
 	}
 
-	public boolean hasEffect(FX_Damage fx_Damage) {
-		
+	public void remove(Effect e) {
+		efxs.remove(e);
+	}
+
+	public boolean hasEffect() {
+		if (efxs.size() > 0)
+			return true;
 		return false;
 	}
 }
