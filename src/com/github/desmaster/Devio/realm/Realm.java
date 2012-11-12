@@ -51,6 +51,7 @@ public class Realm {
 
 	public static void reset() {
 		world = new World();
+		sc = new Scenery();
 		mobHandler = new MobHandler();
 	}
 }
