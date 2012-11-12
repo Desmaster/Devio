@@ -34,6 +34,9 @@ public class iTexture {
 	
 	public static final int ID_SCREEN_DEATH = 201;
 	
+	public static final int ID_HP_EMPTY = 211;
+	public static final int ID_HP_FULL = 212;
+	
 	public static Texture TEST_TEXTURE = null;
 	public static Texture[] textures = new Texture[255];
 	public static Texture PLAYER = null;
@@ -96,8 +99,16 @@ public class iTexture {
 			case ID_SCREEN_DEATH:
 				textures[i] = getTexture("Screen_happy", "png");
 				break;
+<<<<<<< HEAD
 			case ID_GRASS_NOISE:
 				textures[i] = getTexture("grass_noise", "png");
+=======
+			case ID_HP_EMPTY:
+				textures[i] = getTexture("empty_hp", "png");
+				break;
+			case ID_HP_FULL:
+				textures[i] = getTexture("full_hp", "png");
+>>>>>>> Hp_bar
 				break;
 			}
 		}

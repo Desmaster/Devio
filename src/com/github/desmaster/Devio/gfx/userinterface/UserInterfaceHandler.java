@@ -14,6 +14,7 @@ public class UserInterfaceHandler {
 	public UserInterfaceHandler() {
 		InterfaceList.add(new Inventory());
 		InterfaceList.add(new Console());
+		InterfaceList.add(new UI_hpbar());
 	}
 
 	public void tick() {
