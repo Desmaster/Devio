@@ -1,24 +1,37 @@
 package com.github.desmaster.Devio.realm.entity;
 
+import java.util.Random;
+
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.util.Position;
+import com.github.desmaster.Devio.util.iRandom;
 import com.github.desmaster.Devio.util.gamemath.Collision;
 import com.github.desmaster.Devio.util.gamemath.Distance;
 
 public class EvilMob extends Mob {
-	
-	public int damage_Hit = 5;
-	public int damage_Critical = 10;
-	public int damage_timeout = 40;
-	
+
+	// Settings
+	public int damage_min_hit = 0;
+	public int damage_max_hit = 5;
+	public int damage_critical_hit = 10;
+	public int damage_critical_chance = 10; // % of chance to hit Critical
+	public int damage_timeout = 4; // in ticks.
+
+	// Variables
+	public int timeoutuntildamage = 0;
+
 	public EvilMob(Position spawnPosition, double lives) {
 		super(spawnPosition, lives);
 	}
 
 	public void tick() {
 		walkblock();
+		if (timeoutuntildamage > 0) {
+			timeoutuntildamage -= 1;
+		}
 		if (!getWalkBlock()) {
-			int[] direction = Distance.getDirection(x, y, Realm.player.x, Realm.player.y);
+			int[] direction = Distance.getDirection(x, y, Realm.player.x,
+					Realm.player.y);
 
 			// Console.log(x+" "+y+" "+Realm.player.x+" "+Realm.player.y);
 			// Console.log(direction[0]+" "+direction[1]);
@@ -50,34 +63,50 @@ public class EvilMob extends Mob {
 			}
 		}
 	}
-	
-	public void aiUp(){
-		if (Realm.player.x == x && Realm.player.y == (y-1)){
-			hurt(damage_Hit,Realm.player);
+
+	public void attack() {
+		if (timeoutuntildamage <= 0) {
+			setWalkBlock(120);
+			hurt(damage_max_hit, Realm.player);
+			timeoutuntildamage = damage_timeout;
+		}
+	}
+
+	public int calculateDamage() {
+		if (iRandom.nextInt(100) <= damage_critical_chance) {
+			return damage_critical_hit;
+		} else {
+			return iRandom.nextInt(damage_min_hit,damage_max_hit);
+		}
+	}
+
+	public void aiUp() {
+		if (Realm.player.x == x && Realm.player.y == (y - 1)) {
+			attack();
 		} else {
 			walkUp();
 		}
 	}
-	
-	public void aiRight(){
-		if (Realm.player.x == (x+1) && Realm.player.y == y){
-			hurt(damage_Hit,Realm.player);
+
+	public void aiRight() {
+		if (Realm.player.x == (x + 1) && Realm.player.y == y) {
+			attack();
 		} else {
 			walkRight();
 		}
 	}
-		
-	public void aiDown(){
-		if (Realm.player.x == x && Realm.player.y == (y+1)){
-			hurt(damage_Hit,Realm.player);
+
+	public void aiDown() {
+		if (Realm.player.x == x && Realm.player.y == (y + 1)) {
+			attack();
 		} else {
 			walkDown();
 		}
 	}
 
-	public void aiLeft(){
-		if (Realm.player.x == (x - 1) && Realm.player.y == y){
-			hurt(damage_Hit,Realm.player);
+	public void aiLeft() {
+		if (Realm.player.x == (x - 1) && Realm.player.y == y) {
+			attack();
 		} else {
 			walkLeft();
 		}
