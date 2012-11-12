@@ -28,7 +28,7 @@ public class UserInterface {
 		active = true;
 	}
 
-	public void close() {
+	public static void close() {
 		active = false;
 	}
 	
