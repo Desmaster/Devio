@@ -18,10 +18,10 @@ public class FriendlyMob2 extends Mob {
 
 	public void newFocus(){
 		
-		int x1 = x - 10;
-		int y1 = y - 10;
-		int x2 = x + 10;
-		int y2 = y + 10;
+		int x1 = x - 20;
+		int y1 = y - 20;
+		int x2 = x + 20;
+		int y2 = y + 20;
 		
 		if (x1 <= 0) {x1 = 0;};
 		if (y1 <= 0) {y1 = 0;};
@@ -33,7 +33,11 @@ public class FriendlyMob2 extends Mob {
 	}
 	public void tick() {
 		walkblock();
-
+		
+		if (focuspoint.getX() == x && focuspoint.getY() == y){
+			newFocus();
+		}
+		
 		if (!getWalkBlock()) {
 			int[] direction = Distance.getDirection(x, y, focuspoint.getX(),focuspoint.getY());
 
@@ -67,7 +71,6 @@ public class FriendlyMob2 extends Mob {
 			}		
 		}
 		
-		if(!(getTexture() == iTexture.textures[iTexture.ID_MOUSE_0 + face]))
 		setTexture(iTexture.ID_MOUSE_0 + face);
 	}
 
