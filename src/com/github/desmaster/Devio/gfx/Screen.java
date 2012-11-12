@@ -8,6 +8,7 @@ import static org.lwjgl.opengl.GL11.glColor4f;
 import com.github.desmaster.Devio.Devio;
 import com.github.desmaster.Devio.InputHandler;
 import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.screens.Screen_Death;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterface;
 import com.github.desmaster.Devio.gfx.userinterface.UserInterfaceHandler;
 import com.github.desmaster.Devio.realm.Realm;
@@ -17,15 +18,14 @@ import com.github.desmaster.Devio.tex.iTexture;
 
 public class Screen {
 
-	enum State {
-		GAME, MAIN_MENU, OPTIONS;
+	public static enum State {
+		INTRO, MAIN_MENU, GAME, DEAD, OPTIONS;
 	}
-
-	public State getState() {
-		if (shouldRenderGame) {
-			return State.GAME;
-		}
-		return null;
+	
+	public static State state = State.GAME;
+	
+	public static State getState() {
+		return state;
 	}
 
 	private boolean shouldRenderGame = true;
@@ -58,7 +58,12 @@ public class Screen {
 			break;
 		case OPTIONS:
 			break;
-		default:
+		case DEAD:
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glColor4f(1, 1, 1, 1);
+			Screen_Death.render();
+			break;
+		case INTRO:
 			break;
 		}
 	}
@@ -79,7 +84,11 @@ public class Screen {
 	public void setConsole(String s, boolean shouldRender) {
 		Console.setMessage(s);
 	}
-
+	
+	public void setState(State s) {
+		state = s;
+	}
+	
 	public static Player getPlayer() {
 		return player;
 	}
