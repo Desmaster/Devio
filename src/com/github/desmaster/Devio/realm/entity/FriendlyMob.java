@@ -31,6 +31,7 @@ public class FriendlyMob extends Mob {
 			}
 		}
 		
+		if(!(getTexture() == iTexture.textures[iTexture.ID_MOUSE_0 + face]))
 		setTexture(iTexture.ID_MOUSE_0 + face);
 	}
 

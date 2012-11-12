@@ -16,7 +16,10 @@ public class MobHandler {
 	public MobHandler() {
 		mobs.add(new Mob_GreenGoo());
 		mobs.add(new Mob_RedGoo());
-		mobs.add(new Mob_Mouse());
+		for (int i = 0; i < 200; i++) {
+			mobs.add(new Mob_Mouse());
+		}
+		
 		Console.log("Initialized GreenGoo");
 	}
 
