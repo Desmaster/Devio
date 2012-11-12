@@ -41,6 +41,6 @@ public class iRandom {
 		return new Position(nextDouble(a.getMinX(),a.getMaxX()),nextDouble(a.getMinY(),a.getMaxY()));
 	}
 	public static Position nextPosition(int x1, int y1, int x2, int y2) {
-		return new Position(nextInt(x1,y1),nextInt(x2,y2));
+		return new Position(nextInt(x1,x2),nextInt(y1,y2));
 	}
 }
