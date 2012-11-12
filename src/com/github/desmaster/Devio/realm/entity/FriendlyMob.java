@@ -18,54 +18,36 @@ public class FriendlyMob extends Mob {
 			switch (iRandom.nextInt(4)) {
 			case 0:
 				aiUp();
+				break;
 			case 1:
 				aiRight();
+				break;
 			case 2:
 				aiDown();
+				break;
 			case 3:
 				aiLeft();
+				break;
 			}
 		}
-
-		switch (face) {
-		case 0:
-			if (getTexture() != iTexture.textures[iTexture.ID_MOUSE_0])
-				setTexture(iTexture.ID_MOUSE_0);
-			break;
-		case 1:
-			if (getTexture() != iTexture.textures[iTexture.ID_MOUSE_1])
-				setTexture(iTexture.ID_MOUSE_1);
-			break;
-		case 2:
-			if (getTexture() != iTexture.textures[iTexture.ID_MOUSE_2])
-				setTexture(iTexture.ID_MOUSE_2);
-			break;
-		case 3:
-			if (getTexture() != iTexture.textures[iTexture.ID_MOUSE_3])
-				setTexture(iTexture.ID_MOUSE_3);
-			break;
-		}
-
+		
+		setTexture(iTexture.ID_MOUSE_0 + face);
 	}
 
 	public void aiUp() {
 		walkUp();
-		setWalkBlock(120);
 	}
 
 	public void aiRight() {
 		walkRight();
-		setWalkBlock(120);
 	}
 
 	public void aiDown() {
 		walkDown();
-		setWalkBlock(120);
 	}
 
 	public void aiLeft() {
 		walkLeft();
-		setWalkBlock(120);
 	}
 
 }
