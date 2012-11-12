@@ -16,7 +16,7 @@ public class Mob extends Entity {
 	private boolean walkblockactive = false;
 	protected boolean alive;
 
-	public Mob(com.github.desmaster.Devio.util.Position spawnPosition,double lives) {
+	public Mob(Position spawnPosition,double lives) {
 		super(spawnPosition);
 		this.lives = lives;
 	}
