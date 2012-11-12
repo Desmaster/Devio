@@ -12,9 +12,9 @@ public class EvilMob extends Mob {
 
 	// Settings
 	public int damage_min_hit = 0;
-	public int damage_max_hit = 5;
-	public int damage_critical_hit = 10;
-	public int damage_critical_chance = 10; // % of chance to hit Critical
+	public int damage_max_hit = 10;
+	public int damage_critical_hit = 25;
+	public int damage_critical_chance = 20; // % of chance to hit Critical
 	public int damage_timeout = 40; // in ticks.
 
 	// Variables
