@@ -28,6 +28,7 @@ public class Screen_Death {
 		tick();
 		iTexture.textures[iTexture.ID_SCREEN_DEATH].bind();
 		glLoadIdentity();
+		glColor4f(1, 1, 1, 1);
 		glTranslatef(0, 0, 0);
 		glBegin(GL_QUADS);
 		
