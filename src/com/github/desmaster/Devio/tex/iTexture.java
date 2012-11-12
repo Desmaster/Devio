@@ -12,6 +12,7 @@ public class iTexture {
 	public static final int ID_GRASS = 0;
 	public static final int ID_SAND = 1;
 	public static final int ID_WATER = 2;
+	public static final int ID_GRASS_NOISE = 3;
 
 	public static final int ID_FLOWER_RED = 21;
 	public static final int ID_FLOWER_YELLOW = 22;
@@ -94,6 +95,9 @@ public class iTexture {
 				break;
 			case ID_SCREEN_DEATH:
 				textures[i] = getTexture("Screen_happy", "png");
+				break;
+			case ID_GRASS_NOISE:
+				textures[i] = getTexture("grass_noise", "png");
 				break;
 			}
 		}
