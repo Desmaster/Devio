@@ -15,23 +15,25 @@ import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.realm.entity.Player;
 import com.github.desmaster.Devio.realm.world.Tile;
 import com.github.desmaster.Devio.util.Position;
+import com.github.desmaster.Devio.util.iRandom;
 
 public class Scenery {
 
 	GameObject[][] scenobjects = new GameObject[Realm.WORLD_WIDTH][Realm.WORLD_HEIGHT];
 
 	public Scenery() {
-		Random r = new Random();
 
 		for (int x = 0; x < Realm.WORLD_WIDTH; x++) {
 			for (int y = 0; y < Realm.WORLD_HEIGHT; y++) {
 				if (Realm.world.getTile(x, y) == Tile.GRASS) {
-					int seed = r.nextInt(30);
-					if (seed < 2) {
+					int seed = iRandom.nextInt(30);
+					if (seed < 3) {
 						if (seed == 0)
 							scenobjects[x][y] = GameObject.RED_FLOWER;
 						else if (seed == 1)
 							scenobjects[x][y] = GameObject.YELLOW_FLOWER;
+						else if (seed == 2)
+							scenobjects[x][y] = GameObject.GRASS_NOISE;
 					}
 				}
 			}
