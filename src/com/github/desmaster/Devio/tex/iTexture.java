@@ -23,6 +23,11 @@ public class iTexture {
 	
 	public static final int ID_BRICK_WALL = 59;
 	
+	public static final int ID_MOUSE_0 = 70;
+	public static final int ID_MOUSE_1 = 71;
+	public static final int ID_MOUSE_2 = 72;
+	public static final int ID_MOUSE_3 = 73;
+	
 	public static final int ID_BRICK_WALL_0 = 60;
 	public static final int ID_BRICK_WALL_1 = 61;
 	public static final int ID_BRICK_WALL_2 = 62;
@@ -107,6 +112,18 @@ public class iTexture {
 				break;
 			case ID_HP_FULL:
 				textures[i] = getTexture("full_hp", "png");
+				break;
+			case ID_MOUSE_0:
+				textures[i] = getTexture("mouse0", "png");
+				break;
+			case ID_MOUSE_1:
+				textures[i] = getTexture("mouse1", "png");
+				break;
+			case ID_MOUSE_2:
+				textures[i] = getTexture("mouse2", "png");
+				break;
+			case ID_MOUSE_3:
+				textures[i] = getTexture("mouse3", "png");
 				break;
 			}
 		}
