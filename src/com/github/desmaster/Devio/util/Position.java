@@ -10,6 +10,11 @@ public class Position {
 		this.y = y;
 	}
 	
+	public Position(Double x, Double y) {
+		this.x = x.intValue();
+		this.y = y.intValue();
+	}
+
 	public int getX() {
 		return x;
 	}
