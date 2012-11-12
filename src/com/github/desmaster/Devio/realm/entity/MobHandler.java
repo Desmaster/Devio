@@ -14,7 +14,9 @@ public class MobHandler {
 	private List<Mob> mobs = new ArrayList<Mob>();
 
 	public MobHandler() {
+		for(int i = 0; i < 10; i++)
 		mobs.add(new Mob_GreenGoo());
+		for(int i = 0; i < 10; i++)
 		mobs.add(new Mob_RedGoo());
 		for (int i = 0; i < 200; i++) {
 			mobs.add(new Mob_Mouse());

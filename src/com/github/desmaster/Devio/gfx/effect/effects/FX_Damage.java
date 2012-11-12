@@ -31,7 +31,7 @@ public class FX_Damage extends Effect {
 		if (active) {
 			glLoadIdentity();
 			glDisable(GL_TEXTURE_2D);
-			glColor4f(1f, 0.2f, 0.2f, 0.3f);
+			glColor4f(1f, 0.2f, 0.2f, 0.1f);
 			glTranslatef(0, 0, 0);
 			glBegin(GL_QUADS);
 			glVertex2f(0, 0);
