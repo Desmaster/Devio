@@ -101,6 +101,7 @@ public class iTexture {
 				break;
 			case ID_GRASS_NOISE:
 				textures[i] = getTexture("grass_noise", "png");
+				break;
 			case ID_HP_EMPTY:
 				textures[i] = getTexture("empty_hp", "png");
 				break;
