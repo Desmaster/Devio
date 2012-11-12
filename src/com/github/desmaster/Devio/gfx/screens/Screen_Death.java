@@ -24,8 +24,7 @@ public class Screen_Death {
 	}
 	
 	public static void render(){
-		tick();		
-		//glEnable(GL_TEXTURE_2D);
+		tick();
 		iTexture.textures[iTexture.ID_SCREEN_DEATH].bind();
 		glLoadIdentity();
 		glTranslatef(0, 0, 0);
