@@ -1,8 +1,7 @@
 package com.github.desmaster.Devio.realm.entity;
 
-import java.util.Random;
-
-import com.github.desmaster.Devio.cons.Console;
+import com.github.desmaster.Devio.gfx.Screen;
+import com.github.desmaster.Devio.gfx.effect.effects.FX_Damage;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.util.Position;
 import com.github.desmaster.Devio.util.iRandom;
@@ -68,8 +67,10 @@ public class EvilMob extends Mob {
 	public void attack() {
 		if (timeoutuntildamage <= 0) {
 			setWalkBlock(120);
-			hurt(calculateDamage(), Realm.player);
+			int dmg = calculateDamage();
+			hurt(dmg, Realm.player);
 			timeoutuntildamage = damage_timeout;
+			Screen.getEffectsHandler().addEffect(new FX_Damage(dmg * 16));
 		}
 	}
 

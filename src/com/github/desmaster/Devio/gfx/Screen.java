@@ -36,7 +36,7 @@ public class Screen {
 	public static Player player;
 	private static InputHandler input;
 	private UserInterfaceHandler interfacehandler = new UserInterfaceHandler();
-	private EffectsHandler effectsHandler = new EffectsHandler();
+	private static EffectsHandler effectsHandler = new EffectsHandler();
 
 	@SuppressWarnings("static-access")
 	public Screen(InputHandler input) {
@@ -99,13 +99,16 @@ public class Screen {
 
 	public void tick() {
 		effectsHandler.tick();
-		effectsHandler.addEffect(new FX_Damage(100));
 		interfacehandler.tick();
 		realm.tick();
 	}
 
 	public iTexture getTexture() {
 		return texture;
+	}
+	
+	public static EffectsHandler getEffectsHandler() {
+		return effectsHandler;
 	}
 
 	public void setTexture(iTexture texture) {

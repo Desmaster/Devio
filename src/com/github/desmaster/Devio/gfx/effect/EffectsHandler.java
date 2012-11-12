@@ -35,4 +35,9 @@ public class EffectsHandler {
 	public void addEffect(Effect effx) {
 		efxs.add(effx);
 	}
+
+	public boolean hasEffect(FX_Damage fx_Damage) {
+		
+		return false;
+	}
 }
