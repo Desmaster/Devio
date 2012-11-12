@@ -1,12 +1,12 @@
 package com.github.desmaster.Devio.util;
 
 import java.awt.Rectangle;
-import java.util.Random;
+import java.security.SecureRandom;
 
 import com.github.desmaster.Devio.realm.Realm;
 
 public class iRandom {
-	public static Random r = new Random();
+	public static SecureRandom r = new SecureRandom();
 	
 	public static int nextInt(){
 		return r.nextInt();
@@ -15,6 +15,9 @@ public class iRandom {
 		return r.nextInt(max);
 	}
 	public static int nextInt(int min,int max){
+		if (max - min == 0) {
+			return 0;
+		}
 		return r.nextInt(max - min) + min;
 	}
 	
@@ -36,5 +39,8 @@ public class iRandom {
 	}
 	public static Position nextPosition(Rectangle a){
 		return new Position(nextDouble(a.getMinX(),a.getMaxX()),nextDouble(a.getMinY(),a.getMaxY()));
+	}
+	public static Position nextPosition(int x1, int y1, int x2, int y2) {
+		return new Position(nextInt(x1,y1),nextInt(x2,y2));
 	}
 }
