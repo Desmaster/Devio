@@ -99,16 +99,13 @@ public class iTexture {
 			case ID_SCREEN_DEATH:
 				textures[i] = getTexture("Screen_happy", "png");
 				break;
-<<<<<<< HEAD
 			case ID_GRASS_NOISE:
 				textures[i] = getTexture("grass_noise", "png");
-=======
 			case ID_HP_EMPTY:
 				textures[i] = getTexture("empty_hp", "png");
 				break;
 			case ID_HP_FULL:
 				textures[i] = getTexture("full_hp", "png");
->>>>>>> Hp_bar
 				break;
 			}
 		}
