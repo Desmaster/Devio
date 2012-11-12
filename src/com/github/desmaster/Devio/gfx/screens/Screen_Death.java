@@ -17,6 +17,8 @@ public class Screen_Death {
 			Realm.player.setLives(100);
 			Realm.player.setX(2);
 			Realm.player.setY(2);
+			Console.reset();
+			Realm.reset();
 			Screen.state = State.GAME;
 		}
 	}
