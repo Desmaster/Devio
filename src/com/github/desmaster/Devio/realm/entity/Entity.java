@@ -55,7 +55,7 @@ public class Entity {
 	public void setTexture(int id) {
 		this.texture = id;
 	}
-
+		
 	public int getX() {
 		return x;
 	}
