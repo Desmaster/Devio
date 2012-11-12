@@ -1,6 +1,5 @@
 package com.github.desmaster.Devio.realm.entity;
 
-import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.util.Position;
 import com.github.desmaster.Devio.util.gamemath.Collision;
