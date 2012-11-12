@@ -53,6 +53,8 @@ public class InputHandler {
 	public Key backspace = new Key();
 	public Key enter = new Key();
 	public Key inventory = new Key();
+	public Key interact = new Key();
+	public Key punch = new Key();
 
 	public InputHandler(Devio game) {
 		// this.game = game;
@@ -113,6 +115,12 @@ public class InputHandler {
 			break;
 		case Keyboard.KEY_E:
 			inventory.toggle(pressed);
+			break;
+		case Keyboard.KEY_K:
+			interact.toggle(pressed);
+			break;
+		case Keyboard.KEY_L:
+			punch.toggle(pressed);
 			break;
 		}
 	}
@@ -252,4 +260,5 @@ public class InputHandler {
 			break;
 		}
 	}
+
 }
