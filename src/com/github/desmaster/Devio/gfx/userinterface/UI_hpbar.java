@@ -56,7 +56,6 @@ public class UI_hpbar extends UserInterface {
 		i /= 100;
 		i *= amount;
 		int amound = 512 - (int)i;
-		Console.log(x2 + " " + amound + " " + (int) amount);
 		iTexture.textures[iTexture.ID_HP_FULL].bind();
 		glLoadIdentity();
 		glBegin(GL_QUADS);
