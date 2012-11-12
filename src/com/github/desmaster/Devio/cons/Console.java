@@ -35,7 +35,7 @@ public class Console extends UserInterface {
 	private static int textX;
 	private int textRenderX = 15;
 	private int textRenderY = 144;
-	private int index = 0;
+	private static int index = 0;
 
 	boolean shouldRenderLine = true;
 	int line;
@@ -221,6 +221,12 @@ public class Console extends UserInterface {
 
 	public static void type(String s) {
 		msg = msg + s;
+	}
+	
+	public static void reset() {
+		commands = new LinkedList<String>();
+		ChatHandler.chatList = new LinkedList<String>();
+		index = 0;
 	}
 
 	public static void drawString(String s, int x, int y) {
