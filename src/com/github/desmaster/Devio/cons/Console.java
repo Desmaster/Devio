@@ -227,6 +227,7 @@ public class Console extends UserInterface {
 		commands = new LinkedList<String>();
 		ChatHandler.chatList = new LinkedList<String>();
 		index = 0;
+		close();
 	}
 
 	public static void drawString(String s, int x, int y) {
