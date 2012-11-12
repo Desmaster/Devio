@@ -2,6 +2,7 @@ package com.github.desmaster.Devio.realm.entity;
 
 import java.util.Random;
 
+import com.github.desmaster.Devio.cons.Console;
 import com.github.desmaster.Devio.realm.Realm;
 import com.github.desmaster.Devio.util.Position;
 import com.github.desmaster.Devio.util.iRandom;
@@ -67,7 +68,7 @@ public class EvilMob extends Mob {
 	public void attack() {
 		if (timeoutuntildamage <= 0) {
 			setWalkBlock(120);
-			hurt(damage_max_hit, Realm.player);
+			hurt(calculateDamage(), Realm.player);
 			timeoutuntildamage = damage_timeout;
 		}
 	}
