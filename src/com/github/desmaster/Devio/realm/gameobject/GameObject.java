@@ -12,7 +12,8 @@ public enum GameObject {
 	BRICK_WALL_0("Brick_wall", false, true, false, false, false, iTexture.ID_BRICK_WALL_0),
 	BRICK_WALL_1("Brick_wall", false, false, true, false, false, iTexture.ID_BRICK_WALL_1),
 	BRICK_WALL_2("Brick_wall", false, false, false, true, false, iTexture.ID_BRICK_WALL_2),
-	BRICK_WALL_3("Brick_wall", false, false, false, false, true, iTexture.ID_BRICK_WALL_3);
+	BRICK_WALL_3("Brick_wall", false, false, false, false, true, iTexture.ID_BRICK_WALL_3), 
+	GRASS_NOISE("Grass_noise", true, false, false, false, false, iTexture.ID_GRASS_NOISE);
 	
 	private String name;
 	private boolean breakable;
